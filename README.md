@@ -1,6 +1,6 @@
-Boulder Dash project
+BOULDER DASH PROJECT 
 
--- Java Project EXIA CESI --
+-- Java Project EXIA CESI A1 --
 
 -- Group 5 --
 

@@ -1,6 +1,6 @@
 package model;
 
-public class Block extends Element {
+public abstract class Block extends Element {
 	
 	protected Block(String name, char texture) {
 		super(name, texture);

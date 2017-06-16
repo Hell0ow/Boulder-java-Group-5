@@ -24,7 +24,7 @@ public class Boundary {
 	
 	public boolean contains(Position position) {
 		if (tray == position.getTray()) {
-			if (delimitations.countains(position.getCoordinates())) {
+			if (delimitations.contains(position.getCoordinates())) {
 				return true;
 			}
 		}

@@ -1,10 +1,13 @@
 package model;
 
 public class Objective {
+	private Hero hero = null;
+	private Player player;
 	private int obtained;
 	private int required;
 	
-	public Objective(int required) {
+	public Objective(Player player, int required) {
+		this.player = player;
 		this.required = required;
 		obtained = 0;
 	}
@@ -16,6 +19,18 @@ public class Objective {
 	
 	public boolean isCompleted() {
 		return obtained >= required;
+	}
+	
+	public Hero getHero() {
+		return hero;
+	}
+	
+	public void setHero(Hero hero) {
+		this.hero = hero;
+	}
+	
+	public Player getPlayer() {
+		return player;
 	}
 	
 	public int getObtained() {

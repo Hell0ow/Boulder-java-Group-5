@@ -1,10 +1,16 @@
 package model;
 
 public class Hero extends Character {
-	private Player player;
+	private Objective objective;
 	
-	public Hero(Player player, Position position) {
+	public Hero(Objective objective, Position position) {
 		super(position);
-		this.player = player;
+		this.objective = objective;
+		
+		objective.setHero(this);
+	}
+	
+	public Objective getObjective() {
+		return objective;
 	}
 }

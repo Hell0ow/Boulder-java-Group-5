@@ -24,7 +24,7 @@ public class Delimitations {
 		yMax = delimitations.yMax;
 	}
 	
-	public boolean countains(Coordinates coordinates) {
+	public boolean contains(Coordinates coordinates) {
 		if (coordinates.getX() >= xMin && coordinates.getX() <= xMax && coordinates.getY() >= yMin && coordinates.getY() <= yMax ) {
 			return true;
 		}

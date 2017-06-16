@@ -1,30 +1,33 @@
 package model;
 
-public class Boundary {
-	private Delimitations delimitations;
+public class Boundary extends Delimitations {
 	private Tray tray;
 	
+	public Boundary(Tray tray, int xMin, int xMax, int yMin, int yMax) throws Exception {
+		super(xMin, xMax, yMin, yMax);
+		this.tray = tray;
+	}
+	
 	public Boundary(Tray tray, Delimitations delimitations) {
-		this.delimitations = delimitations;
+		super(delimitations);
 		this.tray = tray;
 	}
 	
 	public Boundary(Boundary boundary) {
-		delimitations = new Delimitations(boundary.getDelimitations());
+		super(boundary);
 		tray = boundary.getTray();
 	}
-	
 	public Position getMinPosition() throws Exception {
-		return new Position(tray, new Coordinates(delimitations.getXMin(), delimitations.getYMin()));
+		return new Position(tray, xMin, yMin);
 	}
 	
 	public Position getMaxPosition() throws Exception {
-		return new Position(tray, new Coordinates(delimitations.getXMax(), delimitations.getYMax()));
+		return new Position(tray, xMax, yMax);
 	}
 	
 	public boolean contains(Position position) {
 		if (tray == position.getTray()) {
-			if (delimitations.contains(position.getCoordinates())) {
+			if (super.contains(position)) {
 				return true;
 			}
 		}
@@ -32,18 +35,21 @@ public class Boundary {
 		return false;
 	}
 	
-	public boolean equals(Boundary boundary) {
-		if (tray == boundary.getTray()) {
-			if (delimitations.equals(boundary.getDelimitations())) {
+	@Override
+	public boolean equals(Object object) {
+		if (object == null || object.getClass() != getClass()) {
+	        return false;
+	    }
+		
+		Boundary boundary = (Boundary) object;
+		
+		if (tray == boundary.tray) {
+			if (super.equals(boundary)) {
 				return true;
 			}
 		}
 		
 		return false;
-	}
-	
-	public Delimitations getDelimitations() {
-		return delimitations;
 	}
 	
 	public Tray getTray() {

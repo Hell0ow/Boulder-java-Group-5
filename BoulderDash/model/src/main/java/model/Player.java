@@ -1,12 +1,12 @@
 package model;
 
 public class Player {
-	private int id;
+	private Integer id;
 	private Hero hero = null;
 	private Objective objective = null;
 	private String name;
 	
-	Player(int id, String name) {
+	Player(Integer id, String name) {
 		this.name = name;
 		this.id = id;
 	}

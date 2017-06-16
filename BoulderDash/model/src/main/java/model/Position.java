@@ -8,7 +8,7 @@ public class Position {
 		this.coordinates = coordinates;
 		this.tray = tray;
 		
-		if (!tray.getBoundary().countains(this)) {
+		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.Position(Dimension, int, int): Position outside of the tray.");
 		}
 	}
@@ -65,7 +65,7 @@ public class Position {
 	public Position addition(Coordinates coordinates) throws Exception {
 		this.coordinates.addition(coordinates);
 		
-		if (!tray.getBoundary().countains(this)) {
+		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.addition(Coordinates): New coordinates outside of the tray.");
 		}
 		
@@ -75,7 +75,7 @@ public class Position {
 	public Position subtraction(Coordinates coordinates) throws Exception {
 		this.coordinates.substraction(coordinates);
 		
-		if (!tray.getBoundary().countains(this)) {
+		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.addition(Coordinates): New coordinates outside of the tray.");
 		}
 		

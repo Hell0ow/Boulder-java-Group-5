@@ -26,6 +26,6 @@ public class Game {
 	}
 	
 	public void addPlayer(Player player) {
-		players.put(new Integer(player.getId()), player);
+		players.put(player.getId(), player);
 	}
 }

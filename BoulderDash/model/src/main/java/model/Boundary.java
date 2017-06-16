@@ -22,7 +22,7 @@ public class Boundary {
 		return new Position(tray, new Coordinates(delimitations.getXMax(), delimitations.getYMax()));
 	}
 	
-	public boolean countains(Position position) {
+	public boolean contains(Position position) {
 		if (tray == position.getTray()) {
 			if (delimitations.countains(position.getCoordinates())) {
 				return true;

@@ -72,7 +72,7 @@ public class Position {
 		return this;
 	}
 	
-	public Position subtraction(Coordinates coordinates) throws Exception {
+	public Position substraction(Coordinates coordinates) throws Exception {
 		this.coordinates.substraction(coordinates);
 		
 		if (!tray.getBoundary().contains(this)) {

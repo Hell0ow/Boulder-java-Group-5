@@ -11,11 +11,6 @@ public class Diamond extends Block {
 	}
 	
 	@Override
-	public boolean isBreakable() {
-		return true;
-	}
-	
-	@Override
 	public boolean isSmooth() {
 		return true;
 	}

@@ -42,10 +42,10 @@ CREATE TABLE PLAYER(
 
 
 #------------------------------------------------------------
-# Table: Compose
+# Table: compose
 #------------------------------------------------------------
 
-CREATE TABLE Compose(
+CREATE TABLE compose(
         X_comp   Int NOT NULL ,
         Y_comp   Int NOT NULL ,
         ID_map   Int NOT NULL ,
@@ -65,7 +65,7 @@ CREATE TABLE play(
         PRIMARY KEY (ID_map ,ID_player )
 )ENGINE=InnoDB;
 
-ALTER TABLE Compose ADD CONSTRAINT FK_Compose_ID_map FOREIGN KEY (ID_map) REFERENCES MAP(ID_map);
-ALTER TABLE Compose ADD CONSTRAINT FK_Compose_ID_Block FOREIGN KEY (ID_Block) REFERENCES BLOCK(ID_Block);
+ALTER TABLE compose ADD CONSTRAINT FK_compose_ID_map FOREIGN KEY (ID_map) REFERENCES MAP(ID_map);
+ALTER TABLE compose ADD CONSTRAINT FK_compose_ID_Block FOREIGN KEY (ID_Block) REFERENCES BLOCK(ID_Block);
 ALTER TABLE play ADD CONSTRAINT FK_play_ID_map FOREIGN KEY (ID_map) REFERENCES MAP(ID_map);
 ALTER TABLE play ADD CONSTRAINT FK_play_ID_player FOREIGN KEY (ID_player) REFERENCES PLAYER(ID_player);

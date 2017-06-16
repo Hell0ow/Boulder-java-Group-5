@@ -2,9 +2,15 @@ package model;
 
 public abstract class Entity {
 	protected Position position;
+	protected Element element;
 	
-	protected Entity(Position position) {
+	protected Entity(Element element, Position position) {
+		this.element = element;
 		this.position = position;
+	}
+	
+	public Element getElement() {
+		return element;
 	}
 	
 	public Position getPosition() {

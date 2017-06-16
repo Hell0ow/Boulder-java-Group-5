@@ -12,4 +12,8 @@ public class Diamond extends Block {
 	public boolean isSmooth() {
 		return true;
 	}
+	
+	public boolean isReward() {
+		return true;
+	}
 }

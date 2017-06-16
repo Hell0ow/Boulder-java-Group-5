@@ -21,4 +21,8 @@ public class Block extends Element {
 	public boolean isSmooth() {
 		return false;
 	}
+	
+	public boolean isReward() {
+		return false;
+	}
 }

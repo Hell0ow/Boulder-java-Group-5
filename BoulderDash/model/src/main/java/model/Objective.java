@@ -3,13 +3,12 @@ package model;
 public class Objective {
 	private Hero hero = null;
 	private Player player;
-	private int obtained;
+	private int obtained = 0;
 	private int required;
 	
 	public Objective(Player player, int required) {
 		this.player = player;
 		this.required = required;
-		obtained = 0;
 	}
 	
 	public Objective(Objective objective) {

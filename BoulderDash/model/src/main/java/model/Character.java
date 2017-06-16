@@ -1,7 +1,7 @@
 package model;
 
-public abstract class Character extends Entity {
-	protected Character(Position position) {
-		super(position);
+public class Character extends Element {
+	public Character(String name, char texture) {
+		super(name, texture);
 	}
 }

@@ -1,15 +1,11 @@
 package model;
 
-public class Enemy extends Character {
-	private NPC npc;
-	
-	public Enemy(NPC npc, Position position) {
-		super(position);
-		
-		this.npc = npc;
+public class Enemy extends Being {
+	public Enemy(Dummy dummy, Position position) {
+		super(dummy, position);
 	}
 	
-	public NPC getNPC() {
-		return npc;
+	public Dummy getDummy() {
+		return (Dummy) element;
 	}
 }

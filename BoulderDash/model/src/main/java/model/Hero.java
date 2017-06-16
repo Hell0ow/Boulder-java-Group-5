@@ -1,10 +1,10 @@
 package model;
 
-public class Hero extends Character {
+public class Hero extends Being {
 	private Objective objective;
 	
-	public Hero(Objective objective, Position position) {
-		super(position);
+	public Hero(Character character, Objective objective, Position position) {
+		super(character, position);
 		this.objective = objective;
 		
 		objective.setHero(this);

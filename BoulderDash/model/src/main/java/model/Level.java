@@ -5,6 +5,11 @@ import java.util.Map;
 
 public class Level {
 	private Map<String, Block> blocks = new HashMap<String, Block>();
+	private Map<String, Dummy> dummies = new HashMap<String, Dummy>();
+	private Map<String, Human> humans = new HashMap<String, Human>();
+	
+	private Map<Integer, Objective> objectives = new HashMap<Integer, Objective>();
+	
 	private Game game;
 	private Tray tray;
 	
@@ -16,6 +21,12 @@ public class Level {
 		addBlock(new Rock());
 		addBlock(new Stone());
 		addBlock(new Wall());
+		
+		addDummy(new Dummy());
+		
+		addHuman(new Human());
+		
+		addObjective(new Objective(game.getPlayers().get(0), 25));
 		
 		try {
 		
@@ -72,18 +83,30 @@ public class Level {
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));
+
+			tray.addHero(new Hero(humans.get("Human"), objectives.get(0), new Position(tray, new Coordinates(2, 2))));
+			
+			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, new Coordinates(4, 1))));
 			
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
 	}
 	
-	public Map<String, Block> getBlocks() {
-		return blocks;
-	}
-	
 	private void addBlock(Block block) {
 		blocks.put(block.getName(), block);
+	}
+	
+	private void addDummy(Dummy dummy) {
+		dummies.put(dummy.getName(), dummy);
+	}
+	
+	private void addHuman(Human human) {
+		humans.put(human.getName(), human);
+	}
+	
+	private void addObjective(Objective objective) {
+		objectives.put(objective.getPlayer().getId(), objective);
 	}
 	
 	public Tray getTray() {

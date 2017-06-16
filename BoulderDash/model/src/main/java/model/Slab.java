@@ -1,19 +1,10 @@
 package model;
 
-public class Slab extends Entity {
-	private Block block;
-	
-	Slab(Block block, Position position) {
-		super(position);
-		
-		this.block = block;
+public class Slab extends Entity {Slab(Block block, Position position) {
+		super(block, position);
 	}
 	
 	public Block getBlock() {
-		return block;
-	}
-	
-	public void setBlock(Block block) {
-		this.block = block;
+		return (Block) element;
 	}
 }

@@ -18,8 +18,8 @@ public class Level {
 
 		addBlock(new Air());
 		addBlock(new Diamond());
+		addBlock(new Mud());
 		addBlock(new Rock());
-		addBlock(new Stone());
 		addBlock(new Wall());
 		
 		addDummy(new Dummy());
@@ -44,7 +44,7 @@ public class Level {
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
 			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Air"), new Position(p)));	
 			p.next();
@@ -52,27 +52,27 @@ public class Level {
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Diamond"), new Position(p)));	
 			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
+			p.next();
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
 			p.next();
-			tray.addSlab(new Slab(blocks.get("Stone"), new Position(p)));	
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
+			p.next();
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
+			p.next();
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
+			p.next();
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
+			p.next();
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
 			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
 			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Stone"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
+			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
 			p.next();
@@ -84,7 +84,7 @@ public class Level {
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));
 
-			tray.addHero(new Hero(humans.get("Human"), objectives.get(0), new Position(tray, new Coordinates(2, 2))));
+			tray.addHero(new Hero(humans.get("Human"), objectives.get(0), new Position(tray, new Coordinates(4, 2))));
 			
 			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, new Coordinates(4, 1))));
 			

@@ -5,11 +5,13 @@ public class Rock extends Block {
 		super("Rock", 'R');
 	}
 	
-	public boolean isDense() {
+	@Override
+	public boolean isAffectedByGravity() {
 		return true;
 	}
 	
-	public boolean isDiggeable() {
+	@Override
+	public boolean isSmooth() {
 		return true;
 	}
 }

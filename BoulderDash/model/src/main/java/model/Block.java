@@ -6,11 +6,15 @@ public abstract class Block extends Element {
 		super(name, texture);
 	}
 	
-	public boolean isAffectedByGravity() {
-		return false;
+	public boolean isBreakable() {
+		return true;
 	}
 	
 	public boolean isDense() {
+		return true;
+	}
+	
+	public boolean isAffectedByGravity() {
 		return false;
 	}
 	

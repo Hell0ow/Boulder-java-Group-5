@@ -1,15 +1,12 @@
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Game {
 	private Level level;
-	private Map<Integer, Player> players = new HashMap<Integer, Player>();
+	private Player player;
 	
 	public Game() {
 		try {
-			addPlayer(new Player(0, "Nicolas Bigoune"));
+			player = new Player(0, "Nicolas Bigoune");
 			
 			level = new Level(this);
 		} catch (Exception exception) {
@@ -21,11 +18,7 @@ public class Game {
 		return level;
 	}
 	
-	public Map<Integer, Player> getPlayers() {
-		return players;
-	}
-	
-	public void addPlayer(Player player) {
-		players.put(player.getId(), player);
+	public Player getPlayer() {
+		return player;
 	}
 }

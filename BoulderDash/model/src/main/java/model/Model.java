@@ -1,6 +1,7 @@
 package model;
 
-public class Model {
+public class Model{
+	
 	private Level level;
 	private Player player;
 	

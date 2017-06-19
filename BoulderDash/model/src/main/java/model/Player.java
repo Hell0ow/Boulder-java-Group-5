@@ -6,7 +6,7 @@ public class Player {
 	private Objective objective = null;
 	private String name;
 	
-	Player(Integer id, String name) {
+	public Player(Integer id, String name) {
 		this.name = name;
 		this.id = id;
 	}

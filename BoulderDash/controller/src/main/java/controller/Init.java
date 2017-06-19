@@ -56,7 +56,7 @@ public class Init {
     
     public void addPlayer(String playerName) throws SQLException{
     	
-    	statement.executeUpdate("INSERT INTO PLAYER VALUES ('', '" + playerName + "')");
+    	statement.executeUpdate("CALL addPlayer('" + playerName + "');");
     }
     
     
@@ -69,7 +69,7 @@ public class Init {
     
     public void initPlayer(Model actualModel, String playerName) throws SQLException{
     	
-    	ResultSet result = statement.executeQuery("SELECT ID_player FROM PLAYER WHERE Name_player = '" + playerName + "';");
+    	ResultSet result = statement.executeQuery("CALL initPlayer('" + playerName + "');");
     	
     	Integer idPlayer = 0;
 		
@@ -91,7 +91,7 @@ public class Init {
     	
     	Block textureType = new Air();
     	int getID = 0;
-    	ResultSet result = statement.executeQuery("SELECT ID_typeBlock FROM TYPEblock;");
+    	ResultSet result = statement.executeQuery("CALL getBlockTexture();");
     	
     	while(result.next()){
     		getID = result.getInt("ID_typeBlock");
@@ -124,7 +124,7 @@ public class Init {
 	    	
 	    	Character entityType = new Human();
 	    	int getID = 0;
-	    	ResultSet result = statement.executeQuery("SELECT ID_typeEntity FROM TYPEentity;");
+	    	ResultSet result = statement.executeQuery("CALL getEntity();");
 	    	
 	    	while(result.next()){
 	    		getID = result.getInt("ID_typeEntity");
@@ -163,7 +163,7 @@ public class Init {
     	
     	int X_max = 0, X_min = 0, Y_max = 0, Y_min = 0;
     	
-    	ResultSet result = statement.executeQuery("SELECT Xmin_map, Xmax_map, Ymax_map, Ymin_map FROM MAP WHERE ID_map = '" + mapID + "';");
+    	ResultSet result = statement.executeQuery("CALL getBoundary('" + mapID + "');");
     	
     	while(result.next()){
     		X_min = result.getInt("Xmin_map");
@@ -189,7 +189,7 @@ public class Init {
     	
     	int X = 0, Y = 0;
     	String texture = "";
-    	ResultSet result = statement.executeQuery("SELECT X_block, Y_block, TYPEblock.Name_block FROM BLOCK INNER JOIN TYPEblock ON BLOCK.ID_typeBlock = TYPEblock.ID_typeBlock WHERE ID_map = '" + mapID + "';");
+    	ResultSet result = statement.executeQuery("CALL getBlock('" + mapID + "');");
     
     	while(result.next()){
     		X = result.getInt("X_block");

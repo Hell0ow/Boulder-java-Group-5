@@ -16,11 +16,13 @@ import model.Human;
 import model.Model;
 import model.Mud;
 import model.Player;
+import model.Position;
 import model.Rock;
+import model.Slab;
 import model.Wall;
 
 
-public class ControllerInit {
+public class Init {
 
 	private String user     = "java";
 	private String password = "bigouneroot";
@@ -33,7 +35,7 @@ public class ControllerInit {
     
     
     
-    public ControllerInit(String user, String password){
+    public Init(String user, String password){
 		this.user = user;
 		this.password = password;
 		
@@ -157,11 +159,11 @@ public class ControllerInit {
     
     
     
-    public void getBoundary (Model actualModel, String mapName) throws SQLException{
+    public void getBoundary (Model actualModel, int mapID) throws SQLException{
     	
     	int X_max = 0, X_min = 0, Y_max = 0, Y_min = 0;
     	
-    	ResultSet result = statement.executeQuery("SELECT Xmin_map, Xmax_map, Ymax_map, Ymin_map FROM MAP WHERE Name_map = '" + mapName + "';");
+    	ResultSet result = statement.executeQuery("SELECT Xmin_map, Xmax_map, Ymax_map, Ymin_map FROM MAP WHERE ID_map = '" + mapID + "';");
     	
     	while(result.next()){
     		X_min = result.getInt("Xmin_map");
@@ -180,9 +182,21 @@ public class ControllerInit {
     
     
     
-    public void getBlock (int mapID){
+    
+    
+    
+    public void getBlock (Model actualModel, int mapID) throws Exception{
     	
-    	
+    	int X = 0, Y = 0;
+    	String texture = "";
+    	ResultSet result = statement.executeQuery("SELECT X_block, Y_block, TYPEblock.Name_block FROM BLOCK INNER JOIN TYPEblock ON BLOCK.ID_typeBlock = TYPEblock.ID_typeBlock WHERE ID_map = '" + mapID + "';");
+    
+    	while(result.next()){
+    		X = result.getInt("X_block");
+    		Y = result.getInt("Y_block");
+    		texture = result.getString("Name_block");
+    		actualModel.getLevel().getTray().addSlab(new Slab(actualModel.getLevel().getBlocks().get(texture), new Position(actualModel.getLevel().getTray(), X, Y)));
+    	}
     }
     
     

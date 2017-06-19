@@ -2,14 +2,14 @@ package main;
 
 
 import java.sql.SQLException;
-import controller.Controller;
+import controller.ControllerFacade;
 
 
 public abstract class Main {
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws Exception {
     	
-        Controller start = new Controller();
+        ControllerFacade start = new ControllerFacade();
         
         //Initialisation du jeu;
         try {

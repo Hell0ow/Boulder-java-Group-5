@@ -1,6 +1,6 @@
 package model;
 
-public class Slab extends Entity {Slab(Block block, Position position) {
+public class Slab extends Entity {public Slab(Block block, Position position) {
 		super(block, position);
 	}
 	

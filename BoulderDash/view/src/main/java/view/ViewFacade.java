@@ -1,29 +1,62 @@
 package view;
 
+import java.awt.Canvas;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- * <h1>The Class ViewFacade provides a facade of the View component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public class ViewFacade implements IView {
 
-    /**
-     * Instantiates a new view facade.
-     */
+	 private JFrame frame;
+		private Canvas canvas;
+		
+		private String title;
+		private int width, height;
+	
     public ViewFacade() {
         super();
     }
+	
+	public ViewFacade(String title, int width, int height) {
+		this.title = title;
+		this.width = width;
+		this.height = height;
+		
+		createDisplay();
+		
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
-    @Override
-    public final void displayMessage(final String message) {
-        JOptionPane.showMessageDialog(null, message);
-    }
+	private void createDisplay() {
+		frame = new JFrame(title);
+		frame.setSize(width,  height);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		
+		/*canvas = new Canvas();
+		canvas.setPreferredSize(new Dimension(width, height));
+		canvas.setMaximumSize(new Dimension(width, height));
+		canvas.setMinimumSize(new Dimension(width, height));
+		canvas.setFocusable(false);
+		
+		frame.add(canvas);
+		frame.pack();*/
+		
+	}
+	
+	/*public Canvas getCanvas(){
+		return canvas;	
+	}
+	
+	public JFrame getFrame(){
+		return frame;
+	}*/
+	
+	 @Override
+	    public final void displayMessage(final String message) {
+	        JOptionPane.showMessageDialog(null, message);
+	    }
 
 }

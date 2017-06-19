@@ -13,10 +13,9 @@ public class Tray {
 	private Map<Integer, Hero> heroes = new HashMap<Integer, Hero>();
 	private Map<Position, Slab> slabs = new HashMap<Position, Slab>();
 	
-	public Tray(Level level, Integer id, Delimitations delimitations) throws Exception {
+	public Tray(Level level, Integer id) throws Exception {
 		this.level = level;
 		this.id = id;
-		boundary = new Boundary(this, delimitations);
 	}
 	
 	public void addEnemy(Enemy enemy) {
@@ -45,16 +44,20 @@ public class Tray {
 		return slabs;
 	}
 	
-	public void addBeing(Being being) {
-		beings.put(being.getPosition(), being);
-	}
-	
 	public Map<Position, Being> getBeings() {
 		return beings;
 	}
 	
 	public Boundary getBoundary() {
 		return new Boundary(boundary);
+	}
+	
+	public void setBoundary(Boundary boundary) throws Exception {
+		if (slabs.size() != 0 || beings.size() != 0) {
+			throw new Exception();
+		}
+		
+		this.boundary = boundary;
 	}
 
 	public int getId() {

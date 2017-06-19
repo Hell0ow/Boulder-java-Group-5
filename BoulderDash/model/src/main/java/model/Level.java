@@ -8,13 +8,14 @@ public class Level {
 	private Map<String, Dummy> dummies = new HashMap<String, Dummy>();
 	private Map<String, Human> humans = new HashMap<String, Human>();
 	
-	private Map<Integer, Objective> objectives = new HashMap<Integer, Objective>();
-	
-	private Game game;
+	private Model model;
+	private Objective objective;
 	private Tray tray;
 	
-	public Level(Game game) throws Exception {
-		this.game = game;
+	public Level(Model model) throws Exception {
+		this.model = model;
+		
+		setObjective(new Objective(model.getPlayer(), 25));
 
 		addBlock(new Air());
 		addBlock(new Diamond());
@@ -26,11 +27,9 @@ public class Level {
 		
 		addHuman(new Human());
 		
-		addObjective(new Objective(game.getPlayers().get(0), 25));
-		
 		try {
 		
-			tray = new Tray(this, 0, new Delimitations(0, 4, 0, 4));
+			tray = new Tray(this, 0);
 		
 			Position p = tray.getBoundary().getMinPosition();
 			
@@ -84,29 +83,33 @@ public class Level {
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));
 
-			tray.addHero(new Hero(humans.get("Human"), objectives.get(0), new Position(tray, new Coordinates(4, 2))));
+			tray.addHero(new Hero(humans.get("Human"), objective, new Position(tray, 2, 2)));
 			
-			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, new Coordinates(4, 1))));
+			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, 4, 1)));
 			
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
 	}
 	
-	private void addBlock(Block block) {
+	public void addBlock(Block block) {
 		blocks.put(block.getName(), block);
 	}
 	
-	private void addDummy(Dummy dummy) {
+	public void addDummy(Dummy dummy) {
 		dummies.put(dummy.getName(), dummy);
 	}
 	
-	private void addHuman(Human human) {
+	public void addHuman(Human human) {
 		humans.put(human.getName(), human);
 	}
 	
-	private void addObjective(Objective objective) {
-		objectives.put(objective.getPlayer().getId(), objective);
+	public Objective getObjective() {
+		return objective;
+	}
+	
+	public void setObjective(Objective objective) {
+		this.objective = objective;
 	}
 	
 	public Tray getTray() {

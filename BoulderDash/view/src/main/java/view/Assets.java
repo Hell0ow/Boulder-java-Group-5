@@ -9,21 +9,12 @@ public class Assets {
 	
 	public static BufferedImage player, wall, mud, air, rock, diamond;
 	public static BufferedImage[] player_down, player_up, player_left, player_right, player_start;
-	public static BufferedImage[] btn_start;
 	public static BufferedImage[] rock_mv, diamond_mv;
-	public static BufferedImage inventoryScreen;
 	
 	public static void init(){
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/human.png"));
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/test2.png"));
-		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
-		
-		inventoryScreen = ImageLoader.loadImage("/textures/inventoryScreen.png");
-		
-		btn_start = new BufferedImage[2];
-		btn_start[0] = sheet3.crop(192, 128, 64, 32);
-		btn_start[1] = sheet3.crop(192, 160, 64, 32);
 		
 		player_down = new BufferedImage[4];
 		player_up = new BufferedImage[4];

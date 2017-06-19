@@ -5,8 +5,7 @@ import java.util.Map;
 
 public class Level {
 	private Map<String, Block> blocks = new HashMap<String, Block>();
-	private Map<String, Dummy> dummies = new HashMap<String, Dummy>();
-	private Map<String, Human> humans = new HashMap<String, Human>();
+	private Map<String, Character> characters = new HashMap<String, Character>();
 	
 	private Model model;
 	private Objective objective;
@@ -14,6 +13,8 @@ public class Level {
 	
 	public Level(Model model) throws Exception {
 		this.model = model;
+		
+		//TEMP
 		
 		setObjective(new Objective(model.getPlayer(), 25));
 
@@ -23,11 +24,13 @@ public class Level {
 		addBlock(new Rock());
 		addBlock(new Wall());
 		
-		addDummy(new Dummy());
+		addCharacter(new Dummy());
 		
-		addHuman(new Human());
+		addCharacter(new Human());
 		
 		try {
+			
+			//TEMP
 		
 			tray = new Tray(this, 0);
 		
@@ -83,25 +86,29 @@ public class Level {
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));
 
-			tray.addHero(new Hero(humans.get("Human"), objective, new Position(tray, 2, 2)));
+			tray.addHero(new Hero((Human) characters.get("Human"), objective, new Position(tray, 2, 2)));
 			
-			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, 4, 1)));
+			tray.addEnemy(new Enemy((Dummy) characters.get("Dummy"), new Position(tray, 2, 2)));
 			
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
 	}
 	
+	public Map<String, Block> getBlocks() {
+		return blocks;
+	}
+	
 	public void addBlock(Block block) {
 		blocks.put(block.getName(), block);
 	}
 	
-	public void addDummy(Dummy dummy) {
-		dummies.put(dummy.getName(), dummy);
+	public Map<String, Character> getCharacters() {
+		return characters;
 	}
 	
-	public void addHuman(Human human) {
-		humans.put(human.getName(), human);
+	public void addCharacter(Character character) {
+		characters.put(character.getName(), character);
 	}
 	
 	public Objective getObjective() {

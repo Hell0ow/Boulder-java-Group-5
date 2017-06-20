@@ -1,7 +1,9 @@
 package model;
 
+import view.Assets;
+
 public class Wall extends Block {
 	public Wall() {
-		super("Wall", 'W');
+		super("Wall", Assets.wall);
 	}
 }

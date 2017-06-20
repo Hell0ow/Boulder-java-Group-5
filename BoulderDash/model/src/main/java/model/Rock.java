@@ -1,8 +1,10 @@
 package model;
 
+import view.Assets;
+
 public class Rock extends Block {
 	public Rock() {
-		super("Rock", 'R');
+		super("Rock", Assets.rock);
 	}
 	
 	@Override

@@ -1,8 +1,10 @@
 package model;
 
+import view.Assets;
+
 public class Air extends Block {
 	public Air() {
-		super("Air", 'A');
+		super("Air", Assets.air);
 	}
 	
 	@Override

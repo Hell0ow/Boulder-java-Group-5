@@ -70,11 +70,11 @@ public abstract class Factory {
 		}
 	
 	public static Human createHuman(){
-		return new Human();
+		return new Human(null, 0, 0);
 	}
 	
 	public static Human createDummy(){
-		return new Human();
+		return new Human(null, 0, 0);
 	}
 	
 	public static Player createPlayer(int idPlayer, String playerName){

@@ -1,8 +1,10 @@
 package model;
 
+import view.Assets;
+
 public class Mud extends Block {
 	public Mud() {
-		super("Mud", 'M');
+		super("Mud", Assets.mud);
 	}
 	
 	@Override

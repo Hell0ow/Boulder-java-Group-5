@@ -1,8 +1,10 @@
 package model;
 
+import java.awt.image.BufferedImage;
+
 public abstract class Block extends Element {
 	
-	protected Block(String name, char texture) {
+	protected Block(String name, BufferedImage texture) {
 		super(name, texture);
 	}
 	

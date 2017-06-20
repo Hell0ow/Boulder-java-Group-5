@@ -17,76 +17,11 @@ public class Level {
 		//TEMP
 		
 		setObjective(new Objective(model.getPlayer(), 25));
-
-		addBlock(new Air());
-		addBlock(new Diamond());
-		addBlock(new Mud());
-		addBlock(new Rock());
-		addBlock(new Wall());
-		
-		addCharacter(new Dummy());
-		
-		addCharacter(new Human());
 			
 			//TEMP
 		
 			tray = new Tray(this, 0);
-		
-			Position p = tray.getBoundary().getMinPosition();
-			
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addTile(new Tile(blocks.get("Wall"), new Position(p)));
-			
-			tray.addHero(new Hero((Human) characters.get("Human"), objective, new Position(tray, 1, 1)));
-			
-			tray.addEnemy(new Enemy((Dummy) characters.get("Dummy"), Direction.UP, new Position(tray, 2, 2)));
+
 	}
 	
 	public Map<String, Block> getBlocks() {

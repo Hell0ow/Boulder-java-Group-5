@@ -43,8 +43,6 @@ public class Assets {
 		player_start[1] = sheet.crop(0, 0, width, height);
 		player_start[2] = sheet.crop(16, 0, width, height);
 
-
-		player = sheet.crop(48, 64, width, height);
 		wall = sheet2.crop(0, 0, width, height);
 		mud = sheet2.crop(16, 0, width, height);
 		air = sheet2.crop(32, 0, width, height);

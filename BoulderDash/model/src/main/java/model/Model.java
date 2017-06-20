@@ -1,18 +1,15 @@
 package model;
 
-public class Model{
-	
+public class Model {
 	private Level level;
+	
 	private Player player;
 	
-	public Model() {
-		try {
-			player = new Player(0, "Nicolas Bigoune");
-			
-			level = new Level(this);
-		} catch (Exception exception) {
-			System.out.println(exception.getMessage());
-		}
+	public Model() throws Exception {
+		
+		player = new Player(0, "Antoine");
+		
+		level = new Level(this);
 	}
 	
 	public Level getLevel() {

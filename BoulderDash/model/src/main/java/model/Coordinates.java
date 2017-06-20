@@ -39,16 +39,6 @@ public class Coordinates {
 		return x == coordinates.getX() && y == coordinates.getY();
 	}
 
-	public void addition(Coordinates coordinates) throws Exception {
-		x += coordinates.getX();
-		y += coordinates.getY();
-	}
-	
-	public void substraction(Coordinates coordinates) throws Exception {
-		x -= coordinates.getX();
-		y -= coordinates.getY();
-	}
-
 	public int getX() {
 		return x;
 	}

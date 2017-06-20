@@ -11,11 +11,15 @@ public class Tray {
 	private Map<Position, Being> beings = new HashMap<Position, Being>();
 	private Map<Position, Enemy> enemies = new HashMap<Position, Enemy>();
 	private Map<Integer, Hero> heroes = new HashMap<Integer, Hero>();
-	private Map<Position, Slab> slabs = new HashMap<Position, Slab>();
+	private Map<Position, Tile> tiles = new HashMap<Position, Tile>();
 	
 	public Tray(Level level, Integer id) throws Exception {
 		this.level = level;
 		this.id = id;
+		
+		//TEMP
+		
+		boundary = new Boundary(this, 0, 4, 0, 4);
 	}
 	
 	public void addEnemy(Enemy enemy) {
@@ -36,12 +40,16 @@ public class Tray {
 		return heroes;
 	}
 	
-	public void addSlab(Slab slab) {
-		slabs.put(slab.getPosition(), slab);
+	public void addTile(Tile tile) {
+		tiles.put(tile.getPosition(), tile);
 	}
 	
-	public Map<Position, Slab> getSlabs() {
-		return slabs;
+	public Map<Position, Tile> getTiles() {
+		return tiles;
+	}
+	
+	public void addBeing(Being being) {
+		beings.put(being.getPosition(), being);
 	}
 	
 	public Map<Position, Being> getBeings() {
@@ -53,11 +61,15 @@ public class Tray {
 	}
 	
 	public void setBoundary(Boundary boundary) throws Exception {
-		if (slabs.size() != 0 || beings.size() != 0) {
+		if (tiles.size() != 0 || beings.size() != 0) {
 			throw new Exception();
 		}
 		
 		this.boundary = boundary;
+	}
+	
+	public Level getLevel() {
+		return level;
 	}
 
 	public int getId() {

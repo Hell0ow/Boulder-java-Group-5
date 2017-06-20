@@ -18,6 +18,7 @@ public abstract class Entity {
 	}
 	
 	public void setPosition(Position position) {
-		this.position = new Position(position);
+		
+		this.position.copy(position);
 	}
 }

@@ -1,15 +1,13 @@
 package model;
 
-import java.awt.image.BufferedImage;
-
 public class Element {
 	private String name;
-	public BufferedImage texture; /*TEMP*/
+	public char texture; /*TEMP*/
 	
 	protected int width, height;
 	protected float x, y;
 	
-	public Element(String name, BufferedImage texture) {
+	public Element(String name, char texture) {
 		this.name = name;
 		this.texture = texture;
 	}
@@ -17,10 +15,4 @@ public class Element {
 	public String getName() {
 		return name;
 	}
-
-	public BufferedImage getTexture() {
-		return texture;
-	}
-	
-	
 }

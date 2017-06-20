@@ -11,7 +11,7 @@ public abstract class Main {
     	
         ControllerFacade start = new ControllerFacade();
         
-        //Initialisation du jeu
+        //Initialisation du jeu;
         try {
 			start.initialLoad();
 		} catch (SQLException e) {

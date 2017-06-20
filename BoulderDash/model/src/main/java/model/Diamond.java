@@ -1,10 +1,8 @@
 package model;
 
-import view.Assets;
-
 public class Diamond extends Block {
 	public Diamond() {
-		super("Diamond", Assets.diamond);
+		super("Diamond", 'D');
 	}
 	
 	@Override

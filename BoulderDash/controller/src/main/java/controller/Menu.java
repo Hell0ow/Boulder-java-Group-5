@@ -1,6 +1,6 @@
 package controller;
 
-public class menu {
+public class Menu {
 
 }
 

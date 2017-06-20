@@ -1,19 +1,22 @@
 package controller;
 
+import java.awt.event.KeyEvent;
+
 import model.Model;
 import view.ViewFacade;
 
 public class ControllerFacade {
 
-	private Init launch = new Init("java", "bigouneroot");
+	private Init launch = Factory.createInit();
+	private EventGame event = Factory.createEventGame();
 	private Model model;
 	private ViewFacade view;
 	
 	
 	
 	public ControllerFacade() throws Exception{
-		model= new Model();
-		view = new ViewFacade();
+		model= Factory.createModel();
+		view = Factory.createView();
 	}
 	
 	
@@ -59,5 +62,12 @@ public class ControllerFacade {
 		launch.closeDatabase();
 		
 		
+	}
+	
+	
+	public void Game (){
+		
+		KeyEvent e = Factory.createKeyEvent();
+		event.keyPressed(e);
 	}
 }

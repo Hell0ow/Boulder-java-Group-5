@@ -5,24 +5,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import model.Air;
 import model.Block;
-import model.Boundary;
 import model.Character;
-import model.Diamond;
 import model.Direction;
 import model.Dummy;
-import model.Enemy;
-import model.Hero;
 import model.Human;
 import model.Model;
-import model.Mud;
 import model.Player;
-import model.Position;
-import model.Rock;
-import model.Tile;
-import model.Wall;
+
 
 
 public class Init {
@@ -80,7 +70,7 @@ public class Init {
 			idPlayer = result.getInt("ID_player");
 		}
 		
-		Player actualPlayer = new Player(idPlayer, playerName);
+		Player actualPlayer = Factory.createPlayer(idPlayer, playerName);
 		actualModel.setPlayer(actualPlayer);
     }
     
@@ -92,7 +82,7 @@ public class Init {
     
     public void getExistingBlockTexture(Model actualModel) throws SQLException{
     	
-    	Block textureType = new Air();
+    	Block textureType = Factory.createAir();
     	int getID = 0;
     	ResultSet result = statement.executeQuery("CALL getBlockTexture();");
     	
@@ -100,19 +90,19 @@ public class Init {
     		getID = result.getInt("ID_typeBlock");
     		switch(getID){
     		case 1:
-    			textureType = new Diamond();
+    			textureType = Factory.createDiamond();
     			break;
     		case 2:
-    			textureType = new Rock();
+    			textureType = Factory.createRock();
     			break;
     		case 3:
-    			textureType = new Mud();
+    			textureType = Factory.createMud();
     			break;
     		case 4:
-    			textureType = new Wall();
+    			textureType = Factory.createWall();
     			break;
     		case 5:
-    			textureType = new Air();
+    			textureType = Factory.createAir();
     			break;
     		}
     		actualModel.getLevel().addBlock(textureType);	
@@ -125,7 +115,7 @@ public class Init {
     
 	public void getExistingEntity(Model actualModel) throws SQLException{
 	    	
-	    	Character entityType = new Human();
+	    	Character entityType = Factory.createHuman();
 	    	int getID = 0;
 	    	ResultSet result = statement.executeQuery("CALL getAllEntityName();");
 	    	
@@ -133,25 +123,25 @@ public class Init {
 	    		getID = result.getInt("ID_typeEntity");
 	    		switch(getID){
 	    		case 1:
-	    			entityType = new Human();
+	    			entityType = Factory.createHuman();
 	    			break;
 	    		case 2:
-	    			entityType = new Dummy();
+	    			entityType = Factory.createDummy();
 	    			break;
 	    		case 3:
-	    			entityType = new Dummy();
+	    			entityType = Factory.createDummy();
 	    			break;
 	    		case 4:
-	    			entityType = new Dummy();
+	    			entityType = Factory.createDummy();
 	    			break;
 	    		case 5:
-	    			entityType = new Dummy();
+	    			entityType = Factory.createDummy();
 	    			break;
 	    		case 6:
-	    			entityType = new Dummy();
+	    			entityType = Factory.createDummy();
 	    			break;
 	    		case 7:
-	    			entityType = new Dummy();
+	    			entityType = Factory.createDummy();
 	    			break;
 	    		default:
 	    			
@@ -176,7 +166,7 @@ public class Init {
     	}
     	
     	try {
-			actualModel.getLevel().getTray().setBoundary(new Boundary(actualModel.getLevel().getTray(), X_min, X_max, Y_min, Y_max));
+			actualModel.getLevel().getTray().setBoundary(Factory.createBoundary(actualModel.getLevel().getTray(), X_min, X_max, Y_min, Y_max));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -198,7 +188,7 @@ public class Init {
     		X = result.getInt("X_block");
     		Y = result.getInt("Y_block");
     		texture = result.getString("Name_block");
-    		actualModel.getLevel().getTray().addTile(new Tile(actualModel.getLevel().getBlocks().get(texture), new Position(actualModel.getLevel().getTray(), X, Y)));
+    		actualModel.getLevel().getTray().addTile(Factory.createTile(actualModel.getLevel().getBlocks().get(texture), Factory.createPosition(actualModel.getLevel().getTray(), X, Y)));
     	}
     }
     
@@ -207,7 +197,7 @@ public class Init {
     public void getEntity (Model actualModel, int mapID) throws Exception{
     	
     	int X = 0, Y = 0;
-    	String entity = new String();
+    	String entity = Factory.createString();
     	ResultSet result = statement.executeQuery("CALL getEntity('" + mapID + "');");
     
     	while(result.next()){
@@ -217,10 +207,10 @@ public class Init {
     		
     		switch(entity){
     		case "Human":
-    			actualModel.getLevel().getTray().addHero(new Hero((Human) actualModel.getLevel().getCharacters().get(entity), actualModel.getLevel().getObjective(), new Position(actualModel.getLevel().getTray(), X, Y)));
+    			actualModel.getLevel().getTray().addHero(Factory.createHero((Human) actualModel.getLevel().getCharacters().get(entity), actualModel.getLevel().getObjective(), Factory.createPosition(actualModel.getLevel().getTray(), X, Y)));
     			break;
     		default:	
-    			actualModel.getLevel().getTray().addEnemy(new Enemy((Dummy) actualModel.getLevel().getCharacters().get(entity), Direction.UP, new Position(actualModel.getLevel().getTray(), X, Y)));
+    			actualModel.getLevel().getTray().addEnemy(Factory.createEnemy((Dummy) actualModel.getLevel().getCharacters().get(entity), Direction.UP, Factory.createPosition(actualModel.getLevel().getTray(), X, Y)));
     		}
     	
     	}
@@ -233,7 +223,4 @@ public class Init {
 			statement.close();
 			connection.close();
 	}
-    
-    
-    
 }

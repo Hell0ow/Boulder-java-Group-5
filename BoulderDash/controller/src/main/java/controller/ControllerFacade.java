@@ -7,10 +7,10 @@ import view.ViewFacade;
 
 public class ControllerFacade {
 
-	private Init launch = Factory.createInit();
-	private EventGame event = Factory.createEventGame();
-	private Model model;
-	private ViewFacade view;
+	private ControllerInit launch = Factory.createInit();
+	private ControllerKeyBoard eventGame;
+	protected Model model;
+	protected ViewFacade view;
 	
 	
 	
@@ -67,7 +67,8 @@ public class ControllerFacade {
 	
 	public void Game (){
 		
-		KeyEvent e = Factory.createKeyEvent();
-		event.keyPressed(e);
+		eventGame = Factory.createEventGame();
+		//addKeyListener(view);
+		
 	}
 }

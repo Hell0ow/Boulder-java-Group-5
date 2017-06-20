@@ -41,12 +41,18 @@ public abstract class Factory {
 	
 	
 	// --- Controller Object --- //
-	public static Init createInit(){
-		return new Init("java", "bigouneroot");
+	public static ControllerInit createInit(){
+		return new ControllerInit("java", "bigouneroot");
 	}
 	
-	public final static EventGame createEventGame(){
-		return new EventGame();
+	public static ControllerKeyBoard createEventGame(){
+		try {
+			return new ControllerKeyBoard();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public static Menu createMenu(){

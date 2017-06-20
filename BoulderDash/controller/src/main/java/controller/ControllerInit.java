@@ -15,7 +15,7 @@ import model.Player;
 
 
 
-public class Init {
+public class ControllerInit {
 
 	private String user     = "java";
 	private String password = "bigouneroot";
@@ -28,7 +28,7 @@ public class Init {
     
     
     
-    public Init(String user, String password){
+    public ControllerInit(String user, String password){
 		this.user = user;
 		this.password = password;
 		

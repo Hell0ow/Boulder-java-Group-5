@@ -2,8 +2,6 @@ package model;
 
 public class Player {
 	private Integer id;
-	private Hero hero = null;
-	private Objective objective = null;
 	private String name;
 	
 	public Player(Integer id, String name) {
@@ -13,22 +11,6 @@ public class Player {
 	
 	public Integer getId() {
 		return id;
-	}
-
-	public Hero getHero() {
-		return hero;
-	}
-
-	public void setHero(Hero hero) {
-		this.hero = hero;
-	}
-
-	public Objective getObjective() {
-		return new Objective(objective);
-	}
-
-	public void setObjective(Objective objective) {
-		this.objective = objective;
 	}
 	
 	public String getName() {

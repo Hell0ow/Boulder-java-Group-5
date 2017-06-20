@@ -11,14 +11,17 @@ import model.Block;
 import model.Boundary;
 import model.Character;
 import model.Diamond;
+import model.Direction;
 import model.Dummy;
+import model.Enemy;
+import model.Hero;
 import model.Human;
 import model.Model;
 import model.Mud;
 import model.Player;
 import model.Position;
 import model.Rock;
-import model.Slab;
+import model.Tile;
 import model.Wall;
 
 
@@ -124,7 +127,7 @@ public class Init {
 	    	
 	    	Character entityType = new Human();
 	    	int getID = 0;
-	    	ResultSet result = statement.executeQuery("CALL getEntity();");
+	    	ResultSet result = statement.executeQuery("CALL getAllEntityName();");
 	    	
 	    	while(result.next()){
 	    		getID = result.getInt("ID_typeEntity");
@@ -195,21 +198,35 @@ public class Init {
     		X = result.getInt("X_block");
     		Y = result.getInt("Y_block");
     		texture = result.getString("Name_block");
-    		actualModel.getLevel().getTray().addSlab(new Slab(actualModel.getLevel().getBlocks().get(texture), new Position(actualModel.getLevel().getTray(), X, Y)));
+    		actualModel.getLevel().getTray().addTile(new Tile(actualModel.getLevel().getBlocks().get(texture), new Position(actualModel.getLevel().getTray(), X, Y)));
     	}
     }
     
     
     
-    public void getEntity (int mapID){
+    public void getEntity (Model actualModel, int mapID) throws Exception{
     	
+    	int X = 0, Y = 0;
+    	String entity = new String();
+    	ResultSet result = statement.executeQuery("CALL getEntity('" + mapID + "');");
+    
+    	while(result.next()){
+    		X = result.getInt("X_entity");
+    		Y = result.getInt("Y_entity");
+    		entity = result.getString("Name_entity");
+    		
+    		switch(entity){
+    		case "Human":
+    			actualModel.getLevel().getTray().addHero(new Hero((Human) actualModel.getLevel().getCharacters().get(entity), actualModel.getLevel().getObjective(), new Position(actualModel.getLevel().getTray(), X, Y)));
+    			break;
+    		default:	
+    			actualModel.getLevel().getTray().addEnemy(new Enemy((Dummy) actualModel.getLevel().getCharacters().get(entity), Direction.UP, new Position(actualModel.getLevel().getTray(), X, Y)));
+    		}
+    	
+    	}
     }
     
-    
-    
-    public void getHuman (int mapID){
-    	
-    }
+ 
     
 	public void closeDatabase() throws SQLException{
 			

@@ -1,8 +1,6 @@
 package controller;
-import java.sql.SQLException;
 
 import model.Model;
-import model.Player;
 import view.ViewFacade;
 
 public class ControllerFacade {
@@ -13,18 +11,26 @@ public class ControllerFacade {
 	
 	
 	
-	public ControllerFacade(){
+	public ControllerFacade() throws Exception{
 		model= new Model();
 		view = new ViewFacade();
 	}
 	
+	
+	public Model getModel(){
+		return model;
+	}
+	
+	public ViewFacade getView(){
+		return view;
+	}
 	
 	
 	public void initialLoad() throws Exception{
 		
 		//Lancer la vue et demander l'utilisateur
 		//Recuperer utilisateur sur la vue
-		String playerName = "Bigoune";
+		String playerName = "T";
 		
 		launch.addPlayer(playerName);
 		
@@ -46,6 +52,8 @@ public class ControllerFacade {
 		//On charge les blocs
 		launch.getBlock(model, mapID);
 		
+		// On charge les entités
+		launch.getEntity(model, mapID);
 		
 		//On ferme la connection
 		launch.closeDatabase();

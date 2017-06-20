@@ -16,6 +16,14 @@ public class Position extends Coordinates {
 		super(position);
 		tray = position.tray;
 	}
+
+	public Position copy(Position position) {
+		tray = position.tray;
+		x = position.x;
+		y = position.y;
+		
+		return this;
+	}
 	
 	public Position next() throws Exception {
 		if (x < tray.getBoundary().getXMax()) {
@@ -60,22 +68,73 @@ public class Position extends Coordinates {
 		return false;
 	}
 
-	@Override
-	public void addition(Coordinates coordinates) throws Exception {
-		super.addition(coordinates);
+	public Position addition(Coordinates coordinates) throws Exception {
+		x += coordinates.getX();
+		y += coordinates.getY();
 		
 		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.addition(Coordinates): New coordinates outside of the tray.");
 		}
+		
+		return this;
 	}
 	
-	@Override
-	public void substraction(Coordinates coordinates) throws Exception {
-		super.substraction(coordinates);
+	public Position addition(Direction direction) throws Exception {
+		
+		switch (direction) {
+			case UP:
+				y -= 1;
+				break;
+			case RIGHT:
+				x -= 1;
+				break;
+			case DOWN:
+				y += 1;
+				break;
+			case LEFT:
+				x += 1;
+				break;
+		}
+		
+		if (!tray.getBoundary().contains(this)) {
+			throw new Exception("Position.addition(Position): New coordinates outside of the tray: " + toString());
+		}
+		
+		return this;
+	}
+	
+	public Position substraction(Coordinates coordinates) throws Exception {
+		x -= coordinates.getX();
+		y -= coordinates.getY();
 		
 		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.addition(Coordinates): New coordinates outside of the tray.");
 		}
+		
+		return this;
+	}
+	
+	public Position substraction(Direction direction) throws Exception {
+		switch (direction) {
+			case UP:
+				y += 1;
+				break;
+			case RIGHT:
+				x += 1;
+				break;
+			case DOWN:
+				y -= 1;
+				break;
+			case LEFT:
+				x -= 1;
+				break;
+		}
+		
+		if (!tray.getBoundary().contains(this)) {
+			throw new Exception("Position.substraction(Position): New coordinates outside of the tray.");
+		}
+		
+		return this;
 	}
 	
 	public Tray getTray() {

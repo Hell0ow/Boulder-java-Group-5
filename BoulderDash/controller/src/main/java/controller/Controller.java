@@ -3,13 +3,14 @@ package controller;
 import java.sql.SQLException;
 
 import model.Model;
+import view.IView;
 import view.ViewFacade;
 
-public class Controller{
+public class Controller implements IController{
 
 	private ControllerKeyBoard event;
 	private Model model;
-	private ViewFacade view;
+	private IView view;
 	
 	
 	
@@ -18,7 +19,7 @@ public class Controller{
 		
 		event = Factory.createControllerKeyBoard(getModel());
 		
-		//view = Factory.createView(event);
+		view = Factory.createView(model, event);
 	}
 	
 	

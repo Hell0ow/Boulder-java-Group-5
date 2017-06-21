@@ -3,15 +3,19 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import controller.IControllerKeyBoard;
+import model.IEntity;
+import model.IModel;
+
 public class ViewFacade implements IView {
 
 	private JFrame frame;
-	private ControllerKeyEvent controller;
-	private Model model;
+	private IControllerKeyBoard controller;
+	private IModel model;
 	private String frameTitle = "TestVue";
 	private int frameWidth = 1200, frameHeight = 800;
 	
-	public ViewFacade(Model model, ControllerKeyEvent controller) {
+	public ViewFacade(IModel model, IControllerKeyBoard controller) {
 		this.model = model;
 		this.controller = controller;
 		
@@ -27,7 +31,7 @@ public class ViewFacade implements IView {
 		
 		frame.getContentPane().removeAll();
 		
-		for (Entity entity : model.getLevel().getTray().getBeings().values()) {
+		for (IEntity entity : model.getLevel().getTray().getBeings().values()) {
 			printEntity(entity);
 		}
 		

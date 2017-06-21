@@ -3,13 +3,14 @@ package main;
 
 import java.sql.SQLException;
 import controller.Controller;
+import controller.IController;
 
 
 public abstract class Main {
 
     public static void main(final String[] args) throws Exception {
     	
-        Controller start = new Controller();
+        IController start = new Controller();
         
         //Initialisation du jeu;
         try {

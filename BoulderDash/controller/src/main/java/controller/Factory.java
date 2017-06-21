@@ -2,6 +2,7 @@ package controller;
 
 import model.*;
 import model.Character;
+import view.IView;
 import view.ViewFacade;
 
 public abstract class Factory {
@@ -123,9 +124,9 @@ public abstract class Factory {
 	
 	
 	// ----- View Object ----- //
-	/*public static ViewFacade createView(ControllerKeyBoard event){
-			return new ViewFacade(event);
-		}*/
+	public static IView createView(Model model, ControllerKeyBoard controllerKey){
+			return new ViewFacade(model, controllerKey);
+		}
 	// ------------------------ //
 
 

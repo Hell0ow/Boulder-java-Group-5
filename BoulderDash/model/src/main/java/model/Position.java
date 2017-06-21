@@ -1,9 +1,11 @@
 package model;
 
+import Imodel.ICoordinates;
 import Imodel.IDirection;
 import Imodel.IPosition;
+import Imodel.ITray;
 
-public class Position extends Coordinates {
+public class Position extends Coordinates implements IPosition {
 	private Tray tray;
 	
 	public Position(Tray tray, int x, int y) throws Exception {
@@ -20,7 +22,7 @@ public class Position extends Coordinates {
 		tray = position.tray;
 	}
 
-	public Position copy(IPosition position) {
+	public IPosition copy(IPosition position) {
 		tray = (Tray) position.getTray();
 		x = position.getX();
 		y = position.getY();
@@ -28,7 +30,7 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Position next() throws Exception {
+	public IPosition next() throws Exception {
 		if (x < tray.getBoundary().getXMax()) {
 			x += 1;
 		} else if (y < tray.getBoundary().getYMax()) {
@@ -71,7 +73,7 @@ public class Position extends Coordinates {
 		return false;
 	}
 
-	public Position addition(Coordinates coordinates) throws Exception {
+	public IPosition addition(ICoordinates coordinates) throws Exception {
 		x += coordinates.getX();
 		y += coordinates.getY();
 		
@@ -82,7 +84,7 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Position addition(IDirection direction) throws Exception {
+	public IPosition addition(IDirection direction) throws Exception {
 		
 		switch ((Direction) direction) {
 			case UP:
@@ -106,7 +108,7 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Position substraction(Coordinates coordinates) throws Exception {
+	public IPosition substraction(ICoordinates coordinates) throws Exception {
 		x -= coordinates.getX();
 		y -= coordinates.getY();
 		
@@ -117,7 +119,7 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Position substraction(IDirection direction) throws Exception {
+	public IPosition substraction(IDirection direction) throws Exception {
 		switch ((Direction) direction) {
 			case UP:
 				y += 1;
@@ -140,7 +142,7 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Tray getTray() {
-		return tray;
+	public ITray getTray() {
+		return (ITray) tray;
 	}
 }

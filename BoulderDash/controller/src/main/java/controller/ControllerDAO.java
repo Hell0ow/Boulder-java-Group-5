@@ -4,7 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Imodel.*;
+import model.Block;
 import model.Direction;
+import model.Position;
 
 
 public abstract class ControllerDAO {
@@ -121,7 +123,7 @@ public abstract class ControllerDAO {
 	    		X = result.getInt("X_block");
 	    		Y = result.getInt("Y_block");
 	    		texture = result.getString("Name_block");
-	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition((ITray) iModel.getLevel().getTray(), X, Y)));
+	    		iModel.getLevel().getTray().addTile(Factory.createTile((Block) iModel.getLevel().getBlocks().get(texture), (Position) Factory.createPosition((ITray) iModel.getLevel().getTray(), X, Y)));
 	    	}
 	    	
 	    	

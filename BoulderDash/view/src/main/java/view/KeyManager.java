@@ -5,36 +5,41 @@ import Icontroller.*;
 import java.awt.event.KeyListener;
 
 import Icontroller.IControllerKeyBoard;
+import Imodel.IModel;
+import controller.ControllerKeyBoard;
+import controller.Order;
 
 public class KeyManager implements KeyListener{
 
 	private boolean[] keys;
 	
-	IControllerKeyBoard controller =  new ControllerKeyBoard();
+	IControllerKeyBoard controller;
 	
-	public KeyManager() {
+	public KeyManager(IModel model) {
+		
+		controller = new ControllerKeyBoard(model);
 		keys = new boolean[256];
 	}
 		
-	public void getKeyPressed(){
+	public ControllerKeyBoard getKeyPressed(){
 		if(keys[KeyEvent.VK_Z])
-			return controller.getKeyEvent(Order.MOVE_UP);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.MOVE_UP);
 		else if(keys[KeyEvent.VK_S])
-			return controller.getKeyEvent(MOVE_DOWN);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.MOVE_DOWN);
 		else if(keys[KeyEvent.VK_Q])
-			return controller.getKeyEvent(MOVE_LEFT);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.MOVE_LEFT);
 		else if(keys[KeyEvent.VK_D])
-			return controller.getKeyEvent(MOVE_RIGHT);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.MOVE_RIGHT);
 		else if(keys[KeyEvent.VK_UP])
-			return controller.getKeyEvent(DIG_UP);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.DIG_UP);
 		else if(keys[KeyEvent.VK_DOWN])
-			return controller.getKeyEvent(DIG_DOWN);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.DIG_DOWN);
 		else if(keys[KeyEvent.VK_LEFT])
-			return controller.getKeyEvent(DIG_LEFT);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.DIG_LEFT);
 		else if(keys[KeyEvent.VK_RIGHT])
-			return controller.getKeyEvent(DIG_RIGHT);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.DIG_RIGHT);
 		else 
-			return controller.getKeyEvent(NONE);
+			return (ControllerKeyBoard) controller.getKeyEvent(Order.NONE);
 	}
 		
 

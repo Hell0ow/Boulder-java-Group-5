@@ -1,5 +1,3 @@
 package Imodel;
 
-public interface IDirection {
-
-}
+public interface IDirection {}

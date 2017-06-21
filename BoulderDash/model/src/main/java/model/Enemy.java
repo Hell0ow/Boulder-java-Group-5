@@ -19,7 +19,7 @@ public class Enemy extends Being implements IEnemy {
 		return (IDummy) element;
 	}
 	
-	private Direction intelligence() throws Exception {
+	private IDirection intelligence() throws Exception {
 		
 		int i = 0;
 		
@@ -44,7 +44,7 @@ public class Enemy extends Being implements IEnemy {
 			i++;
 		}
 		
-		return direction;
+		return (IDirection) direction;
 	}
 	
 	public void move() throws Exception {
@@ -57,7 +57,7 @@ public class Enemy extends Being implements IEnemy {
 	}
 	
 	@Override
-	public void move(Position position) {
+	public void move(IPosition position) {
 		
 		if (!position.getTray().getTiles().get((IPosition) position).getBlock().isDense() && position.getTray().getBeings().get((IPosition) position) == null) {
 			
@@ -66,4 +66,5 @@ public class Enemy extends Being implements IEnemy {
 			position.getTray().addEnemy((IEnemy) this);
 		}
 	}
+
 }

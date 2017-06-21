@@ -16,5 +16,7 @@ public interface ILevel {
 	
 	public void setObjective(IObjective objective);
 	
+	public IModel getModel();
+	
 	public ITray getTray();
 }

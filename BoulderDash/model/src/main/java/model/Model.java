@@ -2,7 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+import Imodel.IOrder;
+import Imodel.IPlayer;
 import Imodel.IEnemy;
+import Imodel.ILevel;
 import Imodel.IModel;
 import Imodel.IPosition;
 import Imodel.ITile;
@@ -19,16 +22,16 @@ public class Model implements IModel {
 		level = new Level(this);
 	}
 	
-	public Level getLevel() {
-		return level;
+	public ILevel getLevel() {
+		return (ILevel) level;
 	}
 	
-	public Player getPlayer() {
-		return player;
+	public IPlayer getPlayer() {
+		return (IPlayer) player;
 	}
 	
-	public void setPlayer(Player player) {
-		this.player = player;
+	public void setPlayer(IPlayer player) {
+		this.player = (Player) player;
 	}
 	
 	public void cycle(IOrder order) throws Exception {

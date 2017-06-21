@@ -1,5 +1,3 @@
 package Imodel;
 
-public interface IWall {
-
-}
+public interface IWall {}

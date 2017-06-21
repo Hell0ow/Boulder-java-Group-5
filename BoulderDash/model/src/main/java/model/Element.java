@@ -9,15 +9,13 @@ import Imodel.IElement;
 
 public class Element implements IElement {
 	private String name;
-	public char texture; /*TEMP*/
 	
 	protected static int width = 16, height = 16;
 
 	protected BufferedImage sheet;
 	
-	public Element(String name, char texture, String path, Coordinates c) throws Exception {
+	public Element(String name, String path, Coordinates c) throws Exception {
 		this.name = name;
-		this.texture = texture;
 		
 		sheet = ImageIO.read(new FileInputStream(path));
 		sheet = sheet.getSubimage(c.getX(), c.getY(), width, height);

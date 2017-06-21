@@ -1,8 +1,10 @@
 package model;
 
-public class Dummy extends Character{
+import Imodel.IDummy;
+
+public class Dummy extends Character implements IDummy {
 	
 	public Dummy() throws Exception {
-		super("Dummy", 'd', "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(144, 0));
+		super("Dummy", "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(144, 0));
 	}
 }

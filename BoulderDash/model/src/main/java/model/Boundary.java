@@ -1,6 +1,8 @@
 package model;
 
 import Imodel.IBoundary;
+import Imodel.ICoordinates;
+import Imodel.IPosition;
 
 public class Boundary extends Delimitations implements IBoundary {
 	private Tray tray;
@@ -19,17 +21,17 @@ public class Boundary extends Delimitations implements IBoundary {
 		super(boundary);
 		tray = boundary.getTray();
 	}
-	public Position getMinPosition() throws Exception {
-		return new Position(tray, xMin, yMin);
+	public IPosition getMinPosition() throws Exception {
+		return (IPosition) new Position(tray, xMin, yMin);
 	}
 	
-	public Position getMaxPosition() throws Exception {
-		return new Position(tray, xMax, yMax);
+	public IPosition getMaxPosition() throws Exception {
+		return (IPosition) new Position(tray, xMax, yMax);
 	}
 	
-	public boolean contains(Position position) {
+	public boolean contains(IPosition position) {
 		if (tray == position.getTray()) {
-			if (super.contains(position)) {
+			if (super.contains((ICoordinates) position)) {
 				return true;
 			}
 		}

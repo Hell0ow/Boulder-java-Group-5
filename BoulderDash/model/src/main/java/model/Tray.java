@@ -27,6 +27,11 @@ public class Tray {
 		beings.put(enemy.getPosition(), enemy);
 	}
 	
+	public void removeEnemy(Position position) {
+		enemies.remove(position);
+		beings.remove(position);
+	}
+	
 	public Map<Position, Enemy> getEnemies() {
 		return enemies;
 	}
@@ -34,6 +39,11 @@ public class Tray {
 	public void addHero(Hero hero) {
 		heroes.put(hero.getObjective().getPlayer().getId(), hero);
 		beings.put(hero.getPosition(), hero);
+	}
+	
+	public void removeHero(Position position) {
+		heroes.remove(position);
+		beings.remove(position);
 	}
 	
 	public Map<Integer, Hero> getHeroes() {
@@ -44,12 +54,12 @@ public class Tray {
 		tiles.put(tile.getPosition(), tile);
 	}
 	
-	public Map<Position, Tile> getTiles() {
-		return tiles;
+	public void removeTile(Position position) {
+		tiles.remove(position);
 	}
 	
-	public void addBeing(Being being) {
-		beings.put(being.getPosition(), being);
+	public Map<Position, Tile> getTiles() {
+		return tiles;
 	}
 	
 	public Map<Position, Being> getBeings() {

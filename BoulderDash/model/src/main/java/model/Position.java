@@ -1,5 +1,7 @@
 package model;
 
+import contract.Direction;
+
 public class Position extends Coordinates {
 	private Tray tray;
 	
@@ -86,13 +88,13 @@ public class Position extends Coordinates {
 				y -= 1;
 				break;
 			case RIGHT:
-				x -= 1;
+				x += 1;
 				break;
 			case DOWN:
 				y += 1;
 				break;
 			case LEFT:
-				x += 1;
+				x -= 1;
 				break;
 		}
 		
@@ -120,13 +122,13 @@ public class Position extends Coordinates {
 				y += 1;
 				break;
 			case RIGHT:
-				x += 1;
+				x -= 1;
 				break;
 			case DOWN:
 				y -= 1;
 				break;
 			case LEFT:
-				x -= 1;
+				x += 1;
 				break;
 		}
 		

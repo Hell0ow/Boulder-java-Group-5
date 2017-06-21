@@ -1,12 +1,13 @@
 package model;
 
 public class Rock extends Block {
-	public Rock() {
-		super("Rock", 'R');
+	
+	public Rock() throws Exception {
+		super("Rock", 'R', "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(48, 0));
 	}
 	
 	@Override
-	public boolean isAffectedByGravity() {
+	public boolean isFallable() {
 		return true;
 	}
 	

@@ -2,8 +2,8 @@ package model;
 
 public abstract class Block extends Element {
 	
-	protected Block(String name, char texture) {
-		super(name, texture);
+	protected Block(String name, char texture, String path, Coordinates c) throws Exception {
+		super(name, texture, path, c);
 	}
 	
 	public boolean isBreakable() {
@@ -14,7 +14,7 @@ public abstract class Block extends Element {
 		return true;
 	}
 	
-	public boolean isAffectedByGravity() {
+	public boolean isFallable() {
 		return false;
 	}
 	

@@ -1,10 +1,6 @@
-package Imodel;import Icontroller.IOrder;public interface IModel {
-
+package Imodel;public interface IModel {
 	public ILevel getLevel();
-	
 	public IPlayer getPlayer();
-	
-	public void setPlayer(IPlayer player);
-	
-	public void cycle(IOrder order) throws Exception;
+	public void setPlayer(IPlayer player);	
+	public void cycle(IOrder order) throws Exception;
 }

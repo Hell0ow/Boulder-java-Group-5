@@ -1,5 +1,6 @@
 package model;
 
+import Imodel.ICoordinates;
 import Imodel.IDelimitations;
 
 public class Delimitations implements IDelimitations {
@@ -27,7 +28,7 @@ public class Delimitations implements IDelimitations {
 		yMax = delimitations.yMax;
 	}
 	
-	public boolean contains(Coordinates coordinates) {
+	public boolean contains(ICoordinates coordinates) {
 		if (coordinates.getX() >= xMin && coordinates.getX() <= xMax && coordinates.getY() >= yMin && coordinates.getY() <= yMax ) {
 			return true;
 		}

@@ -2,7 +2,7 @@ package controller;
 
 import model.Model;
 
-public class ControllerKeyBoard{
+public abstract class ControllerKeyBoard implements IControllerKeyBoard{
 	
 	Model model = null;
 	

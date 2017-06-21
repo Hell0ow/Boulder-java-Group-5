@@ -1,5 +1,8 @@
 package controller;
 
-public class IControllerKeyBoard {
+import model.IModel;
 
+public interface IControllerKeyBoard {
+
+		public IModel getKeyEvent(IOrder EventKey);
 }

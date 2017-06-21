@@ -1,15 +1,12 @@
 package controller;
 
-import java.sql.SQLException;
-
-import model.Model;
+import model.IModel;
 import view.IView;
-import view.ViewFacade;
 
 public class Controller implements IController{
 
 	private ControllerKeyBoard event;
-	private Model model;
+	private IModel model;
 	private IView view;
 	
 	
@@ -17,17 +14,15 @@ public class Controller implements IController{
 	public Controller() throws Exception{
 		model= Factory.createModel();
 		
-		event = Factory.createControllerKeyBoard(getModel());
-		
 		view = Factory.createView(model, event);
 	}
 	
 	
-	public Model getModel(){
+	public IModel getModel(){
 		return model;
 	}
 	
-	public ViewFacade getView(){
+	public IView getView(){
 		return view;
 	}
 	

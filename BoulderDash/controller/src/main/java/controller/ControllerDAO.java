@@ -8,12 +8,13 @@ import model.Character;
 import model.Direction;
 import model.Dummy;
 import model.Human;
+import model.IModel;
 import model.Model;
 import model.Player;
 
 public abstract class ControllerDAO {
 
-		protected static void loadPlayer(ControllerDB database, String playerName, Model actualModel){
+		protected static void loadPlayer(ControllerDB database, String playerName, IModel iModel){
 
 			Integer idPlayer = 0;
 			
@@ -26,7 +27,7 @@ public abstract class ControllerDAO {
 				}
 				
 				Player actualPlayer = Factory.createPlayer(idPlayer, playerName);
-				actualModel.setPlayer(actualPlayer);
+				iModel.setPlayer(actualPlayer);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -34,7 +35,7 @@ public abstract class ControllerDAO {
 		}
 		
 		
-		protected static void loadEntity(ControllerDB database, Model actualModel) throws Exception{
+		protected static void loadEntity(ControllerDB database, IModel iModel) throws Exception{
 			Character entityType = Factory.createHuman();
 	    	int getID = 0;
 	    	ResultSet result = database.getExistingEntity();
@@ -67,13 +68,13 @@ public abstract class ControllerDAO {
 	    		}
 	    			
 	    	}
-	    	actualModel.getLevel().addCharacter(entityType);
+	    	iModel.getLevel().addCharacter(entityType);
 	    	
 		}
 	    
 		
 		
-		protected static void loadBlock(ControllerDB database, Model actualModel) throws Exception{
+		protected static void loadBlock(ControllerDB database, IModel iModel) throws Exception{
 			Block textureType = Factory.createAir();
 	    	int getID = 0;
 	    	ResultSet result = database.getExistingBlockTexture();
@@ -98,11 +99,11 @@ public abstract class ControllerDAO {
 	    			break;
 	    		}
 	    	}
-	    	actualModel.getLevel().addBlock(textureType);	
+	    	iModel.getLevel().addBlock(textureType);	
 		}
 		
 		
-		protected static void loadSelectedMap(ControllerDB database, int mapID, Model actualModel) throws Exception{
+		protected static void loadSelectedMap(ControllerDB database, int mapID, IModel iModel) throws Exception{
 			
 			int X_max = 0, X_min = 0, Y_max = 0, Y_min = 0, X = 0, Y = 0;
 	    	String texture = Factory.createString(), entity = Factory.createString();
@@ -116,7 +117,7 @@ public abstract class ControllerDAO {
 	    		Y_max = result.getInt("Ymax_map");
 	    		Y_min = result.getInt("Ymin_map");
 	    	}
-			actualModel.getLevel().getTray().setBoundary(Factory.createBoundary(actualModel.getLevel().getTray(), X_min, X_max, Y_min, Y_max));
+			iModel.getLevel().getTray().setBoundary(Factory.createBoundary(iModel.getLevel().getTray(), X_min, X_max, Y_min, Y_max));
 
 	    	
 	    	//Add block for the selected map.
@@ -125,7 +126,7 @@ public abstract class ControllerDAO {
 	    		X = result.getInt("X_block");
 	    		Y = result.getInt("Y_block");
 	    		texture = result.getString("Name_block");
-	    		actualModel.getLevel().getTray().addTile(Factory.createTile(actualModel.getLevel().getBlocks().get(texture), Factory.createPosition(actualModel.getLevel().getTray(), X, Y)));
+	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
 	    	}
 	    	
 	    	
@@ -137,10 +138,10 @@ public abstract class ControllerDAO {
 	    		entity = result.getString("Name_entity");
 	    		switch(entity){
 	    		case "Human":
-	    			actualModel.getLevel().getTray().addHero(Factory.createHero((Human) actualModel.getLevel().getCharacters().get(entity), actualModel.getLevel().getObjective(), Factory.createPosition(actualModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().addHero(Factory.createHero((Human) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
 	    			break;
 	    		default:	
-	    			actualModel.getLevel().getTray().addEnemy(Factory.createEnemy((Dummy) actualModel.getLevel().getCharacters().get(entity), Direction.UP, Factory.createPosition(actualModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().addEnemy(Factory.createEnemy((Dummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
 	    		}
 	    	}
 		}

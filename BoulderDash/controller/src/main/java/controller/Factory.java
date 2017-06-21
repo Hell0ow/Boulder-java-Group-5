@@ -3,7 +3,7 @@ package controller;
 import model.*;
 import model.Character;
 import view.IView;
-import view.ViewFacade;
+import view.View;
 
 public abstract class Factory {
 	
@@ -18,10 +18,6 @@ public abstract class Factory {
 	
 	
 	// --- Controller Object --- //
-	
-	public static ControllerKeyBoard createControllerKeyBoard(Model model) throws Exception {
-		return new ControllerKeyBoard(model);
-	}
 	
 	public static ControllerDB createControllerDB() {
 		// TODO Auto-generated method stub
@@ -124,8 +120,8 @@ public abstract class Factory {
 	
 	
 	// ----- View Object ----- //
-	public static IView createView(Model model, ControllerKeyBoard controllerKey){
-			return new ViewFacade(model, controllerKey);
+	public static IView createView(IModel model, ControllerKeyBoard controllerKey){
+			return new View(model, controllerKey);
 		}
 	// ------------------------ //
 

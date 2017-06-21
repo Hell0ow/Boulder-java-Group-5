@@ -1,7 +1,5 @@
 package model;
 
-import view.View;
-
 public class Dummy extends Character{
 	
 	public Dummy() throws Exception {

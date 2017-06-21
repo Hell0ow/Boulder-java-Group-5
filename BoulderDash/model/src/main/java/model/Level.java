@@ -3,8 +3,6 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-import contract.Direction;
-
 public class Level {
 	private Map<String, Block> blocks = new HashMap<String, Block>();
 	private Map<String, Character> characters = new HashMap<String, Character>();

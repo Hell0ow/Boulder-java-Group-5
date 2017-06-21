@@ -1,7 +1,5 @@
 package model;
 
-import contract.Direction;
-
 public class Enemy extends Being {
 	private Direction direction;
 	

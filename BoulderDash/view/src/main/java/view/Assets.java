@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Font;
 import java.awt.image.BufferedImage;
 
 public class Assets {

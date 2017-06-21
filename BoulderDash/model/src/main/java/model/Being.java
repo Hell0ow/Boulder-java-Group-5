@@ -1,7 +1,5 @@
 package model;
 
-import contract.Direction;
-
 public abstract class Being extends Entity {
 	
 	protected Being(Character character, Position position) {

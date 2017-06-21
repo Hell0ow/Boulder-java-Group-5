@@ -1,7 +1,5 @@
 package model;
 
-import contract.Direction;
-
 public class Hero extends Being {
 	private Objective objective;
 	

@@ -1,7 +1,5 @@
 package model;
 
-import contract.Direction;
-
 public class Position extends Coordinates {
 	private Tray tray;
 	

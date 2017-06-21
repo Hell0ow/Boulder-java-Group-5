@@ -1,7 +1,5 @@
 package model;
 
-import view.View;
-
 public class Diamond extends Block {
 	
 	public Diamond() throws Exception{

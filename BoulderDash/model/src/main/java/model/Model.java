@@ -2,9 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-import contract.Direction;
-import contract.Order;
-
 public class Model {
 	private Level level;
 	private Player player;

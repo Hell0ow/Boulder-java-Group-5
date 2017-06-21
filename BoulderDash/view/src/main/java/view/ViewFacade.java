@@ -1,59 +1,48 @@
 package view;
 
-import java.awt.Canvas;
-import java.awt.Dimension;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class ViewFacade implements IView {
 
-	 private JFrame frame;
-		private Canvas canvas;
-		
-		private String title;
-		private int width, height;
+	private JFrame frame;
+	private ControllerKeyEvent controller;
+	private Model model;
+	private String frameTitle = "TestVue";
+	private int frameWidth = 1200, frameHeight = 800;
 	
-    public ViewFacade() {
-        super();
-    }
-	
-	public ViewFacade(String title, int width, int height) {
-		this.title = title;
-		this.width = width;
-		this.height = height;
+	public ViewFacade(Model model, ControllerKeyEvent controller) {
+		this.model = model;
+		this.controller = controller;
 		
-		createDisplay();
-		
+		frame = new JFrame(frameTitle);
+        frame.setSize(frameWidth,  frameHeight);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
 	}
+	
+	public void frame() throws Exception {
+		
+		frame.getContentPane().removeAll();
+		
+		for (Entity entity : model.getLevel().getTray().getBeings().values()) {
+			printEntity(entity);
+		}
+		
+		for (Entity entity: model.getLevel().getTray().getTiles().values()) {
+			printEntity(entity);
+		}
 
-	private void createDisplay() {
-		frame = new JFrame(title);
-		frame.setSize(width,  height);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-		
-		canvas = new Canvas();
-		canvas.setPreferredSize(new Dimension(width, height));
-		canvas.setMaximumSize(new Dimension(width, height));
-		canvas.setMinimumSize(new Dimension(width, height));
-		canvas.setFocusable(false);
-		
-		frame.add(canvas);
-		frame.pack();
-		
+		frame.repaint();
 	}
 	
-	public Canvas getCanvas(){
-		return canvas;	
+	private void printEntity(Entity entity) {
+		frame.add(new Component(entity));
+		frame.validate();
 	}
-	
-	public JFrame getFrame(){
-		return frame;
-	}
-	
+		
 	 @Override
 	    public final void displayMessage(final String message) {
 	        JOptionPane.showMessageDialog(null, message);

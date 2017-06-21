@@ -5,7 +5,7 @@ import Imodel.IMud;
 public class Mud extends Block implements IMud {
 	
 	public Mud() throws Exception {
-		super("Mud", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(16, 0));
+		super("Mud", "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(16, 0));
 	}
 	
 	@Override

@@ -51,7 +51,5 @@ public class Controller implements IController{
 		ControllerDAO.loadSelectedMap(database, mapID, getModel());
 		
 		database.closeDatabase();
-		
-		
 	}
 }

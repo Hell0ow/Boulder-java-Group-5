@@ -14,7 +14,7 @@ public class ControllerDB{
     private Statement  statement = null;
 	
 	
-    protected ControllerDB(String user, String password) throws Exception {
+    public ControllerDB(String user, String password) throws Exception {
 		
 		this.user = user;
 		this.password = password;
@@ -29,49 +29,49 @@ public class ControllerDB{
 	}
 	
     
-	protected void addPlayer(String playerName) throws SQLException{
+	public void addPlayer(String playerName) throws SQLException{
 		statement.executeUpdate("CALL addPlayer('" + playerName + "');");
 	}
 	   
 	 
-	protected ResultSet initPlayer(String playerName) throws SQLException{
+	public ResultSet initPlayer(String playerName) throws SQLException{
 		ResultSet result = statement.executeQuery("CALL initPlayer('" + playerName + "');");
     	return result;
 	}
 	    
 	    
-	protected ResultSet getExistingBlockTexture() throws SQLException{
+	public ResultSet getExistingBlockTexture() throws SQLException{
 	    ResultSet result = statement.executeQuery("CALL getBlockTexture();");
 	    return result;
 	}
 	    
 	    
-	protected ResultSet getExistingEntity() throws SQLException{
+	public ResultSet getExistingEntity() throws SQLException{
 		ResultSet result = statement.executeQuery("CALL getAllEntityName();");
 		return result;
 	}
 	    
 	    
-	protected ResultSet getBoundary (int mapID) throws SQLException{
+	public ResultSet getBoundary (int mapID) throws SQLException{
 		ResultSet result = statement.executeQuery("CALL getBoundary('" + mapID + "');");
 		return result;
 	}
 	    
 	    
-	protected ResultSet getBlock (int mapID) throws Exception{
+	public ResultSet getBlock (int mapID) throws Exception{
 		ResultSet result = statement.executeQuery("CALL getBlock('" + mapID + "');");
 		return result;
 	}
 	    
 	     
-	protected ResultSet getEntity (int mapID) throws Exception{
+	public ResultSet getEntity (int mapID) throws Exception{
 		ResultSet result = statement.executeQuery("CALL getEntity('" + mapID + "');");
 		return result;
 	
 	}
 	    
 	   
-	protected void closeDatabase() throws SQLException{
+	public void closeDatabase() throws SQLException{
 			statement.close();
 			connection.close();
 	}

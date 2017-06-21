@@ -1,15 +1,13 @@
 package controller;
 
 import Icontroller.IControllerKeyBoard;
-import Icontroller.IOrder;
-import Imodel.IModel;
 import model.Model;
 
-public class ControllerKeyBoard implements IControllerKeyBoard{
+public abstract class ControllerKeyBoard implements IControllerKeyBoard{
 	
-	private IModel model;
+	Model model = null;
 	
-	public ControllerKeyBoard(IModel model) throws Exception{
+	public ControllerKeyBoard(Model model) throws Exception{
 		this.model = model;
 	}
 	
@@ -50,13 +48,6 @@ public class ControllerKeyBoard implements IControllerKeyBoard{
 			break;
 			
 		}
-		return null;
-	}
-
-
-	@Override
-	public IModel getKeyEvent(IOrder EventKey) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

@@ -1,6 +1,6 @@
 package model;
 
-public interface IBlock {
+public interface IBlock extends IElement {
 
 	public boolean isBreakable();
 	

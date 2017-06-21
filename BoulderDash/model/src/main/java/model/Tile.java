@@ -2,7 +2,7 @@ package model;
 
 public class Tile extends Entity implements ITile {
 	
-	public Tile(Block block, Position position) {
+	public Tile(IBlock block, IPosition position) {
 		super(block, position);
 	}
 	

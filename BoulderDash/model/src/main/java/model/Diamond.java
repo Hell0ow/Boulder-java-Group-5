@@ -1,6 +1,8 @@
 package model;
 
-public class Diamond extends Block {
+import Imodel.IDiamond;
+
+public class Diamond extends Block implements IDiamond {
 	
 	public Diamond() throws Exception{
 		super("Diamond", 'D', "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(64, 0));

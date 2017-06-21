@@ -26,7 +26,7 @@ public interface ITray {
 	
 	public IBoundary getBoundary();
 	
-	public void setBoundary(IBoundary boundary);
+	public void setBoundary(IBoundary boundary) throws Exception;
 	
 	public ILevel getLevel();
 

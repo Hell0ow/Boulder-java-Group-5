@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 
 import javax.imageio.ImageIO;
 
-public class Element {
+import Imodel.IElement;
+
+public class Element implements IElement {
 	private String name;
 	public char texture; /*TEMP*/
 	

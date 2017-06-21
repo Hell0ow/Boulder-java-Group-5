@@ -1,6 +1,9 @@
 package model;
 
-public class Delimitations {
+import Imodel.IDelimitations;
+
+public class Delimitations implements IDelimitations {
+	
 	protected int xMin;
 	protected int xMax;
 	protected int yMin;

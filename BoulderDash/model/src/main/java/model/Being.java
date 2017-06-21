@@ -1,17 +1,20 @@
 package model;
 
-public abstract class Being extends Entity {
+import Imodel.IBeing;
+import Imodel.ICharacter;
+
+public abstract class Being extends Entity implements IBeing {
 	
 	protected Being(Character character, Position position) {
 		super(character, position);
 	}
 	
-	public Character getCharacter() {
-		return (Character) element;
+	public ICharacter getCharacter() {
+		return (ICharacter) element;
 	}
 	
 	public void move(Direction direction) throws Exception {
-		move(new Position(position).addition(direction));
+		move(new Position((Position) position).addition(direction));
 	}
 	
 	public void move(Position position) {}

@@ -6,5 +6,5 @@ package Imodel;import Icontroller.IOrder;public interface IModel {
 	
 	public void setPlayer(IPlayer player);
 	
-	public void cycle(IOrder order);
+	public void cycle(IOrder order) throws Exception;
 }

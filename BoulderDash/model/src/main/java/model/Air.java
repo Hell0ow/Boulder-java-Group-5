@@ -1,6 +1,8 @@
 package model;
 
-public class Air extends Block {
+import Imodel.IAir;
+
+public class Air extends Block implements IAir {
 	
 	public Air() throws Exception {
 		super("Air", ' ', "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(32, 0));

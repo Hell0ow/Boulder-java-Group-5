@@ -2,11 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
-<<<<<<< Updated upstream
-public class Model implements IModel{
-=======
-import contract.Direction;
-import contract.Order;
+import Imodel.IEnemy;
+import Imodel.IModel;
+import Imodel.IPosition;
+import Imodel.ITile;
 
 public class Model implements IModel {
 
@@ -32,55 +31,55 @@ public class Model implements IModel {
 		this.player = player;
 	}
 	
-	public void cycle(Order order) throws Exception {
+	public void cycle(IOrder order) throws Exception {
 		
-		switch(order) {
+		switch((Order) order) {
 			
 			case MOVE_UP:
 				
-				level.getTray().getHeroes().get(player.getId()).move(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.UP));
+				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.UP));
 				
 				break;
 			
 			case MOVE_RIGHT:
 				
-				level.getTray().getHeroes().get(player.getId()).move(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.RIGHT));
+				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.RIGHT));
 					
 				break;
 			
 			case MOVE_DOWN:
 				
-				level.getTray().getHeroes().get(player.getId()).move(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.DOWN));
+				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.DOWN));
 				
 				break;
 			
 			case MOVE_LEFT:
 				
-				level.getTray().getHeroes().get(player.getId()).move(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.LEFT));
+				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.LEFT));
 				
 				break;
 			
 			case DIG_UP:
 				
-				level.getTray().getTiles().get(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.UP)).dig();
+				level.getTray().getTiles().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.UP)).dig();
 				
 				break;
 			
 			case DIG_RIGHT:
 				
-				level.getTray().getTiles().get(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.RIGHT)).dig();
+				level.getTray().getTiles().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.RIGHT)).dig();
 				
 				break;
 			
 			case DIG_DOWN:
 				
-				level.getTray().getTiles().get(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.DOWN)).dig();
+				level.getTray().getTiles().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.DOWN)).dig();
 				
 				break;
 			
 			case DIG_LEFT:
 				
-				level.getTray().getTiles().get(new Position(level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.LEFT)).dig();
+				level.getTray().getTiles().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.LEFT)).dig();
 				
 				break;
 			
@@ -88,13 +87,13 @@ public class Model implements IModel {
 				break;
 		}
 		
-		for (Tile tile : new ArrayList<Tile>(level.getTray().getTiles().values())) {
+		for (ITile tile : new ArrayList<ITile>(level.getTray().getTiles().values())) {
 			if (tile.getBlock().isFallable()) {
 				tile.fall();
 			}
 		}
 		
-		for (Enemy enemy : level.getTray().getEnemies().values()) {
+		for (IEnemy enemy : level.getTray().getEnemies().values()) {
 			enemy.move();
 		}
 	}

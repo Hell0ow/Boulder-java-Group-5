@@ -1,6 +1,6 @@
 package Imodel;
 
-public interface IEnemy {
+public interface IEnemy extends IBeing {
 
 	public IDummy getDummy();
 	public void move() throws Exception;

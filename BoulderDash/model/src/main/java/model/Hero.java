@@ -5,7 +5,7 @@ import Imodel.IHero;
 import Imodel.IObjective;
 import Imodel.IPosition;
 
-public class Hero extends Being {
+public class Hero extends Being implements IHero {
 	
 	private Objective objective;
 	
@@ -13,7 +13,7 @@ public class Hero extends Being {
 		super(character, position);
 		this.objective = objective;
 		
-		objective.setHero(this);
+		objective.setHero((IHero) this);
 	}
 	
 	public IObjective getObjective() {

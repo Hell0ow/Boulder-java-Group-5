@@ -1,13 +1,12 @@
 package view;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import controller.IControllerKeyBoard;
 import model.IEntity;
 import model.IModel;
 
-public class ViewFacade implements IView {
+public class View implements IView {
 
 	private JFrame frame;
 	private IControllerKeyBoard controller;
@@ -15,7 +14,7 @@ public class ViewFacade implements IView {
 	private String frameTitle = "TestVue";
 	private int frameWidth = 1200, frameHeight = 800;
 	
-	public ViewFacade(IModel model, IControllerKeyBoard controller) {
+	public View(IModel model, IControllerKeyBoard controller) {
 		this.model = model;
 		this.controller = controller;
 		
@@ -46,10 +45,5 @@ public class ViewFacade implements IView {
 		frame.add(new Component(entity));
 		frame.validate();
 	}
-		
-	 @Override
-	    public final void displayMessage(final String message) {
-	        JOptionPane.showMessageDialog(null, message);
-	    }
 
 }

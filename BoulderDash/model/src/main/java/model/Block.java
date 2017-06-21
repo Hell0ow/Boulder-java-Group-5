@@ -4,8 +4,8 @@ import Imodel.IBlock;
 
 public abstract class Block extends Element implements IBlock {
 	
-	protected Block(String name, char texture, String path, Coordinates c) throws Exception {
-		super(name, texture, path, c);
+	protected Block(String name, String path, Coordinates c) throws Exception {
+		super(name, path, c);
 	}
 	
 	public boolean isBreakable() {

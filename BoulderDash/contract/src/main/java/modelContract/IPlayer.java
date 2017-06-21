@@ -1,4 +1,4 @@
-package model;
+package modelContract;
 
 public interface IPlayer {
 

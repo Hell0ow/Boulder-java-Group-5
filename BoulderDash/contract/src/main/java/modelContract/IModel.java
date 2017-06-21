@@ -1,4 +1,4 @@
-package model;import controller.IOrder;public interface IModel {
+package modelContract;import controller.IOrder;public interface IModel {
 
 	public ILevel getLevel();
 	

@@ -1,6 +1,6 @@
 package controller;
 
-import model.IModel;
+import modelContract.IModel;
 import view.IView;
 
 public interface IController{

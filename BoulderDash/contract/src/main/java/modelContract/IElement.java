@@ -1,4 +1,4 @@
-package model;
+package modelContract;
 
 import java.awt.image.BufferedImage;
 

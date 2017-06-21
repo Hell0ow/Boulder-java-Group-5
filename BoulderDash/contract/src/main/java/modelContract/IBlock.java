@@ -1,4 +1,4 @@
-package model;
+package modelContract;
 
 public interface IBlock extends IElement {
 

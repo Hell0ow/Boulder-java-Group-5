@@ -3,8 +3,9 @@ package view;
 import javax.swing.JFrame;
 
 import controller.IControllerKeyBoard;
-import model.IEntity;
-import model.IModel;
+import model.Entity;
+import modelContract.IEntity;
+import modelContract.IModel;
 
 public class View implements IView {
 

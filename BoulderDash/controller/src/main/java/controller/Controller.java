@@ -1,6 +1,6 @@
 package controller;
 
-import model.IModel;
+import modelContract.IModel;
 import view.IView;
 
 public class Controller implements IController{
@@ -44,8 +44,8 @@ public class Controller implements IController{
 		
 		ControllerDB database = Factory.createControllerDB();
 		
-		String playerName = Factory.createString(); // Demander a la vue le nom du joueur.
-		int mapID = 1; // Demander a la vue la carte.
+		String playerName = "SuperMan"; // Demander a la vue le nom du joueur.
+		int mapID = 4; // Demander a la vue la carte.
 		ControllerDAO.loadPlayer(database, playerName, getModel());
 		ControllerDAO.loadSelectedMap(database, mapID, getModel());
 		

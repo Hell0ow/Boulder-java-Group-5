@@ -1,5 +1,7 @@
 package model;
 
+import modelContract.IPlayer;
+
 public class Player implements IPlayer {
 	private Integer id;
 	private String name;

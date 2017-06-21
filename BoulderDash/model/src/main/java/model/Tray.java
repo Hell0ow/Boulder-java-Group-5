@@ -75,7 +75,7 @@ public class Tray {
 			throw new Exception();
 		}
 		
-		this.boundary = boundary;
+		this.boundary = (Boundary) boundary;
 	}
 	
 	public Level getLevel() {

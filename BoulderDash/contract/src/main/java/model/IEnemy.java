@@ -1,9 +1,9 @@
 package model;
 
-public interface IEnemy {
+public interface IEnemy extends IBeing {
 
 	public IDummy getDummy();
 	public void move() throws Exception;
-	public void move(IDirection direction) throws Exception;
+	public void move(Direction direction);
 	public void move(IPosition position);
 }

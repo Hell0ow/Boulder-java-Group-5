@@ -1,9 +1,11 @@
 package model;
 
-public interface IHero {
+public interface IHero extends IBeing {
 
 	public IObjective getObjective();
-	public void move(IDirection direction) throws Exception;
+	
+	public void move(Direction direction);
+	
 	public void move(IPosition position);
 	
 }

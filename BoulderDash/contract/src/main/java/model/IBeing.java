@@ -1,9 +1,9 @@
 package model;
 
-public interface IBeing {
+public interface IBeing extends IEntity {
 
 	public Character getCharacter();
-	public void move(IDirection direction) throws Exception;
+	public void move(Direction direction);
 	public void move(IPosition position);
 	
 }

@@ -61,7 +61,7 @@ public abstract class Factory {
 	}
 	
 	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
-		return (IBoundary) new Boundary((Tray) tray, (Delimitations) delimitations);
+		return (IBoundary) new Boundary((((ITray)tray, (IDelimiations) delimitations);
 	}
 	
 	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){
@@ -74,8 +74,8 @@ public abstract class Factory {
 		return null;
 	}
 	
- 	public static ITile createTile(Block iBlock, Position iPosition){
- 		return (ITile) new Tile(iBlock,  iPosition);
+ 	public static ITile createTile(IBlock iBlock, IPosition iPosition){
+ 		return new Tile(iBlock, (IPosition) iPosition);
  	}
  	
  	public static IPosition createPosition(ITray iTray, int a, int b){

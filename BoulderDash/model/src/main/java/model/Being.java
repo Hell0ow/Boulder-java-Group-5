@@ -1,5 +1,7 @@
 package model;
 
+import Imodel.IBeing;
+
 public abstract class Being extends Entity implements IBeing {
 	
 	protected Being(Character character, Position position) {

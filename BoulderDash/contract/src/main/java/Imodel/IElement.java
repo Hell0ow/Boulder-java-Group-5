@@ -10,5 +10,5 @@ public interface IElement {
 	
 	public int getWidth();
 	
-	public static int getHeight();
+	public int getHeight();
 }

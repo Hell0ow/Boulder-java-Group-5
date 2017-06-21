@@ -1,6 +1,8 @@
 package model;
 
-public class Coordinates {
+import Imodel.ICoordinates;
+
+public class Coordinates implements ICoordinates {
 	protected int x;
 	protected int y;
 	

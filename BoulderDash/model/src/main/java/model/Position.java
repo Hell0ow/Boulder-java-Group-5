@@ -1,5 +1,7 @@
 package model;
 
+import Imodel.IPosition;
+
 public class Position extends Coordinates {
 	private Tray tray;
 	
@@ -17,10 +19,10 @@ public class Position extends Coordinates {
 		tray = position.tray;
 	}
 
-	public Position copy(Position position) {
-		tray = position.tray;
-		x = position.x;
-		y = position.y;
+	public Position copy(IPosition position) {
+		tray = (Tray) position.getTray();
+		x = position.getX();
+		y = position.getY();
 		
 		return this;
 	}

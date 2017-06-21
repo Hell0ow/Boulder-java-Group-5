@@ -8,21 +8,20 @@ public class Tray {
 	private Level level;
 	private Integer id;
 
-	private Map<Position, Being> beings = new HashMap<Position, Being>();
-	private Map<Position, Enemy> enemies = new HashMap<Position, Enemy>();
-	private Map<Integer, Hero> heroes = new HashMap<Integer, Hero>();
-	private Map<Position, Tile> tiles = new HashMap<Position, Tile>();
+	private Map<IPosition, IBeing> beings = new HashMap<IPosition, IBeing>();
+	private Map<IPosition, IEnemy> enemies = new HashMap<IPosition, IEnemy>();
+	private Map<Integer, IHero> heroes = new HashMap<Integer, IHero>();
+	private Map<IPosition, ITile> tiles = new HashMap<IPosition, ITile>();
 	
 	public Tray(Level level, Integer id) throws Exception {
+		
 		this.level = level;
 		this.id = id;
-		
-		//TEMP
 		
 		boundary = new Boundary(this, 0, 4, 0, 4);
 	}
 	
-	public void addEnemy(Enemy enemy) {
+	public void addEnemy(IEnemy enemy) {
 		enemies.put(enemy.getPosition(), enemy);
 		beings.put(enemy.getPosition(), enemy);
 	}
@@ -32,11 +31,11 @@ public class Tray {
 		beings.remove(position);
 	}
 	
-	public Map<Position, Enemy> getEnemies() {
+	public Map<IPosition, IEnemy> getEnemies() {
 		return enemies;
 	}
 	
-	public void addHero(Hero hero) {
+	public void addHero(IHero hero) {
 		heroes.put(hero.getObjective().getPlayer().getId(), hero);
 		beings.put(hero.getPosition(), hero);
 	}
@@ -46,7 +45,7 @@ public class Tray {
 		beings.remove(position);
 	}
 	
-	public Map<Integer, Hero> getHeroes() {
+	public Map<Integer, IHero> getHeroes() {
 		return heroes;
 	}
 	
@@ -58,11 +57,11 @@ public class Tray {
 		tiles.remove(position);
 	}
 	
-	public Map<Position, Tile> getTiles() {
+	public Map<IPosition, ITile> getTiles() {
 		return tiles;
 	}
 	
-	public Map<Position, Being> getBeings() {
+	public Map<IPosition, IBeing> getBeings() {
 		return beings;
 	}
 	
@@ -70,7 +69,8 @@ public class Tray {
 		return new Boundary(boundary);
 	}
 	
-	public void setBoundary(Boundary boundary) throws Exception {
+	public void setBoundary(IBoundary boundary) throws Exception {
+		
 		if (tiles.size() != 0 || beings.size() != 0) {
 			throw new Exception();
 		}

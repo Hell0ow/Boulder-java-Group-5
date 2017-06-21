@@ -1,23 +1,23 @@
 package model;
 
 public abstract class Entity {
-	protected Position position;
-	protected Element element;
+	protected IPosition position;
+	protected IElement element;
 	
-	protected Entity(Element element, Position position) {
-		this.element = element;
+	protected Entity(IBlock block, IPosition position) {
+		this.element = block;
 		this.position = position;
 	}
 	
-	public Element getElement() {
+	public IElement getElement() {
 		return element;
 	}
 	
-	public Position getPosition() {
+	public IPosition getPosition() {
 		return position;
 	}
 	
-	public void setPosition(Position position) {
+	public void setPosition(IPosition position) {
 		
 		this.position.copy(position);
 	}

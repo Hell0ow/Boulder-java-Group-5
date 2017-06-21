@@ -7,23 +7,19 @@ public class Level implements ILevel {
 	private Model model;
 	private Objective objective;
 	private Tray tray;
-	public Level(Model model) throws Exception {
-		this.model = model;
-		tray = new Tray(this, 0);
+	public Level(Model model) throws Exception {		
+		this.model = model;
+		tray = new Tray(this, 0);
 	}
-	
-	public Map<String, IBlock> getBlocks() {
-		return blocks;
+	public Map<String, IBlock> getBlocks() {
+		return blocks;
 	}
-	
-	public void addBlock(Block block) {
-		blocks.put(block.getName(), block);
+	public void addBlock(IBlock block) {
+		blocks.put(block.getName(), block);
 	}
-	
-	public Map<String, ICharacter> getCharacters() {
-		return characters;
+	public Map<String, ICharacter> getCharacters() {
+		return characters;
 	}
-	
 	public void addCharacter(ICharacter character) {
 		characters.put(character.getName(), character);
 	}
@@ -35,5 +31,5 @@ public class Level implements ILevel {
 	}
 	public ITray getTray() {
 		return (ITray) tray;
-	}
+	}
 }

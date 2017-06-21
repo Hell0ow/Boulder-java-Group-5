@@ -6,5 +6,5 @@ public interface ITile extends IEntity {
 	
 	public boolean dig();
 	
-	public boolean fall();
+	public boolean fall() throws Exception;
 }

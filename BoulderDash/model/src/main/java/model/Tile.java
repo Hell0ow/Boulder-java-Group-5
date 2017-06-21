@@ -6,8 +6,8 @@ public class Tile extends Entity implements ITile {
 		super(block, position);
 	}
 	
-	public Block getBlock() {
-		return (Block) element;
+	public IBlock getBlock() {
+		return (IBlock) element;
 	}
 	
 	public boolean dig() {

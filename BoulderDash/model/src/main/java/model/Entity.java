@@ -8,8 +8,8 @@ public abstract class Entity {
 	protected Position position;
 	protected Element element;
 	
-	protected Entity(Block block, Position position) {
-		this.element = block;
+	protected Entity(Element element, Position position) {
+		this.element = element;
 		this.position = position;
 	}
 	

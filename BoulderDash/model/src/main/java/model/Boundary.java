@@ -1,6 +1,8 @@
 package model;
 
-public class Boundary extends Delimitations {
+import Imodel.IBoundary;
+
+public class Boundary extends Delimitations implements IBoundary {
 	private Tray tray;
 	
 	public Boundary(Tray tray, int xMin, int xMax, int yMin, int yMax) throws Exception {

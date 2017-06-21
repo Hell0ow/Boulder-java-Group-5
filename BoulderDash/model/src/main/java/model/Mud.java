@@ -1,6 +1,8 @@
 package model;
 
-public class Mud extends Block {
+import Imodel.IMud;
+
+public class Mud extends Block implements IMud {
 	
 	public Mud() throws Exception {
 		super("Mud", 'M', "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(16, 0));

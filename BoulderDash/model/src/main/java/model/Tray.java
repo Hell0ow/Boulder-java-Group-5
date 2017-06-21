@@ -3,7 +3,16 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tray {
+import Imodel.IBeing;
+import Imodel.IBoundary;
+import Imodel.IEnemy;
+import Imodel.IHero;
+import Imodel.IPosition;
+import Imodel.ITile;
+import Imodel.ITray;
+
+public class Tray implements ITray {
+	
 	private Boundary boundary;
 	private Level level;
 	private Integer id;
@@ -26,7 +35,7 @@ public class Tray {
 		beings.put(enemy.getPosition(), enemy);
 	}
 	
-	public void removeEnemy(Position position) {
+	public void removeEnemy(IPosition position) {
 		enemies.remove(position);
 		beings.remove(position);
 	}
@@ -40,7 +49,7 @@ public class Tray {
 		beings.put(hero.getPosition(), hero);
 	}
 	
-	public void removeHero(Position position) {
+	public void removeHero(IPosition position) {
 		heroes.remove(position);
 		beings.remove(position);
 	}
@@ -49,11 +58,11 @@ public class Tray {
 		return heroes;
 	}
 	
-	public void addTile(Tile tile) {
+	public void addTile(ITile tile) {
 		tiles.put(tile.getPosition(), tile);
 	}
 	
-	public void removeTile(Position position) {
+	public void removeTile(IPosition position) {
 		tiles.remove(position);
 	}
 	

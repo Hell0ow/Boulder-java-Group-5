@@ -1,6 +1,10 @@
 package model;
 
-public class Enemy extends Being {
+import Imodel.IDummy;
+import Imodel.IEnemy;
+import Imodel.IPosition;
+
+public class Enemy extends Being implements IEnemy {
 	private Direction direction;
 	
 	public Enemy(Dummy dummy, Direction direction, Position position) {
@@ -9,8 +13,8 @@ public class Enemy extends Being {
 		this.direction = direction;
 	}
 	
-	public Dummy getDummy() {
-		return (Dummy) element;
+	public IDummy getDummy() {
+		return (IDummy) element;
 	}
 	
 	private Direction intelligence() throws Exception {
@@ -53,11 +57,11 @@ public class Enemy extends Being {
 	@Override
 	public void move(Position position) {
 		
-		if (!position.getTray().getTiles().get(position).getBlock().isDense() && position.getTray().getBeings().get(position) == null) {
+		if (!position.getTray().getTiles().get((IPosition) position).getBlock().isDense() && position.getTray().getBeings().get((IPosition) position) == null) {
 			
 			this.position.getTray().removeEnemy(this.position);
-			this.position.copy(position);
-			position.getTray().addEnemy(this);
+			this.position.copy((IPosition) position);
+			position.getTray().addEnemy((IEnemy) this);
 		}
 	}
 }

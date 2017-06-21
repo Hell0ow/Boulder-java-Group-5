@@ -1,6 +1,8 @@
 package model;
 
-public class Rock extends Block {
+import Imodel.IRock;
+
+public class Rock extends Block implements IRock {
 	
 	public Rock() throws Exception {
 		super("Rock", 'R', "C:/Users/MMoul/desktop/Blocks.png", new Coordinates(48, 0));

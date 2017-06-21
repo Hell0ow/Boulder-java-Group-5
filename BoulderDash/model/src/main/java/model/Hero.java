@@ -1,6 +1,11 @@
 package model;
 
+import Imodel.IHero;
+import Imodel.IObjective;
+import Imodel.IPosition;
+
 public class Hero extends Being {
+	
 	private Objective objective;
 	
 	public Hero(Character character, Objective objective, Position position) {
@@ -10,8 +15,8 @@ public class Hero extends Being {
 		objective.setHero(this);
 	}
 	
-	public Objective getObjective() {
-		return objective;
+	public IObjective getObjective() {
+		return (IObjective) objective;
 	}
 	
 	@Override
@@ -20,15 +25,15 @@ public class Hero extends Being {
 	}
 	
 	@Override
-	public void move(Position position) {
+	public void move(IPosition position) {
 		
-		position.getTray().getTiles().get(position).dig();
+		position.getTray().getTiles().get((IPosition) position).dig();
 		
 		if (!position.getTray().getTiles().get(position).getBlock().isDense() && position.getTray().getBeings().get(position) == null) {
 			
-			this.position.getTray().removeEnemy(this.position);
+			this.position.getTray().removeEnemy((IPosition) this.position);
 			this.position.copy(position);
-			position.getTray().addHero(this);
+			position.getTray().addHero((IHero) this);
 		}
 	}
 }

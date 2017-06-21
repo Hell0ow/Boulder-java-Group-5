@@ -1,3 +1,6 @@
 package Imodel;
 
-public interface ICharacter extends IElement {}
+public interface ICharacter extends IElement {
+	
+	
+}

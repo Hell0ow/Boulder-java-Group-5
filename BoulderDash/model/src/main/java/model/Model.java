@@ -2,9 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
-import contract.Direction;
-import contract.Order;
-import controller.IOrder;
+import Imodel.IEnemy;
+import Imodel.IModel;
+import Imodel.IPosition;
+import Imodel.ITile;
 
 public class Model implements IModel {
 

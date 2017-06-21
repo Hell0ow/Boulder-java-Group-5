@@ -1,5 +1,3 @@
 package model;
 
-public interface ICharacter {
-
-}
+public interface ICharacter extends IElement {}

@@ -1,21 +1,14 @@
 package model;
-
-import java.util.HashMap;
+import java.util.HashMap;
 import java.util.Map;
-
-import contract.Direction;
-
 public class Level implements ILevel {
-	private Map<String, IBlock> blocks = new HashMap<String, Block>();
-	private Map<String, ICharacter> characters = new HashMap<String, Character>();
-	
-	private Model model;
-	private Objective objective;
+	private Map<String, IBlock> blocks = new HashMap<String, IBlock>();
+	private Map<String, ICharacter> characters = new HashMap<String, ICharacter>();
+	private Model model;
+	private Objective objective;
 	private Tray tray;
-	
 	public Level(Model model) throws Exception {
 		this.model = model;
-
 		tray = new Tray(this, 0);
 	}
 	
@@ -31,19 +24,16 @@ public class Level implements ILevel {
 		return characters;
 	}
 	
-	public void addCharacter(Character character) {
-		characters.put(character.getName(), character);
+	public void addCharacter(ICharacter character) {
+		characters.put(character.getName(), character);
 	}
-	
-	public IObjective getObjective() {
-		return objective;
+	public IObjective getObjective() {
+		return (IObjective) objective;
 	}
-	
-	public void setObjective(Objective objective) {
-		this.objective = objective;
+	public void setObjective(IObjective objective) {
+		this.objective = (Objective) objective;
 	}
-	
-	public ITray getTray() {
-		return tray;
+	public ITray getTray() {
+		return (ITray) tray;
 	}
 }

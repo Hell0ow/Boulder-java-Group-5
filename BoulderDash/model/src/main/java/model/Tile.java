@@ -1,6 +1,7 @@
 package model;
 
-public class Tile extends Entity {
+public class Tile extends Entity implements ITile {
+	
 	public Tile(Block block, Position position) {
 		super(block, position);
 	}

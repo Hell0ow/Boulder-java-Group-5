@@ -3,19 +3,8 @@ package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Imodel.IBlock;
-import Imodel.IBoundary;
-import Imodel.ICharacter;
-import Imodel.IDirection;
-import Imodel.IDummy;
-import Imodel.IEnemy;
-import Imodel.IHero;
-import Imodel.IHuman;
-import Imodel.IModel;
-import Imodel.IPlayer;
-import Imodel.ITray;
+import Imodel.*;
 import model.Direction;
-import model.Tray;
 
 
 public abstract class ControllerDAO {

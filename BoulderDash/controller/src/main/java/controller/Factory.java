@@ -1,9 +1,10 @@
 package controller;
 
-import modelContract.*;
+import Imodel.*;
 import model.*;
 import model.Character;
-import view.IView;
+//import model.Character;
+import Iview.*;
 import view.View;
 
 public abstract class Factory {
@@ -60,7 +61,7 @@ public abstract class Factory {
 	}
 	
 	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
-		return (IBoundary) new Boundary(((tray, delimitations);
+		return (IBoundary) new Boundary((((ITray)tray, (IDelimiations) delimitations);
 	}
 	
 	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){
@@ -73,13 +74,13 @@ public abstract class Factory {
 		return null;
 	}
 	
- 	public static ITile createTile(IBlock iBlock, Position position){
- 		return new Tile(iBlock, (IPosition) position);
+ 	public static ITile createTile(IBlock iBlock, IPosition iPosition){
+ 		return new Tile(iBlock, (IPosition) iPosition);
  	}
  	
- 	public static IPosition createPosition(Tray tray, int a, int b){
+ 	public static IPosition createPosition(ITray iTray, int a, int b){
  		try {
-			return (IPosition) new Position(tray, a, b);
+			return (IPosition) new Position((Tray) iTray, a, b);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,12 +88,12 @@ public abstract class Factory {
  		return null;
  	}
  	
- 	public static IHero createHero(IHuman iHuman, IObjective iObjective, Position position){
- 		return (IHero) new Hero((Character) iHuman, (Objective) iObjective, position);
+ 	public static IHero createHero(IHuman iHuman, IObjective iObjective, IPosition iPosition){
+ 		return (IHero) new Hero((Character) iHuman, (Objective) iObjective, (Position) iPosition);
  	}
  	
- 	public static IEnemy createEnemy(IDummy iDummy, Direction direction, Position position){
- 		return (IEnemy) new Enemy((Dummy) iDummy, direction, position);
+ 	public static IEnemy createEnemy(IDummy iDummy, Direction direction, IPosition iPosition){
+ 		return (IEnemy) new Enemy((Dummy) iDummy, direction, (Position) iPosition);
  	}
  	
  	public static IDiamond createDiamond() throws Exception{

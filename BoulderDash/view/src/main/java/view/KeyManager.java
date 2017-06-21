@@ -1,15 +1,16 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import Icontroller.*;
 import java.awt.event.KeyListener;
 
-import Icontroller.IController;
+import Icontroller.IControllerKeyBoard;
 
 public class KeyManager implements KeyListener{
 
 	private boolean[] keys;
 	
-	IController controler =  new Controller();
+	IControllerKeyBoard controller =  new ControllerKeyBoard();
 	
 	public KeyManager() {
 		keys = new boolean[256];
@@ -17,7 +18,7 @@ public class KeyManager implements KeyListener{
 		
 	public void getKeyPressed(){
 		if(keys[KeyEvent.VK_Z])
-			return controller.getKeyEvent(MOVE_UP);
+			return controller.getKeyEvent(Order.MOVE_UP);
 		else if(keys[KeyEvent.VK_S])
 			return controller.getKeyEvent(MOVE_DOWN);
 		else if(keys[KeyEvent.VK_Q])

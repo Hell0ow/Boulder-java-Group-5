@@ -4,7 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Imodel.*;
+import model.Block;
 import model.Direction;
+import model.Position;
+import model.Tray;
 
 
 public abstract class ControllerDAO {
@@ -121,7 +124,7 @@ public abstract class ControllerDAO {
 	    		X = result.getInt("X_block");
 	    		Y = result.getInt("Y_block");
 	    		texture = result.getString("Name_block");
-	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition((ITray) iModel.getLevel().getTray(), X, Y)));
+	    		iModel.getLevel().getTray().addTile(Factory.createTile((Block) iModel.getLevel().getBlocks().get(texture), (Position) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
 	    	}
 	    	
 	    	
@@ -133,10 +136,10 @@ public abstract class ControllerDAO {
 	    		entity = result.getString("Name_entity");
 	    		switch(entity){
 	    		case "Human":
-	    			iModel.getLevel().getTray().addHero((IHero) Factory.createHero((IHuman) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().addHero((IHero) Factory.createHero((IHuman) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
 	    			break;
 	    		default:	
-	    			iModel.getLevel().getTray().addEnemy((IEnemy) Factory.createEnemy((IDummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().addEnemy((IEnemy) Factory.createEnemy((IDummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
 	    		}
 	    	}
 		}

@@ -11,14 +11,14 @@ import Iview.IView;
 public class View implements IView {
 
 	private JFrame frame;
-	private IControllerKeyBoard controller;
+	//private IControllerKeyBoard controller;
 	private IModel model;
 	private String frameTitle = "TestVue";
 	private int frameWidth = 1200, frameHeight = 800;
 	
-	public View(IModel model, IControllerKeyBoard controller) {
+	public View(IModel model/*, IControllerKeyBoard controller*/) {
 		this.model = model;
-		this.controller = controller;
+		//this.controller = controller;
 		
 		frame = new JFrame(frameTitle);
         frame.setSize(frameWidth,  frameHeight);

@@ -8,7 +8,7 @@ public class Level implements ILevel {
 	private Objective objective;
 	private Tray tray;
 	public Level(Model model) throws Exception {		
-		this.model = model;
+		this.model = model;		setObjective(new Objective((Player) model.getPlayer(), 25));
 		tray = new Tray(this, 0);
 	}
 	public Map<String, IBlock> getBlocks() {

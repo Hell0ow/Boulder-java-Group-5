@@ -4,8 +4,6 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import model.Entity;
-
 public class Component extends JPanel {
 	
 	Entity entity;

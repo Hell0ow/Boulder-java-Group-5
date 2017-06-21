@@ -1,5 +1,6 @@
 package model;
 
+import Imodel.IDirection;
 import Imodel.IPosition;
 
 public class Position extends Coordinates {
@@ -81,9 +82,9 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Position addition(Direction direction) throws Exception {
+	public Position addition(IDirection direction) throws Exception {
 		
-		switch (direction) {
+		switch ((Direction) direction) {
 			case UP:
 				y -= 1;
 				break;
@@ -116,8 +117,8 @@ public class Position extends Coordinates {
 		return this;
 	}
 	
-	public Position substraction(Direction direction) throws Exception {
-		switch (direction) {
+	public Position substraction(IDirection direction) throws Exception {
+		switch ((Direction) direction) {
 			case UP:
 				y += 1;
 				break;

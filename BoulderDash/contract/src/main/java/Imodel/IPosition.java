@@ -17,11 +17,11 @@ public interface IPosition extends ICoordinates {
 
 	public IPosition addition(ICoordinates coordinates);
 	
-	public IPosition addition(Direction direction);
+	public IPosition addition(IDirection direction);
 	
 	public IPosition substraction(ICoordinates coordinates);
 	
-	public IPosition substraction(Direction direction);
+	public IPosition substraction(IDirection direction);
 	
 	public ITray getTray();
 }

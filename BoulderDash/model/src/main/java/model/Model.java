@@ -31,9 +31,9 @@ public class Model implements IModel {
 		this.player = player;
 	}
 	
-	public void cycle(Order order) throws Exception {
+	public void cycle(IOrder order) throws Exception {
 		
-		switch(order) {
+		switch((Order) order) {
 			
 			case MOVE_UP:
 				

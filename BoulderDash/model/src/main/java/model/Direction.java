@@ -1,6 +1,8 @@
 package model;
 
-public enum Direction {
+import Imodel.IDirection;
+
+public enum Direction implements IDirection {
 	UP, RIGHT, DOWN, LEFT;
 	
 	public static void next(Direction direction) {

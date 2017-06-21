@@ -1,5 +1,6 @@
 package model;
 
+import Imodel.IDirection;
 import Imodel.IHero;
 import Imodel.IObjective;
 import Imodel.IPosition;
@@ -20,7 +21,7 @@ public class Hero extends Being {
 	}
 	
 	@Override
-	public void move(Direction direction) throws Exception {
+	public void move(IDirection direction) throws Exception {
 		move(new Position(position).addition(direction));
 	}
 	

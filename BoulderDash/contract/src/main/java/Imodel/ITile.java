@@ -1,4 +1,4 @@
-package model;
+package Imodel;
 
 public interface ITile extends IEntity {
 	

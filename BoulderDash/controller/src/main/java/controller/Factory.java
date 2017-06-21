@@ -1,5 +1,6 @@
 package controller;
 
+import modelContract.*;
 import model.*;
 import model.Character;
 import view.IView;
@@ -36,9 +37,9 @@ public abstract class Factory {
 	
 	
 	// ----- Model Object ----- //
-	public static Model createModel(){
+	public static IModel createModel(){
 			try {
-				return new Model();
+				return (IModel) new Model();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -46,25 +47,25 @@ public abstract class Factory {
 			return null;
 		}
 	
-	public static Human createHuman() throws Exception{
-		return new Human();
+	public static IHuman createHuman() throws Exception{
+		return (IHuman) new Human();
 	}
 	
-	public static Human createDummy() throws Exception{
-		return new Human();
+	public static IHuman createDummy() throws Exception{
+		return (IHuman) new Human();
 	}
 	
-	public static Player createPlayer(int idPlayer, String playerName){
-		 return new Player(idPlayer, playerName);
+	public static IPlayer createPlayer(int idPlayer, String playerName){
+		 return (IPlayer) new Player(idPlayer, playerName);
 	}
 	
-	public static Boundary createBoundary(Tray tray, Delimitations delimitations){
-		return new Boundary(tray, delimitations);
+	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
+		return (IBoundary) new Boundary(((tray, delimitations);
 	}
 	
-	public static Boundary createBoundary(Tray tray, int a, int b, int c, int d){
+	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){
 		try {
-			return new Boundary(tray, a, b, c, d);
+			return (IBoundary) new Boundary((Tray) iTray, a, b, c, d);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,13 +73,13 @@ public abstract class Factory {
 		return null;
 	}
 	
- 	public static Tile createTile(Block block, Position position){
- 		return new Tile(block, position);
+ 	public static ITile createTile(IBlock iBlock, Position position){
+ 		return new Tile(iBlock, (IPosition) position);
  	}
  	
- 	public static Position createPosition(Tray tray, int a, int b){
+ 	public static IPosition createPosition(Tray tray, int a, int b){
  		try {
-			return new Position(tray, a, b);
+			return (IPosition) new Position(tray, a, b);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,32 +87,32 @@ public abstract class Factory {
  		return null;
  	}
  	
- 	public static Hero createHero(Character character, Objective objective, Position position){
- 		return new Hero(character, objective, position);
+ 	public static IHero createHero(IHuman iHuman, IObjective iObjective, Position position){
+ 		return (IHero) new Hero((Character) iHuman, (Objective) iObjective, position);
  	}
  	
- 	public static Enemy createEnemy(Dummy dummy, Direction direction, Position position){
- 		return new Enemy(dummy, direction, position);
+ 	public static IEnemy createEnemy(IDummy iDummy, Direction direction, Position position){
+ 		return (IEnemy) new Enemy((Dummy) iDummy, direction, position);
  	}
  	
- 	public static Diamond createDiamond() throws Exception{
- 		return new Diamond();
+ 	public static IDiamond createDiamond() throws Exception{
+ 		return (IDiamond) new Diamond();
  	}
  	
- 	public static Rock createRock() throws Exception{
- 		return new Rock();
+ 	public static IRock createRock() throws Exception{
+ 		return (IRock) new Rock();
  	}
  	
- 	public static Air createAir() throws Exception{
-		return new Air();
+ 	public static IAir createAir() throws Exception{
+		return (IAir) new Air();
 	}
  	
- 	public static Mud createMud() throws Exception{
- 		return new Mud();
+ 	public static IMud createMud() throws Exception{
+ 		return (IMud) new Mud();
  	}
  	
- 	public static Wall createWall() throws Exception{
- 		return new Wall();
+ 	public static IWall createWall() throws Exception{
+ 		return (IWall) new Wall();
  	}
 	// ------------------------ //
 	
@@ -124,6 +125,8 @@ public abstract class Factory {
 			return new View(model, controllerKey);
 		}
 	// ------------------------ //
+
+
 
 
 

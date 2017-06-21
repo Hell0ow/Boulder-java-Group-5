@@ -1,4 +1,4 @@
-package model;import controller.IOrder;public interface IModel {
+package Imodel;import Icontroller.IOrder;public interface IModel {
 
 	public ILevel getLevel();
 	

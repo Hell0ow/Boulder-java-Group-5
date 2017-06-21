@@ -2,9 +2,11 @@ package view;
 
 import javax.swing.JFrame;
 
-import controller.IControllerKeyBoard;
-import model.IEntity;
-import model.IModel;
+import Icontroller.IControllerKeyBoard;
+import Imodel.IBeing;
+import Imodel.IEntity;
+import Imodel.IModel;
+import Iview.IView;
 
 public class View implements IView {
 
@@ -30,18 +32,18 @@ public class View implements IView {
 		
 		frame.getContentPane().removeAll();
 		
-		for (IEntity entity : model.getLevel().getTray().getBeings().values()) {
-			printEntity(entity);
+		for (IBeing being : model.getLevel().getTray().getBeings().values()) {
+			printEntity((IEntity) being);
 		}
 		
-		for (Entity entity: model.getLevel().getTray().getTiles().values()) {
+		for (IEntity entity: model.getLevel().getTray().getTiles().values()) {
 			printEntity(entity);
 		}
 
 		frame.repaint();
 	}
 	
-	private void printEntity(Entity entity) {
+	private void printEntity(IEntity entity) {
 		frame.add(new Component(entity));
 		frame.validate();
 	}

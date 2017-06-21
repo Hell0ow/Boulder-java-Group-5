@@ -3,14 +3,20 @@ package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Block;
-import model.Character;
+import Imodel.IBlock;
+import Imodel.IBoundary;
+import Imodel.ICharacter;
+import Imodel.IDirection;
+import Imodel.IDummy;
+import Imodel.IEnemy;
+import Imodel.IHero;
+import Imodel.IHuman;
+import Imodel.IModel;
+import Imodel.IPlayer;
+import Imodel.ITray;
 import model.Direction;
-import model.Dummy;
-import model.Human;
-import model.IModel;
-import model.Model;
-import model.Player;
+import model.Tray;
+
 
 public abstract class ControllerDAO {
 
@@ -26,7 +32,7 @@ public abstract class ControllerDAO {
 					idPlayer = result.getInt("ID_player");
 				}
 				
-				Player actualPlayer = Factory.createPlayer(idPlayer, playerName);
+				IPlayer actualPlayer = Factory.createPlayer(idPlayer, playerName);
 				iModel.setPlayer(actualPlayer);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -36,7 +42,7 @@ public abstract class ControllerDAO {
 		
 		
 		protected static void loadEntity(ControllerDB database, IModel iModel) throws Exception{
-			Character entityType = Factory.createHuman();
+			ICharacter entityType = (ICharacter) Factory.createHuman();
 	    	int getID = 0;
 	    	ResultSet result = database.getExistingEntity();
 	    	
@@ -44,38 +50,38 @@ public abstract class ControllerDAO {
 	    		getID = result.getInt("ID_typeEntity");
 	    		switch(getID){
 	    		case 1:
-	    			entityType = Factory.createHuman();
+	    			entityType = (ICharacter) Factory.createHuman();
 	    			break;
 	    		case 2:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 3:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 4:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 5:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 6:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 7:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		default:
 	    		}
 	    			
 	    	}
-	    	iModel.getLevel().addCharacter(entityType);
+	    	iModel.getLevel().addCharacter((ICharacter) entityType);
 	    	
 		}
 	    
 		
 		
 		protected static void loadBlock(ControllerDB database, IModel iModel) throws Exception{
-			Block textureType = Factory.createAir();
+			IBlock textureType = (IBlock) Factory.createAir();
 	    	int getID = 0;
 	    	ResultSet result = database.getExistingBlockTexture();
 	    	
@@ -83,23 +89,23 @@ public abstract class ControllerDAO {
 	    		getID = result.getInt("ID_typeBlock");
 	    		switch(getID){
 	    		case 1:
-	    			textureType = Factory.createDiamond();
+	    			textureType = (IBlock) Factory.createDiamond();
 	    			break;
 	    		case 2:
-	    			textureType = Factory.createRock();
+	    			textureType = (IBlock) Factory.createRock();
 	    			break;
 	    		case 3:
-	    			textureType = Factory.createMud();
+	    			textureType = (IBlock) Factory.createMud();
 	    			break;
 	    		case 4:
-	    			textureType = Factory.createWall();
+	    			textureType = (IBlock) Factory.createWall();
 	    			break;
 	    		case 5:
-	    			textureType = Factory.createAir();
+	    			textureType = (IBlock) Factory.createAir();
 	    			break;
 	    		}
 	    	}
-	    	iModel.getLevel().addBlock(textureType);	
+	    	iModel.getLevel().addBlock((IBlock) textureType);	
 		}
 		
 		
@@ -117,7 +123,7 @@ public abstract class ControllerDAO {
 	    		Y_max = result.getInt("Ymax_map");
 	    		Y_min = result.getInt("Ymin_map");
 	    	}
-			iModel.getLevel().getTray().setBoundary(Factory.createBoundary(iModel.getLevel().getTray(), X_min, X_max, Y_min, Y_max));
+			iModel.getLevel().getTray().setBoundary((IBoundary) Factory.createBoundary((ITray) iModel.getLevel().getTray(), X_min, X_max, Y_min, Y_max));
 
 	    	
 	    	//Add block for the selected map.
@@ -126,7 +132,7 @@ public abstract class ControllerDAO {
 	    		X = result.getInt("X_block");
 	    		Y = result.getInt("Y_block");
 	    		texture = result.getString("Name_block");
-	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
+	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition((ITray) iModel.getLevel().getTray(), X, Y)));
 	    	}
 	    	
 	    	
@@ -138,10 +144,10 @@ public abstract class ControllerDAO {
 	    		entity = result.getString("Name_entity");
 	    		switch(entity){
 	    		case "Human":
-	    			iModel.getLevel().getTray().addHero(Factory.createHero((Human) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().addHero((IHero) Factory.createHero((IHuman) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
 	    			break;
 	    		default:	
-	    			iModel.getLevel().getTray().addEnemy(Factory.createEnemy((Dummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().addEnemy((IEnemy) Factory.createEnemy((IDummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
 	    		}
 	    	}
 		}

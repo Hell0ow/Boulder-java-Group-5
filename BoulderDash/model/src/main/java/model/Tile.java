@@ -1,5 +1,9 @@
 package model;
 
+import Imodel.IBlock;
+import Imodel.IPosition;
+import Imodel.ITile;
+
 public class Tile extends Entity implements ITile {
 	
 	public Tile(IBlock block, IPosition position) {

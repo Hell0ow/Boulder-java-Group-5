@@ -1,7 +1,7 @@
-package controller;
+package Icontroller;
 
-import model.IModel;
-import view.IView;
+import Imodel.IModel;
+import Iview.IView;
 
 public interface IController{
 	

@@ -4,11 +4,13 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import Imodel.IEntity;
+
 public class Component extends JPanel {
 	
-	Entity entity;
+	IEntity entity;
 	
-	public Component(Entity entity) {
+	public Component(IEntity entity) {
 		super();
 		
 		this.entity = entity;

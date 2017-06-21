@@ -2,10 +2,11 @@ package view;
 
 import javax.swing.JFrame;
 
-import controller.IControllerKeyBoard;
-import modelContract.IBeing;
-import modelContract.IEntity;
-import modelContract.IModel;
+import Icontroller.IControllerKeyBoard;
+import Imodel.IBeing;
+import Imodel.IEntity;
+import Imodel.IModel;
+import Iview.IView;
 
 public class View implements IView {
 

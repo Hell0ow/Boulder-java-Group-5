@@ -3,6 +3,7 @@ package view;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import controller.Controller;
 import controller.IController;
 
 public class KeyManager implements KeyListener{

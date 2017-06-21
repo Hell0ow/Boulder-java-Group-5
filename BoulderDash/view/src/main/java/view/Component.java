@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import modelContract.IEntity;
+import Imodel.IEntity;
 
 public class Component extends JPanel {
 	

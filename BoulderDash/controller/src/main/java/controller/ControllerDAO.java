@@ -3,18 +3,19 @@ package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Imodel.IBlock;
+import Imodel.IBoundary;
+import Imodel.ICharacter;
+import Imodel.IDirection;
+import Imodel.IDummy;
+import Imodel.IEnemy;
+import Imodel.IHero;
+import Imodel.IHuman;
+import Imodel.IModel;
+import Imodel.IPlayer;
+import Imodel.ITray;
 import model.Direction;
-import modelContract.IBlock;
-import modelContract.IBoundary;
-import modelContract.ICharacter;
-import modelContract.IDirection;
-import modelContract.IDummy;
-import modelContract.IEnemy;
-import modelContract.IHero;
-import modelContract.IHuman;
-import modelContract.IModel;
-import modelContract.IPlayer;
-import modelContract.ITray;
+import model.Tray;
 
 
 public abstract class ControllerDAO {
@@ -41,7 +42,7 @@ public abstract class ControllerDAO {
 		
 		
 		protected static void loadEntity(ControllerDB database, IModel iModel) throws Exception{
-			ICharacter entityType = Factory.createHuman();
+			ICharacter entityType = (ICharacter) Factory.createHuman();
 	    	int getID = 0;
 	    	ResultSet result = database.getExistingEntity();
 	    	
@@ -49,25 +50,25 @@ public abstract class ControllerDAO {
 	    		getID = result.getInt("ID_typeEntity");
 	    		switch(getID){
 	    		case 1:
-	    			entityType = Factory.createHuman();
+	    			entityType = (ICharacter) Factory.createHuman();
 	    			break;
 	    		case 2:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 3:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 4:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 5:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 6:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		case 7:
-	    			entityType = Factory.createDummy();
+	    			entityType = (ICharacter) Factory.createDummy();
 	    			break;
 	    		default:
 	    		}
@@ -131,7 +132,7 @@ public abstract class ControllerDAO {
 	    		X = result.getInt("X_block");
 	    		Y = result.getInt("Y_block");
 	    		texture = result.getString("Name_block");
-	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition(iModel.getLevel().getTray(), X, Y)));
+	    		iModel.getLevel().getTray().addTile(Factory.createTile(iModel.getLevel().getBlocks().get(texture), Factory.createPosition((ITray) iModel.getLevel().getTray(), X, Y)));
 	    	}
 	    	
 	    	

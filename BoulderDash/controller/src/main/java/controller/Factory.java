@@ -2,6 +2,7 @@ package controller;
 
 import modelContract.*;
 import model.*;
+import model.Character;
 import view.IView;
 import view.View;
 
@@ -59,7 +60,7 @@ public abstract class Factory {
 	}
 	
 	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
-		return (IBoundary) new Boundary(((Ttray, delimitations);
+		return (IBoundary) new Boundary(((tray, delimitations);
 	}
 	
 	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){
@@ -95,23 +96,23 @@ public abstract class Factory {
  	}
  	
  	public static IDiamond createDiamond() throws Exception{
- 		return new Diamond();
+ 		return (IDiamond) new Diamond();
  	}
  	
  	public static IRock createRock() throws Exception{
- 		return new Rock();
+ 		return (IRock) new Rock();
  	}
  	
  	public static IAir createAir() throws Exception{
-		return new Air();
+		return (IAir) new Air();
 	}
  	
  	public static IMud createMud() throws Exception{
- 		return new Mud();
+ 		return (IMud) new Mud();
  	}
  	
  	public static IWall createWall() throws Exception{
- 		return new Wall();
+ 		return (IWall) new Wall();
  	}
 	// ------------------------ //
 	
@@ -126,13 +127,6 @@ public abstract class Factory {
 	// ------------------------ //
 
 
-
-
-
-	public static IPosition createPosition(ITray tray, int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 

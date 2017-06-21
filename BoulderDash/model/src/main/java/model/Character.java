@@ -1,6 +1,6 @@
 package model;
 
-import modelContract.ICharacter;
+import Imodel.ICharacter;
 
 public abstract class Character extends Element implements ICharacter {
 

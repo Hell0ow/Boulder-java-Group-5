@@ -1,7 +1,8 @@
 package controller;
 
-import modelContract.IModel;
-import view.IView;
+import Icontroller.IController;
+import Imodel.IModel;
+import Iview.IView;
 
 public class Controller implements IController{
 

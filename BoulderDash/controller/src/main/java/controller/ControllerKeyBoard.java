@@ -1,5 +1,6 @@
 package controller;
 
+import Icontroller.IControllerKeyBoard;
 import model.Model;
 
 public abstract class ControllerKeyBoard implements IControllerKeyBoard{

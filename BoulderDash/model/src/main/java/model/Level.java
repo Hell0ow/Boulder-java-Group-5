@@ -1,6 +1,6 @@
 package model;
 import java.util.HashMap;
-import java.util.Map;import modelContract.IBlock;import modelContract.ICharacter;import modelContract.ILevel;import modelContract.IObjective;import modelContract.ITray;
+import java.util.Map;import Imodel.IBlock;import Imodel.ICharacter;import Imodel.ILevel;import Imodel.IObjective;import Imodel.ITray;
 public class Level implements ILevel {
 	private Map<String, IBlock> blocks = new HashMap<String, IBlock>();
 	private Map<String, ICharacter> characters = new HashMap<String, ICharacter>();

@@ -1,8 +1,8 @@
 package model;
 
-import modelContract.IBlock;
-import modelContract.IPosition;
-import modelContract.ITile;
+import Imodel.IBlock;
+import Imodel.IPosition;
+import Imodel.ITile;
 
 public class Tile extends Entity implements ITile {
 	

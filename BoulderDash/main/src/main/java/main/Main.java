@@ -2,18 +2,19 @@ package main;
 
 
 import java.sql.SQLException;
-import controller.ControllerFacade;
+import controller.Controller;
 
 
 public abstract class Main {
 
     public static void main(final String[] args) throws Exception {
     	
-        ControllerFacade start = new ControllerFacade();
+        Controller start = new Controller();
         
         //Initialisation du jeu;
         try {
-			start.initialLoad();
+			start.initGame();
+			start.newGame();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

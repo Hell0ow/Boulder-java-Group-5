@@ -1,27 +1,7 @@
 package controller;
 
-import java.awt.event.KeyEvent;
-
-import model.Air;
-import model.Block;
-import model.Boundary;
+import model.*;
 import model.Character;
-import model.Delimitations;
-import model.Diamond;
-import model.Direction;
-import model.Dummy;
-import model.Enemy;
-import model.Hero;
-import model.Human;
-import model.Model;
-import model.Mud;
-import model.Objective;
-import model.Player;
-import model.Position;
-import model.Rock;
-import model.Tile;
-import model.Tray;
-import model.Wall;
 import view.ViewFacade;
 
 public abstract class Factory {
@@ -30,10 +10,6 @@ public abstract class Factory {
 	public static String createString(){
 		return new String();
 	}
-	
-	public static KeyEvent createKeyEvent(){
-		return new KeyEvent(null, 0, 0, 0, 0);
-	}
 	// ------------------------ //
 	
 	
@@ -41,22 +17,20 @@ public abstract class Factory {
 	
 	
 	// --- Controller Object --- //
-	public static ControllerInit createInit(){
-		return new ControllerInit("java", "bigouneroot");
+	
+	public static ControllerKeyBoard createControllerKeyBoard(Model model) throws Exception {
+		return new ControllerKeyBoard(model);
 	}
 	
-	public static ControllerKeyBoard createEventGame(){
+	public static ControllerDB createControllerDB() {
+		// TODO Auto-generated method stub
 		try {
-			return new ControllerKeyBoard();
+			return new ControllerDB("java", "bigouneroot");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-	}
-	
-	public static Menu createMenu(){
-		return new Menu();
 	}
 	// ------------------------ //
 	
@@ -75,11 +49,11 @@ public abstract class Factory {
 			return null;
 		}
 	
-	public static Human createHuman(){
+	public static Human createHuman() throws Exception{
 		return new Human();
 	}
 	
-	public static Human createDummy(){
+	public static Human createDummy() throws Exception{
 		return new Human();
 	}
 	
@@ -123,23 +97,23 @@ public abstract class Factory {
  		return new Enemy(dummy, direction, position);
  	}
  	
- 	public static Diamond createDiamond(){
+ 	public static Diamond createDiamond() throws Exception{
  		return new Diamond();
  	}
  	
- 	public static Rock createRock(){
+ 	public static Rock createRock() throws Exception{
  		return new Rock();
  	}
  	
- 	public static Air createAir(){
+ 	public static Air createAir() throws Exception{
 		return new Air();
 	}
  	
- 	public static Mud createMud(){
+ 	public static Mud createMud() throws Exception{
  		return new Mud();
  	}
  	
- 	public static Wall createWall(){
+ 	public static Wall createWall() throws Exception{
  		return new Wall();
  	}
 	// ------------------------ //
@@ -149,9 +123,13 @@ public abstract class Factory {
 	
 	
 	// ----- View Object ----- //
-	public static ViewFacade createView(){
-			return new ViewFacade();
-		}
+	/*public static ViewFacade createView(ControllerKeyBoard event){
+			return new ViewFacade(event);
+		}*/
 	// ------------------------ //
+
+
+
+
 
 }

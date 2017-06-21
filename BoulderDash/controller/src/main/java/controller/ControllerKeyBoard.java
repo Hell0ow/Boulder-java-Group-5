@@ -1,63 +1,55 @@
 package controller;
-import java.awt.event.KeyEvent;
-import controller.MoveKey;
-import java.awt.event.KeyListener;
 
-public class ControllerKeyBoard extends ControllerFacade implements KeyListener{
+import model.Model;
+
+public class ControllerKeyBoard{
 	
+	Model model = null;
 	
-	public ControllerKeyBoard() throws Exception{
-		//this.addKeyListener(view);
+	public ControllerKeyBoard(Model model) throws Exception{
+		this.model = model;
 	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		/*
-		switch(e.getKeyCode()){
+	
+	
+	public static Model getKeyEvent(Order Eventkey){
 		
-		case KeyEvent.VK_Z:
-			model.cycle(MoveKey.MOVE_UP);
+		switch(Eventkey){
+		
+		case MOVE_UP:
 			break;
-		case KeyEvent.VK_Q:
-			model.cycle(MoveKey.MOVE_LEFT);
-			break;
-		case KeyEvent.VK_D:
-			model.cycle(MoveKey.MOVE_RIGHT);
-			break;
-		case KeyEvent.VK_S:
-			model.cycle(MoveKey.MOVE_DOWN);
+
+		case MOVE_RIGHT:
 			break;
 			
-		case KeyEvent.VK_UP:
-			model.cycle(MoveKey.DIG_UP);
+		case MOVE_LEFT:
 			break;
-		case KeyEvent.VK_LEFT:
-			model.cycle(MoveKey.DIG_LEFT);
+			
+		case MOVE_DOWN:
 			break;
-		case KeyEvent.VK_RIGHT:
-			model.cycle(MoveKey.DIG_RIGHT);
+			
+		case DIG_UP:
 			break;
-		case KeyEvent.VK_DOWN:
-			model.cycle(MoveKey.DIG_DOWN);
+			
+		case DIG_RIGHT:
+			break;
+			
+		case DIG_LEFT:
+			break;
+			
+		case DIG_DOWN:
+			break;
+			
+		case NONE:
+			break;
+		
+		default:
+			System.out.println("KEY ERROR : ControllerKeyBoard.getKeyEvent(Eventkey)");
 			break;
 			
 		}
-		*/
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		return null;
 	}
 }
-
 
 
 

@@ -1,5 +1,3 @@
 package Imodel;
 
-public interface IHuman {
-
-}
+public interface IHuman {}

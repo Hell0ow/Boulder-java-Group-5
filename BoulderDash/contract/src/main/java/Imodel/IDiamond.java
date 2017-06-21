@@ -3,7 +3,8 @@ package Imodel;
 public interface IDiamond {
 
 	public boolean isFallable();
-	public boolean isSmooth();
-	public boolean isReward();
 	
+	public boolean isSmooth();
+	
+	public boolean isReward();
 }

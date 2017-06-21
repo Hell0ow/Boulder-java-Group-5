@@ -1,5 +1,6 @@
 package model;
 
+import Imodel.IRock;
 import Imodel.IWall;
 
 public class Wall extends Block implements IWall {

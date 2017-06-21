@@ -1,8 +1,8 @@
 package Imodel;
 
 public interface IAir {
-
-	public boolean isBreakable();
-	public boolean isDense();
 	
+	public boolean isBreakable();
+	
+	public boolean isDense();
 }

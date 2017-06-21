@@ -1,5 +1,3 @@
 package Imodel;
 
-public interface IDummy extends ICharacter {
-
-}
+public interface IDummy extends ICharacter {}

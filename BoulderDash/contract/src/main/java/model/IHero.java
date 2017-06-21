@@ -1,9 +1,5 @@
 package model;
 
-import model.IDirection;
-import model.IPosition;
-import model.IObjective;
-
 public interface IHero {
 
 	public IObjective getObjective();

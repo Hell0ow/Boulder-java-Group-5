@@ -1,8 +1,5 @@
 package model;
 
-import model.IDirection;
-import model.IPosition;
-
 public interface IEnemy {
 
 	public IDummy getDummy();

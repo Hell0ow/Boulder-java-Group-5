@@ -1,6 +1,6 @@
 package model;
 
-public class Player {
+public class Player implements IPlayer {
 	private Integer id;
 	private String name;
 	

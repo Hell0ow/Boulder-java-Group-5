@@ -2,7 +2,14 @@ package model;
 
 import java.util.ArrayList;
 
+<<<<<<< Updated upstream
 public class Model implements IModel{
+=======
+import contract.Direction;
+import contract.Order;
+
+public class Model implements IModel {
+>>>>>>> Stashed changes
 	private Level level;
 	private Player player;
 	

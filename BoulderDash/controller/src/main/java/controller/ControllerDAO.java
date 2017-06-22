@@ -136,7 +136,7 @@ public abstract class ControllerDAO {
 	    		entity = result.getString("Name_entity");
 	    		switch(entity){
 	    		case "Human":
-	    			iModel.getLevel().getTray().addHero((IHero) Factory.createHero((IHuman) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
+	    			iModel.getLevel().getTray().setHero((IHero) Factory.createHero((IHuman) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
 	    			break;
 	    		default:	
 	    			iModel.getLevel().getTray().addEnemy((IEnemy) Factory.createEnemy((IDummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));

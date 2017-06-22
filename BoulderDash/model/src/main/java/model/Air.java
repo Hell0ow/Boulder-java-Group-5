@@ -5,7 +5,7 @@ import Imodel.IAir;
 public class Air extends Block implements IAir {
 	
 	public Air() throws Exception {
-		super("Air", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(32, 0));
+		super("Air", "C:/Users/MMoul/desktop/blocks.png", new Coordinates(32, 0));
 	}
 	
 	@Override

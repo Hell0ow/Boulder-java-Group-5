@@ -18,7 +18,6 @@ public class Model implements IModel {
 	
 	public Model() throws Exception {
 		
-		player = new Player(0, "Antoine");
 		
 		level = new Level(this);
 	}

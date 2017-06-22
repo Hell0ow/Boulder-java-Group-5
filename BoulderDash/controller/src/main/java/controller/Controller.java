@@ -59,10 +59,10 @@ public class Controller implements IController{
 	public void newGame() throws Exception{
 		
 		 try {
+			 view = Factory.createView(model/*, event*/);
 	            while(true) {
-	            	view = Factory.createView(model/*, event*/);
+	            	
 	                view.frame();
-
 	                model.cycle(getOrder());
 	            }
 	        } catch (Exception e) {

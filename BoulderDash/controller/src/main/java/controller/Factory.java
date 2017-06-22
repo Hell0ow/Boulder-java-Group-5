@@ -61,7 +61,7 @@ public abstract class Factory {
 	}
 	
 	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
-		return (IBoundary) new Boundary((ITray)tray, (IDelimitations) delimitations);
+		return (IBoundary) new Boundary((Tray)tray, (Delimitations) delimitations);
 	}
 	
 	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){

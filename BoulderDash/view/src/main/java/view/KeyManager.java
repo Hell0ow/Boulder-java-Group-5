@@ -5,7 +5,7 @@ import Icontroller.*;
 import java.awt.event.KeyListener;
 
 import Icontroller.IControllerKeyBoard;
-
+/*
 public class KeyManager implements KeyListener{
 
 	private boolean[] keys;
@@ -51,4 +51,4 @@ public class KeyManager implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		
-	}
+	}*/

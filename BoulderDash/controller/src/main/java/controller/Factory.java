@@ -61,7 +61,7 @@ public abstract class Factory {
 	}
 	
 	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
-		return (IBoundary) new Boundary((((ITray)tray, (IDelimiations) delimitations);
+		return (IBoundary) new Boundary((ITray)tray, (IDelimitations) delimitations);
 	}
 	
 	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){
@@ -74,13 +74,13 @@ public abstract class Factory {
 		return null;
 	}
 	
- 	public static ITile createTile(IBlock iBlock, IPosition iPosition){
- 		return new Tile(iBlock, (IPosition) iPosition);
+ 	public static Tile createTile(Block iBlock, Position position){
+ 		return new Tile(iBlock,  position);
  	}
  	
- 	public static IPosition createPosition(ITray iTray, int a, int b){
+ 	public static Position createPosition(Tray iTray, int a, int b){
  		try {
-			return (IPosition) new Position((Tray) iTray, a, b);
+			return new Position( iTray, a, b);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -122,8 +122,8 @@ public abstract class Factory {
 	
 	
 	// ----- View Object ----- //
-	public static IView createView(IModel model, ControllerKeyBoard controllerKey){
-			return new View(model, controllerKey);
+	public static IView createView(IModel model/*, ControllerKeyBoard controllerKey*/){
+			return new View(model /*,controllerKey*/);
 		}
 	// ------------------------ //
 

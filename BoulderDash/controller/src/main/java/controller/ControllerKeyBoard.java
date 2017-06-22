@@ -2,7 +2,7 @@ package controller;
 
 import Icontroller.IControllerKeyBoard;
 import model.Model;
-
+/*
 public abstract class ControllerKeyBoard implements IControllerKeyBoard{
 	
 	Model model = null;
@@ -50,7 +50,7 @@ public abstract class ControllerKeyBoard implements IControllerKeyBoard{
 		}
 		return null;
 	}
-}
+}*/
 
 
 

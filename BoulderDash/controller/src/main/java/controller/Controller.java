@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Icontroller.IController;
 import Imodel.IModel;
 import Iview.IView;
+import menu.Launcher;
 import model.Order;
 
 public class Controller implements IController{
@@ -32,6 +33,8 @@ public class Controller implements IController{
 	
 	
 	public void initGame() throws Exception{
+		
+		Launcher.runMenu();
 		
 		ControllerDB database = Factory.createControllerDB();
 		

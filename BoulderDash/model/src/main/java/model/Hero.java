@@ -21,6 +21,12 @@ public class Hero extends Being implements IHero {
 	}
 	
 	@Override
+	public void destroy() {
+		
+		position.getTray().getLevel().getModel().finish();
+	}
+	
+	@Override
 	public void move(IDirection direction) throws Exception {
 		move(new Position(position).addition(direction));
 	}
@@ -34,7 +40,7 @@ public class Hero extends Being implements IHero {
 			
 			this.position.getTray().removeEnemy((IPosition) this.position);
 			this.position.copy(position);
-			position.getTray().addHero((IHero) this);
+			position.getTray().setHero((IHero) this);
 		}
 	}
 }

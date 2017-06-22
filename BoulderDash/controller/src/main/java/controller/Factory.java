@@ -52,8 +52,8 @@ public abstract class Factory {
 		return (IHuman) new Human();
 	}
 	
-	public static IHuman createDummy() throws Exception{
-		return (IHuman) new Human();
+	public static IDummy createDummy() throws Exception{
+		return (IDummy) new Dummy();
 	}
 	
 	public static IPlayer createPlayer(int idPlayer, String playerName){
@@ -61,7 +61,7 @@ public abstract class Factory {
 	}
 	
 	public static IBoundary createBoundary(ITray tray, IDelimitations delimitations){
-		return (IBoundary) new Boundary((ITray)tray, (IDelimitations) delimitations);
+		return (IBoundary) new Boundary((Tray)tray, (Delimitations) delimitations);
 	}
 	
 	public static IBoundary createBoundary(ITray iTray, int a, int b, int c, int d){

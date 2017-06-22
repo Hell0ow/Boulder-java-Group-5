@@ -29,6 +29,13 @@ public class ControllerDB{
 	}
 	
     
+    
+    public ResultSet getIDmap(String mapName) throws SQLException{
+    	ResultSet result = statement.executeQuery("CALL getMapID ('" + mapName + "');");
+    	return result;
+    }
+    
+    
 	public void addPlayer(String playerName) throws SQLException{
 		statement.executeUpdate("CALL addPlayer('" + playerName + "');");
 	}

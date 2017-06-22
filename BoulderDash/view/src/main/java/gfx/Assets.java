@@ -15,7 +15,7 @@ public class Assets {
     public static Rectangle playButton, settingsButton;
 
     public static void init(){
-        background = ImageLoader.loadImage("view/out/img/backgroun.png");
-        titleAnimation = ImageLoader.loadImage("view/out/img/Title_Boulder.png");
+        background = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/backgroun.png");
+        titleAnimation = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/Title_boulder.png");
     }
 }

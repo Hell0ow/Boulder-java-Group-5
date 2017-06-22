@@ -1,6 +1,9 @@
 package state;
 
 import javax.swing.*;
+
+import menu.Display;
+
 import java.awt.*;
 
 /**
@@ -13,13 +16,11 @@ public class GameState extends State{
 
     @Override
     public  void tick(){
-        JOptionPane.showMessageDialog(null, "t'es dans l'état game");
-        System.exit(-1);
+    	Display.getFrame().dispose();
     }
 
     @Override
     public void render(Graphics g) {
-
     }
 
 

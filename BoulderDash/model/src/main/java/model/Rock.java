@@ -5,7 +5,7 @@ import Imodel.IRock;
 public class Rock extends Block implements IRock {
 	
 	public Rock() throws Exception {
-		super("Rock", "D:/CESI annï¿½e 1/Projet/Java/Sprites/textures.png", new Coordinates(48, 0));
+		super("Rock", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(48, 0));
 	}
 	
 	@Override

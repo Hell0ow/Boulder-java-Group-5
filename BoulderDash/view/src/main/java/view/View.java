@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.event.KeyListener;
+
 import javax.swing.JFrame;
 
 import Icontroller.IControllerKeyBoard;
@@ -10,7 +12,7 @@ import Iview.IView;
 
 public class View implements IView {
 
-	private JFrame frame;
+	private Frame frame;
 	//private IControllerKeyBoard controller;
 	private IModel model;
 	private String frameTitle = "TestVue";
@@ -20,7 +22,7 @@ public class View implements IView {
 		this.model = model;
 		//this.controller = controller;
 		
-		frame = new JFrame(frameTitle);
+		frame = new Frame(frameTitle);
         frame.setSize(frameWidth,  frameHeight);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -54,6 +56,10 @@ public class View implements IView {
 
 	public int getFrameHeight() {
 		return frameHeight;
+	}
+	
+	public Frame getFrame(){
+		return frame;
 	}
 
 }

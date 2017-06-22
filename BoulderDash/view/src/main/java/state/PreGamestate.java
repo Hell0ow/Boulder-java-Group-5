@@ -32,6 +32,7 @@ public class PreGamestate extends State{
     public void render(Graphics g) {
 
         State.setState(Game.getGamestate());
+        
     }
     
     public static String  getMapName(){

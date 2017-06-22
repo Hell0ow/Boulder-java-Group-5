@@ -1,56 +1,39 @@
 package controller;
 
-import Icontroller.IControllerKeyBoard;
-import model.Model;
-/*
-public abstract class ControllerKeyBoard implements IControllerKeyBoard{
-	
-	Model model = null;
-	
-	public ControllerKeyBoard(Model model) throws Exception{
-		this.model = model;
-	}
-	
-	
-	public static Model getKeyEvent(Order Eventkey){
-		
-		switch(Eventkey){
-		
-		case MOVE_UP:
-			break;
+import model.Order;
+import view.KeyManager;
 
-		case MOVE_RIGHT:
-			break;
-			
-		case MOVE_LEFT:
-			break;
-			
-		case MOVE_DOWN:
-			break;
-			
-		case DIG_UP:
-			break;
-			
-		case DIG_RIGHT:
-			break;
-			
-		case DIG_LEFT:
-			break;
-			
-		case DIG_DOWN:
-			break;
-			
-		case NONE:
-			break;
+public class ControllerKeyBoard{
+	
+	private static String key = new String();
+	
+	public static Order getOrder(KeyManager keyEvent) {
 		
-		default:
-			System.out.println("KEY ERROR : ControllerKeyBoard.getKeyEvent(Eventkey)");
-			break;
-			
-		}
-		return null;
-	}
-}*/
+		key = keyEvent.getKey();
+		System.out.println(key);
+        switch(key) {
+            case "Z":
+                return Order.MOVE_UP;
+            case "D":
+                return Order.MOVE_RIGHT;
+            case "S":
+                return Order.MOVE_DOWN;
+            case "Q":
+                return Order.MOVE_LEFT;
+            case "UP":
+                return Order.DIG_UP;
+            case "RIGHT":
+                return Order.DIG_RIGHT;
+            case "DOWN":
+                return Order.DIG_DOWN;
+            case "LEFT":
+                return Order.DIG_LEFT;
+            default:
+                return Order.NONE;
+        }
+        
+    }
+}
 
 
 

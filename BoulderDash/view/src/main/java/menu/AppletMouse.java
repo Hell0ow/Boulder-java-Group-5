@@ -1,10 +1,10 @@
 package menu;
 
-import menu.Display;
-import menu.Game;
+import state.MenuState;
 import state.State;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -25,6 +25,10 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
         return leftPressed;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isRightPressed(){
         return rightPressed;
     }
@@ -49,31 +53,57 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void mousePressed(MouseEvent e) {
 
         this.mouseX = e.getX();
         this.mouseY = e.getY();
 
-        if(e.getButton() == MouseEvent.BUTTON1)
-            leftPressed = true;
-        else if(e.getButton() == MouseEvent.BUTTON3)
-            rightPressed = true;
+        if (State.getState() == Game.getMenuState()) {
+            if (mouseX >= Display.getWidthframe() / 3 + 40 && mouseX <= Display.getWidthframe() / 3 + 340) {      //Game
+                if (mouseY >= Display.getHeightframe() / 2 + 40 && mouseY <= Display.getHeightframe() / 2 + 90) {
+                    State.setState(Game.getPreGameState());
+                }
+            }
 
-
-        System.out.println("X: " + mouseX + "   Y: " + mouseY);
-
-        if(mouseX >= Display.getWidthframe()/3+40 && mouseX <= Display.getWidthframe()/3+340){
-            if (mouseY >= Display.getHeightframe()/2 + 40 && mouseY <= Display.getHeightframe()/2 + 90) {
-                State.setState(Game.getPreGameState());
-                System.out.println("TES DANS GAME");
+            if (mouseX >= Display.getWidthframe() / 3 + 40 && mouseX <= Display.getWidthframe() / 3 + 340) {  //Settings
+                if (mouseY >= Display.getHeightframe() / 2 + 150 && mouseY <= Display.getHeightframe() / 2 + 200) {
+                    State.setState(Game.getSettingsState());
+                }
+            }
+            if (mouseX >= Display.getWidthframe() / 3 + 40 && mouseX <= Display.getWidthframe() / 3 + 340) {  // Quit
+                if (mouseY >= Display.getHeightframe() / 2 + 260 && mouseY <= Display.getHeightframe() / 2 + 310) {
+                    System.exit(-1);
+                }
             }
         }
 
-        if(mouseX >= Display.getWidthframe()/3+40 && mouseX <= Display.getWidthframe()/3+340){
-            if (mouseY >= Display.getHeightframe()/2 + 150 && mouseY <= Display.getHeightframe()/2 + 200) {
-                State.setState(Game.getSettingsState());
-                System.out.println("T'ES DANS LES SETTINGS");
+        if (State.getState() == Game.getSettingsState()) {
+            if (mouseX >= 80 && mouseX <= 230) {  // BACK settings
+                if (mouseY >= Display.getHeightframe()-130 && mouseY <= Display.getHeightframe()-70) {
+                    State.setState(Game.getMenuState());
+                }
+            }
+
+            if (mouseX >= MenuState.playButton.x-300 && mouseX <= MenuState.playButton.x+170) {      //setSize1
+                if (mouseY >= MenuState.playButton.y -250 && mouseY <= MenuState.playButton.y -200) {
+                    Display.getFrame().setSize(1280, 960);
+                    Display.setWidth(1280);
+                    Display.setHeight(960);
+
+                }
+            }
+            if (mouseX >= MenuState.playButton.x-300 && mouseX <= MenuState.playButton. x +170) {      //setSize2
+                if (mouseY >= MenuState.playButton.y -150 && mouseY <= MenuState.playButton.y -100) {
+                    Display.getFrame().setSize(1152, 832);
+                    Display.setWidth(1152);
+                    Display.setHeight(832);
+                    System.out.println("mdrr");
+                }
             }
         }
     }

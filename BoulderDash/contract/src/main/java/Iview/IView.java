@@ -1,5 +1,7 @@
 package Iview;
 
+import java.awt.Frame;
+
 public interface IView {
 
 	public void frame() throws Exception;
@@ -7,5 +9,7 @@ public interface IView {
 	public int getFrameWidth();
 
 	public int getFrameHeight();
+
+	public Frame getFrame();
 
 }

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import Imodel.*;
 import model.Block;
 import model.Direction;
+import model.Dummy;
+import model.Enemy;
 import model.Position;
 import model.Tray;
 
@@ -76,9 +78,9 @@ public abstract class ControllerDAO {
 	    			break;
 	    		default:
 	    		}
-	    			
+	    		iModel.getLevel().addCharacter((ICharacter) entityType);
 	    	}
-	    	iModel.getLevel().addCharacter((ICharacter) entityType);
+	    	
 	    	
 		}
 	    
@@ -108,8 +110,9 @@ public abstract class ControllerDAO {
 	    			textureType = (IBlock) Factory.createAir();
 	    			break;
 	    		}
+	    		iModel.getLevel().addBlock((IBlock) textureType);	
 	    	}
-	    	iModel.getLevel().addBlock((IBlock) textureType);	
+	    	
 		}
 		
 		
@@ -150,8 +153,8 @@ public abstract class ControllerDAO {
 	    		case "Human":
 	    			iModel.getLevel().getTray().setHero((IHero) Factory.createHero((IHuman) iModel.getLevel().getCharacters().get(entity), iModel.getLevel().getObjective(), (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
 	    			break;
-	    		default:	
-	    			iModel.getLevel().getTray().addEnemy((IEnemy) Factory.createEnemy((IDummy) iModel.getLevel().getCharacters().get(entity), Direction.UP, (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
+	    		default:
+	    			iModel.getLevel().getTray().addEnemy((IEnemy) Factory.createEnemy((IDummy) iModel.getLevel().getCharacters().get("Dummy"), Direction.LEFT, (IPosition) Factory.createPosition((Tray) iModel.getLevel().getTray(), X, Y)));
 	    		}
 	    	}
 		}

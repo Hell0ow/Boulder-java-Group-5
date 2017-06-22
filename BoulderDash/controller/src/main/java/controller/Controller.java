@@ -3,6 +3,7 @@ package controller;
 import java.util.Scanner;
 import Icontroller.IController;
 import Imodel.IModel;
+import Imodel.IPosition;
 import Iview.IView;
 import menu.Launcher;
 import model.Order;
@@ -60,11 +61,14 @@ public class Controller implements IController{
 		
 		 try {
 			 view = Factory.createView(model/*, event*/);
-	            while(true) {
-	            	
+	            do{
+	            	 
 	                view.frame();
-	                model.cycle(getOrder());
-	            }
+	            }while(!model.cycle(getOrder()));
+	            
+	            view.frame();
+	            
+	            
 	        } catch (Exception e) {
 	            System.out.println(e.getMessage());
 	            e.printStackTrace();

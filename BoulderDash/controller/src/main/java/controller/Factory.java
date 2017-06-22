@@ -52,8 +52,8 @@ public abstract class Factory {
 		return (IHuman) new Human();
 	}
 	
-	public static IHuman createDummy() throws Exception{
-		return (IHuman) new Human();
+	public static IDummy createDummy() throws Exception{
+		return (IDummy) new Dummy();
 	}
 	
 	public static IPlayer createPlayer(int idPlayer, String playerName){

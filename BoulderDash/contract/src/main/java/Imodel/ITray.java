@@ -31,4 +31,6 @@ public interface ITray {
 	public ILevel getLevel();
 
 	public int getId();
+
+	public int countDepth(IPosition addition) throws Exception;
 }

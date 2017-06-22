@@ -94,4 +94,16 @@ public class Tray implements ITray {
 	public int getId() {
 		return id;
 	}
+	
+	public int countDepth(IPosition position) throws Exception {
+		
+		int i = 0;
+		
+		while(!tiles.get(position).getBlock().isDense() && beings.get(position) == null) {
+			position.addition(Direction.DOWN);
+			i++;
+		}
+		
+		return i;
+	}
 }

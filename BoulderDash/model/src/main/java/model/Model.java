@@ -17,8 +17,6 @@ public class Model implements IModel {
 	
 	public Model() throws Exception {
 		
-		player = new Player(0, "Antoine");
-		
 		level = new Level(this);
 	}
 	
@@ -40,25 +38,25 @@ public class Model implements IModel {
 			
 			case MOVE_UP:
 				
-				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.UP));
+				level.getTray().getHeroes().get(player.getId()).move((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.UP));
 				
 				break;
 			
 			case MOVE_RIGHT:
 				
-				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.RIGHT));
-					
+				level.getTray().getHeroes().get(player.getId()).move((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.RIGHT));	
+				
 				break;
 			
 			case MOVE_DOWN:
 				
-				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.DOWN));
+				level.getTray().getHeroes().get(player.getId()).move((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.DOWN));
 				
 				break;
 			
 			case MOVE_LEFT:
 				
-				level.getTray().getHeroes().get((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.LEFT));
+				level.getTray().getHeroes().get(player.getId()).move((IPosition) new Position((Position) level.getTray().getHeroes().get(player.getId()).getPosition()).addition(Direction.LEFT));
 				
 				break;
 			

@@ -36,11 +36,19 @@ public class Hero extends Being implements IHero {
 		
 		position.getTray().getTiles().get((IPosition) position).dig();
 		
-		if (!position.getTray().getTiles().get(position).getBlock().isDense() && position.getTray().getBeings().get(position) == null) {
+		if (position.getTray().getBeings().get(position) == null) {
 			
-			this.position.getTray().removeEnemy((IPosition) this.position);
-			this.position.copy(position);
-			position.getTray().setHero((IHero) this);
+			if (!position.getTray().getTiles().get(position).getBlock().isDense()) {
+				
+				this.position.getTray().removeEnemy((IPosition) this.position);
+				this.position.copy(position);
+				position.getTray().setHero((IHero) this);
+			} else if (position.getTray().getTiles().get(position).getBlock().isReward()) {
+				
+				this.position.getTray().removeEnemy((IPosition) this.position);
+				this.position.copy(position);
+				position.getTray().setHero((IHero) this);
+			}
 		}
 	}
 }

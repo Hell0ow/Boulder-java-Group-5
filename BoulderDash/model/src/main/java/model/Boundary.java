@@ -2,9 +2,7 @@ package model;
 
 import Imodel.IBoundary;
 import Imodel.ICoordinates;
-import Imodel.IDelimitations;
 import Imodel.IPosition;
-import Imodel.ITray;
 
 public class Boundary extends Delimitations implements IBoundary {
 	private Tray tray;
@@ -14,9 +12,9 @@ public class Boundary extends Delimitations implements IBoundary {
 		this.tray = tray;
 	}
 	
-	public Boundary(ITray tray2, IDelimitations delimitations) {
-		super((Delimitations) delimitations);
-		this.tray = (Tray) tray2;
+	public Boundary(Tray tray, Delimitations delimitations) {
+		super(delimitations);
+		this.tray = tray;
 	}
 	
 	public Boundary(Boundary boundary) {

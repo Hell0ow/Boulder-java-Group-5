@@ -14,12 +14,12 @@ import Imodel.ITray;
 public class Tray implements ITray {
 	
 	private Boundary boundary;
-	private Hero hero;
-	private Integer id;
 	private Level level;
+	private Integer id;
 
 	private Map<IPosition, IBeing> beings = new HashMap<IPosition, IBeing>();
 	private Map<IPosition, IEnemy> enemies = new HashMap<IPosition, IEnemy>();
+	private Map<Integer, IHero> heroes = new HashMap<Integer, IHero>();
 	private Map<IPosition, ITile> tiles = new HashMap<IPosition, ITile>();
 	
 	public Tray(Level level, Integer id) throws Exception {
@@ -44,13 +44,18 @@ public class Tray implements ITray {
 		return enemies;
 	}
 	
-	public void setHero(IHero hero) {
+	public void addHero(IHero hero) {
+		heroes.put(hero.getObjective().getPlayer().getId(), hero);
 		beings.put(hero.getPosition(), hero);
-		this.hero = (Hero) hero;
 	}
 	
-	public IHero getHero() {
-		return (IHero) hero;
+	public void removeHero(IPosition position) {
+		heroes.remove(position);
+		beings.remove(position);
+	}
+	
+	public Map<Integer, IHero> getHeroes() {
+		return heroes;
 	}
 	
 	public void addTile(ITile tile) {

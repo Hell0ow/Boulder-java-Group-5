@@ -7,5 +7,4 @@ public interface IHero extends IBeing {
 	public void move(IDirection direction) throws Exception;
 	
 	public void move(IPosition position);
-	
 }

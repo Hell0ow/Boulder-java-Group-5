@@ -47,12 +47,6 @@ public class Enemy extends Being implements IEnemy {
 		return (IDirection) direction;
 	}
 	
-	@Override
-	public void destroy() {
-		
-		position.getTray().removeEnemy(position);
-	}
-	
 	public void move() throws Exception {
 		move(intelligence());
 	}

@@ -10,9 +10,11 @@ public interface ITray {
 	
 	public Map<IPosition, IEnemy> getEnemies();
 	
-	public void setHero(IHero hero);
+	public void addHero(IHero hero);
 	
-	public IHero getHero();
+	public void removeHero(IPosition position);
+	
+	public Map<Integer, IHero> getHeroes();
 	
 	public void addTile(ITile tile);
 	
@@ -29,6 +31,6 @@ public interface ITray {
 	public ILevel getLevel();
 
 	public int getId();
-	
-	public int countDepth(IPosition position) throws Exception;
+
+	public int countDepth(IPosition addition) throws Exception;
 }

@@ -29,11 +29,11 @@ public class Element implements IElement {
 		return sheet;
 	}
 	
-	public static int getWidth() {
+	public int getWidth() {
 		return width;
 	}
 	
-	public static int getHeight() {
+	public int getHeight() {
 		return height;
 	}
 }

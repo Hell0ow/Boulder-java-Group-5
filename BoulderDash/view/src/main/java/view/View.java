@@ -48,4 +48,12 @@ public class View implements IView {
 		frame.validate();
 	}
 
+	public int getFrameWidth() {
+		return frameWidth;
+	}
+
+	public int getFrameHeight() {
+		return frameHeight;
+	}
+
 }

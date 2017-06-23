@@ -11,5 +11,5 @@ public interface IController{
 	
 	public void initGame() throws Exception;
 	
-	public void newGame() throws Exception;
+	public void Game() throws Exception;
 }

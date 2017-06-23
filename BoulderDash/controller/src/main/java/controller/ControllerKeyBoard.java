@@ -5,9 +5,9 @@ import view.KeyManager;
 
 public class ControllerKeyBoard{
 	
-	private static String key = new String();
+	protected static String key = new String();
 	
-	public static Order getOrder(KeyManager keyEvent) {
+	protected static Order getOrder(KeyManager keyEvent) {
 		
 		key = keyEvent.getKey();
 		System.out.println(key);

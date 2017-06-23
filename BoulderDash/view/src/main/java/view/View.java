@@ -1,10 +1,6 @@
 package view;
 
-import java.awt.event.KeyListener;
-
 import javax.swing.JFrame;
-
-import Icontroller.IControllerKeyBoard;
 import Imodel.IBeing;
 import Imodel.IEntity;
 import Imodel.IModel;
@@ -42,7 +38,7 @@ public class View implements IView {
 			printEntity(entity);
 		}
 
-		frame.repaint();
+		//frame.repaint();
 	}
 	
 	private void printEntity(IEntity entity) {

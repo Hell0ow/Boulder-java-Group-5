@@ -1,12 +1,9 @@
 package controller;
 
-import java.util.Scanner;
 import Icontroller.IController;
 import Imodel.IModel;
-import Imodel.IPosition;
 import Iview.IView;
 import menu.Launcher;
-import model.Order;
 import state.PreGamestate;
 import view.KeyManager;
 import view.Frame;
@@ -59,14 +56,16 @@ public class Controller implements IController{
 	
 	
 	
-	public void newGame() throws Exception{
+	public void Game() throws Exception{
 		
 		 try {
 			 view = Factory.createView(model);
 			 KeyManager keyEvent = ((Frame) view.getFrame()).getKeyManager();
+			 
 	            do{
 	            	Thread.sleep(500);
 	                view.frame();
+	               
 	            }while(!model.cycle(ControllerKeyBoard.getOrder(keyEvent)));
 	            
 	            view.frame();

@@ -4,7 +4,6 @@ import state.MenuState;
 import state.State;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -105,6 +104,36 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
                     System.out.println("mdrr");
                 }
             }
+
+
+            if(mouseX >= Display.getWidthframe() - 370 && mouseX <= Display.getWidthframe()-320) {
+                if (mouseY >= Display.getHeightframe() - 110 && mouseY <= Display.getHeightframe() - 60) {
+                    Sound.getGainControl().setValue((-80.0f));
+                }
+            }
+            if(mouseX >= Display.getWidthframe() - 250 && mouseX <= Display.getWidthframe()-200) {
+                if (mouseY >= Display.getHeightframe() - 110 && mouseY <= Display.getHeightframe() - 60) {
+                    Sound.getGainControl().setValue((Sound.getGainControl().getValue()-6.0f));
+                }
+            }
+            if(mouseX >= Display.getWidthframe() - 130 && mouseX <= Display.getWidthframe()-80) {
+                if (mouseY >= Display.getHeightframe() - 110 && mouseY <= Display.getHeightframe() - 60) {
+                    Sound.getGainControl().setValue((Sound.getGainControl().getValue()+6.0f));
+
+                }
+            }
+            if(mouseX >= MenuState.playButton.x -150 && mouseX <= MenuState.playButton.x -10) {
+                if (mouseY >= MenuState.playButton.y -10 && mouseY <= MenuState.playButton.y + 60) {
+                    Game.setHideFpd(false);
+
+                }
+            }
+            if(mouseX >= MenuState.playButton.x +30&& mouseX <= MenuState.playButton.x +170) {
+                if (mouseY >= MenuState.playButton.y -10 && mouseY <= MenuState.playButton.y + 60) {
+                    Game.setHideFpd(true);
+
+                }
+            }
         }
     }
 
@@ -118,24 +147,15 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
+    public void mouseExited(MouseEvent e) {}
 
     @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
+    public void mouseDragged(MouseEvent e) {}
 
     @Override
-    public void mouseMoved(MouseEvent e) {
-
-
-    }
+    public void mouseMoved(MouseEvent e) {}
 
 }

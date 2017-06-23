@@ -14,7 +14,7 @@ public class ControllerDB{
     private Statement  statement = null;
 	
 	
-    public ControllerDB(String user, String password) throws Exception {
+    protected ControllerDB(String user, String password) throws Exception {
 		
 		this.user = user;
 		this.password = password;
@@ -30,55 +30,55 @@ public class ControllerDB{
 	
     
     
-    public ResultSet getIDmap(String mapName) throws SQLException{
+    protected ResultSet getIDmap(String mapName) throws SQLException{
     	ResultSet result = statement.executeQuery("CALL getMapID ('" + mapName + "');");
     	return result;
     }
     
     
-	public void addPlayer(String playerName) throws SQLException{
+    protected void addPlayer(String playerName) throws SQLException{
 		statement.executeUpdate("CALL addPlayer('" + playerName + "');");
 	}
 	   
 	 
-	public ResultSet initPlayer(String playerName) throws SQLException{
+    protected ResultSet initPlayer(String playerName) throws SQLException{
 		ResultSet result = statement.executeQuery("CALL initPlayer('" + playerName + "');");
     	return result;
 	}
 	    
 	    
-	public ResultSet getExistingBlockTexture() throws SQLException{
+    protected ResultSet getExistingBlockTexture() throws SQLException{
 	    ResultSet result = statement.executeQuery("CALL getBlockTexture();");
 	    return result;
 	}
 	    
 	    
-	public ResultSet getExistingEntity() throws SQLException{
+    protected ResultSet getExistingEntity() throws SQLException{
 		ResultSet result = statement.executeQuery("CALL getAllEntityName();");
 		return result;
 	}
 	    
 	    
-	public ResultSet getBoundary (int mapID) throws SQLException{
+    protected ResultSet getBoundary (int mapID) throws SQLException{
 		ResultSet result = statement.executeQuery("CALL getBoundary('" + mapID + "');");
 		return result;
 	}
 	    
 	    
-	public ResultSet getBlock (int mapID) throws Exception{
+    protected ResultSet getBlock (int mapID) throws Exception{
 		ResultSet result = statement.executeQuery("CALL getBlock('" + mapID + "');");
 		return result;
 	}
 	    
 	     
-	public ResultSet getEntity (int mapID) throws Exception{
+    protected ResultSet getEntity (int mapID) throws Exception{
 		ResultSet result = statement.executeQuery("CALL getEntity('" + mapID + "');");
 		return result;
 	
 	}
 	    
 	   
-	public void closeDatabase() throws SQLException{
+    protected void closeDatabase() throws SQLException{
 			statement.close();
 			connection.close();
 	}

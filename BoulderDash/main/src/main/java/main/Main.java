@@ -16,7 +16,7 @@ public abstract class Main {
         //Initialisation du jeu;
         try {
 			start.initGame();
-			start.newGame();
+			start.Game();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

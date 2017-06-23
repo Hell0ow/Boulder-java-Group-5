@@ -9,6 +9,12 @@ import java.io.IOException;
  * Created by Nicolas on 21/06/2017.
  */
 public class ImageLoader {
+    /**
+     * Load image buffered image.  method which will load images
+     *
+     * @param path the path
+     * @return the buffered image
+     */
 
     public static BufferedImage loadImage(String path){
         try {

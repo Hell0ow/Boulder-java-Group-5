@@ -16,3 +16,6 @@ INSERT INTO TYPEentity (Name_entity, Folder_entity, DropType) VALUES
 ('Piropiro', 'res/sprites/textures.png', 'diamond'),
 ('TackyTacky', 'res/sprites/textures.png', 'diamond'),
 ('Amoeba', 'res/sprites/textures.png', 'diamond');
+
+
+INSERT INTO PLAYER VALUES ('', 'TESTplayer');

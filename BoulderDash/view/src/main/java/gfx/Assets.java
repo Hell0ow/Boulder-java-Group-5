@@ -26,12 +26,12 @@ public class Assets {
     */
 
     public static void init(){
-        background = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/backgroun.png");
-        titleAnimation = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/Title_Boulder.png");
-        speaker_muted = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/no_volume.png");
-        speaker_low = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/minus_volume.png");
-        speaker_high = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/plus_volume.png");
-        canSee = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/yeux.png");
-        cantSee = ImageLoader.loadImage("D:/CESI annÃ©e 1/Projet/Java/Sprites/yeux_barre.png");
+        background = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/backgroun.png");
+        titleAnimation = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/Title_Boulder.png");
+        speaker_muted = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/no_volume.png");
+        speaker_low = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/minus_volume.png");
+        speaker_high = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/plus_volume.png");
+        canSee = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/yeux.png");
+        cantSee = ImageLoader.loadImage("D:/CESI année 1/Projet/Java/Sprites/yeux_barre.png");
     }
 }

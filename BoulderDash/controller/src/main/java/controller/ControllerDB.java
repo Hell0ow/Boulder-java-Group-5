@@ -51,7 +51,7 @@ public class ControllerDB{
      * @param password
      * @throws Exception
      */
-    protected ControllerDB(String user, String password) throws Exception {
+    public ControllerDB(String user, String password) throws Exception {
 		
 		this.user = user;
 		this.password = password;

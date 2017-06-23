@@ -53,7 +53,7 @@ public abstract class ControllerDAO {
 		 * @throws SQLException
 		 * @see {@link Controller#Game()}
 		 */
-		protected static int getIDmap(ControllerDB database, String mapName) throws SQLException{
+		public static int getIDmap(ControllerDB database, String mapName) throws SQLException{
 			int mapID = 0; 
 			
 			ResultSet result = database.getIDmap(mapName);

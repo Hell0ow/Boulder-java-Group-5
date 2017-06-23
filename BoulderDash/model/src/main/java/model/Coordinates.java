@@ -1,8 +1,8 @@
 package model;
 
 public class Coordinates {
-	protected int x;
-	protected int y;
+	private int x;
+	private int y;
 	
 	public Coordinates(int x, int y) {
 		this.x = x;
@@ -39,14 +39,18 @@ public class Coordinates {
 		return x == coordinates.getX() && y == coordinates.getY();
 	}
 
-	public void addition(Coordinates coordinates) throws Exception {
+	public Coordinates addition(Coordinates coordinates) {
 		x += coordinates.getX();
 		y += coordinates.getY();
+		
+		return this;
 	}
 	
-	public void substraction(Coordinates coordinates) throws Exception {
+	public Coordinates substraction(Coordinates coordinates) {
 		x -= coordinates.getX();
 		y -= coordinates.getY();
+		
+		return this;
 	}
 
 	public int getX() {

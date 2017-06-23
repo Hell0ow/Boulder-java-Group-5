@@ -1,10 +1,10 @@
 package model;
 
 public class Delimitations {
-	protected int xMin;
-	protected int xMax;
-	protected int yMin;
-	protected int yMax;
+	private int xMin;
+	private int xMax;
+	private int yMin;
+	private int yMax;
 	
 	public Delimitations(int xMin, int xMax, int yMin, int yMax) throws Exception {
 		if (xMin > xMax || yMin > yMax) {
@@ -32,19 +32,8 @@ public class Delimitations {
 		return false;
 	}
 	
-	@Override
-	public boolean equals(Object object) {
-		if (object == null || object.getClass() != getClass()) {
-	        return false;
-	    }
-		
-		Delimitations delimitations = (Delimitations) object;
-		
-		if (xMin == delimitations.getXMin() && xMax == delimitations.getXMax() && yMin == delimitations.getYMin() && yMax == delimitations.getYMax()) {
-			return true;
-		}
-		
-		return false;
+	public boolean equals(Delimitations delimitations) {
+		return xMin == delimitations.xMin && xMax == delimitations.xMax && yMin == delimitations.yMin && yMax == delimitations.yMax;
 	}
 	
 	public int getXMin() {

@@ -10,5 +10,5 @@ public interface IBeing extends IEntity {
 	
 	public void move(IDirection direction) throws Exception;
 	
-	public void move(IPosition position) throws Exception;
+	public void move(IPosition position);
 }

@@ -11,7 +11,7 @@ import java.io.*;
 /**
  * Created by Nico on 22/06/2017.
  */
-public class sound implements Runnable{
+public class Sound implements Runnable{
 
 
     private static Clip clip;
@@ -19,7 +19,7 @@ public class sound implements Runnable{
     private static FloatControl gainControl;
     private static int delay, numberOfLoops;
 
-    public sound(int delay, int numberOfLoops){
+    public Sound(int delay, int numberOfLoops){
         this.delay = delay;
         this.numberOfLoops = numberOfLoops;
         Thread thread = new Thread(this);
@@ -47,7 +47,7 @@ public class sound implements Runnable{
     public void run() {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-                    new File("D:/CESI annÃ©e 1/Projet/Java/Sound/Boulder_Dash_Theme.wav"));
+                    new File("D:/CESI année 1/Projet/Java/Sound/Boulder_Dash_Theme.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
@@ -64,7 +64,7 @@ public class sound implements Runnable{
     }
 
     public static void setClip(Clip clip) {
-        sound.clip = clip;
+        Sound.clip = clip;
     }
 
 

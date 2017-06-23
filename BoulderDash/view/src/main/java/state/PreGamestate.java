@@ -37,16 +37,16 @@ public class PreGamestate extends State{
         
     }
     
-    public static String  getMapName(){
+    public static String  getMapName() throws InterruptedException{
     	while(asking == false){
-    		System.out.println("wait mapName");
+    		Thread.sleep(1);
     	}
     	return mapName;
     }
     
-    public static String  getPlayerName(){
+    public static String  getPlayerName() throws InterruptedException{
     	while(asking == false){
-    		System.out.println("wait playerName");
+    		Thread.sleep(1);
     	}
     	return playerName;
     }

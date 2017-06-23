@@ -14,10 +14,24 @@ import model.Position;
 import model.Tray;
 
 
+/**
+ * <b> ControllerDAO have to transform, load, use and send all result which are from ControllerDB.</b>
+ * <p> This class transform each result to stock them in model part. </p>
+ * 
+ * @author Antoine Savalle
+ * @version 2.0
+ * @see Controller#initGame()
+ */
 public abstract class ControllerDAO {
 	
 	
-	
+	/**
+	 * <p> This method receive map name from SQL request and send them as List</p>
+	 * @param database ControllerDB
+	 * @return listmap List
+	 * @throws SQLException
+	 * @see {@link Controller#Game()}
+	 */
 	protected static List<String> getAllMapName(ControllerDB database) throws SQLException{
 		String mapName = new String(); 
 		List <String> listMap = new ArrayList<String>();
@@ -31,7 +45,14 @@ public abstract class ControllerDAO {
 	}
 	
 	
-	
+		/**
+		 * <p> This method have to receive a map ID with a map name and send it as int.</p>
+		 * @param database ControllerDB
+		 * @param mapName String
+		 * @return mapID int
+		 * @throws SQLException
+		 * @see {@link Controller#Game()}
+		 */
 		protected static int getIDmap(ControllerDB database, String mapName) throws SQLException{
 			int mapID = 0; 
 			
@@ -43,7 +64,13 @@ public abstract class ControllerDAO {
 		}
 		
 		
-		
+		/**
+		 * <p> This method have to create a new player in the model with a player name.</p>
+		 * @param database ControllerDB
+		 * @param playerName String
+		 * @throws SQLException
+		 * @see {@link Controller#Game()}
+		 */
 		protected static void loadPlayer(ControllerDB database, String playerName, IModel iModel){
 
 			Integer idPlayer = 0;
@@ -65,6 +92,13 @@ public abstract class ControllerDAO {
 		}
 		
 		
+		/**
+		 * <p> This method have to take all existing entity and load them in model as Human or Dummy type.</p>
+		 * @param database ControllerDB
+		 * @param iModel IModel
+		 * @throws SQLException
+		 * @see {@link Controller#Game()}
+		 */
 		protected static void loadEntity(ControllerDB database, IModel iModel) throws Exception{
 			ICharacter entityType = (ICharacter) Factory.createHuman();
 	    	int getID = 0;
@@ -103,7 +137,14 @@ public abstract class ControllerDAO {
 		}
 	    
 		
-		
+		/**
+		 * <p> This method have to receive a map ID with a map name and send it as int.</p>
+		 * @param database ControllerDB
+		 * @param mapName String
+		 * @return mapID int
+		 * @throws SQLException
+		 * @see {@link Controller#Game()}
+		 */
 		protected static void loadBlock(ControllerDB database, IModel iModel) throws Exception{
 			IBlock textureType = (IBlock) Factory.createAir();
 	    	int getID = 0;
@@ -133,7 +174,14 @@ public abstract class ControllerDAO {
 	    	
 		}
 		
-		
+		/**
+		 * <p> This method have to load boundary, load entity and load block in the actual model.</p>
+		 * @param database ControllerDB
+		 * @param mapID int
+		 * @param iModel IModel
+		 * @throws SQLException
+		 * @see {@link Controller#Game()}
+		 */
 		protected static void loadSelectedMap(ControllerDB database, int mapID, IModel iModel) throws Exception{
 			
 			int X_max = 0, X_min = 0, Y_max = 0, Y_min = 0, X = 0, Y = 0;

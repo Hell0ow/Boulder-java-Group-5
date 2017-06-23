@@ -1,11 +1,15 @@
 package model;
 
-public class Position {
-	private Coordinates coordinates;
+import Imodel.ICoordinates;
+import Imodel.IDirection;
+import Imodel.IPosition;
+import Imodel.ITray;
+
+public class Position extends Coordinates implements IPosition {
 	private Tray tray;
 	
-	public Position(Tray tray, Coordinates coordinates) throws Exception {
-		this.coordinates = coordinates;
+	public Position(Tray tray, int x, int y) throws Exception {
+		super(x, y);
 		this.tray = tray;
 		
 		if (!tray.getBoundary().contains(this)) {
@@ -14,16 +18,24 @@ public class Position {
 	}
 	
 	public Position(Position position) {
-		coordinates = new Coordinates(position.coordinates);
+		super(position);
 		tray = position.tray;
 	}
+
+	public IPosition copy(IPosition position) {
+		tray = (Tray) position.getTray();
+		x = position.getX();
+		y = position.getY();
+		
+		return this;
+	}
 	
-	public Position next() throws Exception {
-		if (coordinates.getX() < tray.getBoundary().getDelimitations().getXMax()) {
-			coordinates.setX(coordinates.getX() + 1);
-		} else if (coordinates.getY() < tray.getBoundary().getDelimitations().getYMax()) {
-			coordinates.setX(tray.getBoundary().getDelimitations().getXMin());
-			coordinates.setY(coordinates.getY() + 1);
+	public IPosition next() throws Exception {
+		if (x < tray.getBoundary().getXMax()) {
+			x += 1;
+		} else if (y < tray.getBoundary().getYMax()) {
+			x = tray.getBoundary().getXMin();
+			y += 1;
 		} else {
 			throw new Exception("Position.next(): Position is already at the end of the tray.");
 		}
@@ -33,14 +45,13 @@ public class Position {
 	
 	@Override
 	public String toString() {
-		return new String("Pos " + coordinates);
+		return new String("Pos " + super.toString());
 	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((coordinates == null) ? 0 : coordinates.hashCode());
+		int result = super.hashCode();
 		result = prime * result + tray.getId();
 		return result;
 	}
@@ -54,7 +65,7 @@ public class Position {
 		Position position = (Position) object;
 		
 		if (tray == position.tray) {
-			if (coordinates.equals(position.getCoordinates())) {
+			if (super.equals(position)) {
 				return true;
 			}
 		}
@@ -62,8 +73,9 @@ public class Position {
 		return false;
 	}
 
-	public Position addition(Coordinates coordinates) throws Exception {
-		this.coordinates.addition(coordinates);
+	public IPosition addition(ICoordinates coordinates) throws Exception {
+		x += coordinates.getX();
+		y += coordinates.getY();
 		
 		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.addition(Coordinates): New coordinates outside of the tray.");
@@ -72,8 +84,33 @@ public class Position {
 		return this;
 	}
 	
-	public Position substraction(Coordinates coordinates) throws Exception {
-		this.coordinates.substraction(coordinates);
+	public IPosition addition(IDirection direction) throws Exception {
+		
+		switch ((Direction) direction) {
+			case UP:
+				y -= 1;
+				break;
+			case RIGHT:
+				x += 1;
+				break;
+			case DOWN:
+				y += 1;
+				break;
+			case LEFT:
+				x -= 1;
+				break;
+		}
+		
+		if (!tray.getBoundary().contains(this)) {
+			throw new Exception("Position.addition(Position): New coordinates outside of the tray: " + toString());
+		}
+		
+		return this;
+	}
+	
+	public IPosition substraction(ICoordinates coordinates) throws Exception {
+		x -= coordinates.getX();
+		y -= coordinates.getY();
 		
 		if (!tray.getBoundary().contains(this)) {
 			throw new Exception("Position.addition(Coordinates): New coordinates outside of the tray.");
@@ -82,15 +119,30 @@ public class Position {
 		return this;
 	}
 	
-	public Coordinates getCoordinates() {
-		return coordinates;
+	public IPosition substraction(IDirection direction) throws Exception {
+		switch ((Direction) direction) {
+			case UP:
+				y += 1;
+				break;
+			case RIGHT:
+				x -= 1;
+				break;
+			case DOWN:
+				y -= 1;
+				break;
+			case LEFT:
+				x += 1;
+				break;
+		}
+		
+		if (!tray.getBoundary().contains(this)) {
+			throw new Exception("Position.substraction(Position): New coordinates outside of the tray.");
+		}
+		
+		return this;
 	}
 	
-	public void setCoordinates(Coordinates coordinates) throws Exception {
-		this.coordinates = coordinates;
-	}
-	
-	public Tray getTray() {
-		return tray;
+	public ITray getTray() {
+		return (ITray) tray;
 	}
 }

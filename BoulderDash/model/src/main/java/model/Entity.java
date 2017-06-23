@@ -1,6 +1,10 @@
 package model;
 
+import Imodel.IElement;
+import Imodel.IPosition;
+
 public abstract class Entity {
+	
 	protected Position position;
 	protected Element element;
 	
@@ -9,15 +13,15 @@ public abstract class Entity {
 		this.position = position;
 	}
 	
-	public Element getElement() {
-		return element;
+	public IElement getElement() {
+		return (IElement) element;
 	}
 	
-	public Position getPosition() {
-		return position;
+	public IPosition getPosition() {
+		return (IPosition) position;
 	}
 	
-	public void setPosition(Position position) {
-		this.position = new Position(position);
+	public void setPosition(IPosition position) {
+		this.position.copy(position);
 	}
 }

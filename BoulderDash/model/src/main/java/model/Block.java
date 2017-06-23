@@ -1,9 +1,11 @@
 package model;
 
-public abstract class Block extends Element {
+import Imodel.IBlock;
+
+public abstract class Block extends Element implements IBlock {
 	
-	protected Block(String name, char texture) {
-		super(name, texture);
+	protected Block(String name, String path, Coordinates c) throws Exception {
+		super(name, path, c);
 	}
 	
 	public boolean isBreakable() {
@@ -14,7 +16,7 @@ public abstract class Block extends Element {
 		return true;
 	}
 	
-	public boolean isAffectedByGravity() {
+	public boolean isFallable() {
 		return false;
 	}
 	

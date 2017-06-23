@@ -1,8 +1,11 @@
 package model;
 
-public class Air extends Block {
-	public Air() {
-		super("Air", 'A');
+import Imodel.IAir;
+
+public class Air extends Block implements IAir {
+	
+	public Air() throws Exception {
+		super("Air", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(32, 0));
 	}
 	
 	@Override

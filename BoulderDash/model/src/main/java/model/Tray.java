@@ -3,61 +3,102 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tray {
-	private Boundary boundary;
-	private Level level;
-	private Integer id;
+import Imodel.IBeing;
+import Imodel.IBoundary;
+import Imodel.IEnemy;
+import Imodel.IHero;
+import Imodel.IPosition;
+import Imodel.ITile;
+import Imodel.ITray;
 
-	private Map<Position, Being> beings = new HashMap<Position, Being>();
-	private Map<Position, Enemy> enemies = new HashMap<Position, Enemy>();
-	private Map<Integer, Hero> heroes = new HashMap<Integer, Hero>();
-	private Map<Position, Slab> slabs = new HashMap<Position, Slab>();
+public class Tray implements ITray {
 	
-	public Tray(Level level, Integer id, Delimitations delimitations) throws Exception {
+	private Boundary boundary;
+	private Hero hero;
+	private Integer id;
+	private Level level;
+
+	private Map<IPosition, IBeing> beings = new HashMap<IPosition, IBeing>();
+	private Map<IPosition, IEnemy> enemies = new HashMap<IPosition, IEnemy>();
+	private Map<IPosition, ITile> tiles = new HashMap<IPosition, ITile>();
+	
+	public Tray(Level level, Integer id) throws Exception {
+		
 		this.level = level;
 		this.id = id;
-		boundary = new Boundary(this, delimitations);
+		
+		boundary = new Boundary(this, 0, 4, 0, 4);
 	}
 	
-	public void addEnemy(Enemy enemy) {
+	public void addEnemy(IEnemy enemy) {
 		enemies.put(enemy.getPosition(), enemy);
 		beings.put(enemy.getPosition(), enemy);
 	}
 	
-	public Map<Position, Enemy> getEnemies() {
+	public void removeEnemy(IPosition position) {
+		enemies.remove(position);
+		beings.remove(position);
+	}
+	
+	public Map<IPosition, IEnemy> getEnemies() {
 		return enemies;
 	}
 	
-	public void addHero(Hero hero) {
-		heroes.put(hero.getObjective().getPlayer().getId(), hero);
+	public void setHero(IHero hero) {
 		beings.put(hero.getPosition(), hero);
+		this.hero = (Hero) hero;
 	}
 	
-	public Map<Integer, Hero> getHeroes() {
-		return heroes;
+	public IHero getHero() {
+		return (IHero) hero;
 	}
 	
-	public void addSlab(Slab slab) {
-		slabs.put(slab.getPosition(), slab);
+	public void addTile(ITile tile) {
+		tiles.put(tile.getPosition(), tile);
 	}
 	
-	public Map<Position, Slab> getSlabs() {
-		return slabs;
+	public void removeTile(IPosition position) {
+		tiles.remove(position);
 	}
 	
-	public void addBeing(Being being) {
-		beings.put(being.getPosition(), being);
+	public Map<IPosition, ITile> getTiles() {
+		return tiles;
 	}
 	
-	public Map<Position, Being> getBeings() {
+	public Map<IPosition, IBeing> getBeings() {
 		return beings;
 	}
 	
 	public Boundary getBoundary() {
 		return new Boundary(boundary);
 	}
+	
+	public void setBoundary(IBoundary boundary) throws Exception {
+		
+		if (tiles.size() != 0 || beings.size() != 0) {
+			throw new Exception();
+		}
+		
+		this.boundary = (Boundary) boundary;
+	}
+	
+	public Level getLevel() {
+		return level;
+	}
 
 	public int getId() {
 		return id;
+	}
+	
+	public int countDepth(IPosition position) throws Exception {
+		
+		int i = 0;
+		
+		while(!tiles.get(position).getBlock().isDense() && beings.get(position) == null) {
+			position.addition(Direction.DOWN);
+			i++;
+		}
+		
+		return i;
 	}
 }

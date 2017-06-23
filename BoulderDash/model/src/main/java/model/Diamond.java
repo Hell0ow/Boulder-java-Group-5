@@ -1,12 +1,15 @@
 package model;
 
-public class Diamond extends Block {
-	public Diamond() {
-		super("Diamond", 'D');
+import Imodel.IDiamond;
+
+public class Diamond extends Block implements IDiamond {
+	
+	public Diamond() throws Exception{
+		super("Diamond", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(64, 0));
 	}
 	
 	@Override
-	public boolean isAffectedByGravity() {
+	public boolean isFallable() {
 		return true;
 	}
 	

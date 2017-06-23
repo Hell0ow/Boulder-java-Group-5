@@ -1,8 +1,10 @@
 package model;
 
-public class Coordinates {
-	private int x;
-	private int y;
+import Imodel.ICoordinates;
+
+public class Coordinates implements ICoordinates {
+	protected int x;
+	protected int y;
 	
 	public Coordinates(int x, int y) {
 		this.x = x;
@@ -37,20 +39,6 @@ public class Coordinates {
 		Coordinates coordinates = (Coordinates) object;
 		
 		return x == coordinates.getX() && y == coordinates.getY();
-	}
-
-	public Coordinates addition(Coordinates coordinates) {
-		x += coordinates.getX();
-		y += coordinates.getY();
-		
-		return this;
-	}
-	
-	public Coordinates substraction(Coordinates coordinates) {
-		x -= coordinates.getX();
-		y -= coordinates.getY();
-		
-		return this;
 	}
 
 	public int getX() {

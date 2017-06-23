@@ -1,115 +1,32 @@
-package model;
-
+package model;
 import java.util.HashMap;
-import java.util.Map;
-
-public class Level {
-	private Map<String, Block> blocks = new HashMap<String, Block>();
-	private Map<String, Dummy> dummies = new HashMap<String, Dummy>();
-	private Map<String, Human> humans = new HashMap<String, Human>();
-	
-	private Map<Integer, Objective> objectives = new HashMap<Integer, Objective>();
-	
-	private Game game;
-	private Tray tray;
-	
-	public Level(Game game) throws Exception {
-		this.game = game;
-
-		addBlock(new Air());
-		addBlock(new Diamond());
-		addBlock(new Mud());
-		addBlock(new Rock());
-		addBlock(new Wall());
-		
-		addDummy(new Dummy());
-		
-		addHuman(new Human());
-		
-		addObjective(new Objective(game.getPlayers().get(0), 25));
-		
-		try {
-		
-			tray = new Tray(this, 0, new Delimitations(0, 4, 0, 4));
-		
-			Position p = tray.getBoundary().getMinPosition();
-			
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Air"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Diamond"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Rock"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Mud"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));	
-			p.next();
-			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));
-
-			tray.addHero(new Hero(humans.get("Human"), objectives.get(0), new Position(tray, new Coordinates(4, 2))));
-			
-			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, new Coordinates(4, 1))));
-			
-		} catch (Exception e) {
-			System.out.print(e.getMessage());
-		}
-	}
-	
-	private void addBlock(Block block) {
+import java.util.Map;import Imodel.IBlock;import Imodel.ICharacter;import Imodel.ILevel;import Imodel.IModel;import Imodel.IObjective;import Imodel.ITray;
+public class Level implements ILevel {
+	private Map<String, IBlock> blocks = new HashMap<String, IBlock>();
+	private Map<String, ICharacter> characters = new HashMap<String, ICharacter>();
+	private Model model;
+	private Objective objective;
+	private Tray tray;
+	public Level(Model model) throws Exception {		this.model = model;				setObjective((IObjective) new Objective((Player) model.getPlayer(), 5));						//TEMP					tray = new Tray(this, 0);	}
+	public Map<String, IBlock> getBlocks() {
+		return blocks;
+	}
+	public void addBlock(IBlock block) {
 		blocks.put(block.getName(), block);
+	}
+	public Map<String, ICharacter> getCharacters() {
+		return characters;
+	}
+	public void addCharacter(ICharacter character) {
+		characters.put(character.getName(), character);
+	}
+	public IObjective getObjective() {
+		return (IObjective) objective;
+	}
+	public void setObjective(IObjective objective) {
+		this.objective = (Objective) objective;
+	}		public IModel getModel() {		return (IModel) model;	}
+	public ITray getTray() {
+		return (ITray) tray;
 	}
-	
-	private void addDummy(Dummy dummy) {
-		dummies.put(dummy.getName(), dummy);
-	}
-	
-	private void addHuman(Human human) {
-		humans.put(human.getName(), human);
-	}
-	
-	private void addObjective(Objective objective) {
-		objectives.put(objective.getPlayer().getId(), objective);
-	}
-	
-	public Tray getTray() {
-		return tray;
-	}
-}
+}

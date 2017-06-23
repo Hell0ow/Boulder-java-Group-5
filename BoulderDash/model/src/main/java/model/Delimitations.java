@@ -1,10 +1,14 @@
 package model;
 
-public class Delimitations {
-	private int xMin;
-	private int xMax;
-	private int yMin;
-	private int yMax;
+import Imodel.ICoordinates;
+import Imodel.IDelimitations;
+
+public class Delimitations implements IDelimitations {
+	
+	protected int xMin;
+	protected int xMax;
+	protected int yMin;
+	protected int yMax;
 	
 	public Delimitations(int xMin, int xMax, int yMin, int yMax) throws Exception {
 		if (xMin > xMax || yMin > yMax) {
@@ -24,7 +28,7 @@ public class Delimitations {
 		yMax = delimitations.yMax;
 	}
 	
-	public boolean contains(Coordinates coordinates) {
+	public boolean contains(ICoordinates coordinates) {
 		if (coordinates.getX() >= xMin && coordinates.getX() <= xMax && coordinates.getY() >= yMin && coordinates.getY() <= yMax ) {
 			return true;
 		}
@@ -32,8 +36,19 @@ public class Delimitations {
 		return false;
 	}
 	
-	public boolean equals(Delimitations delimitations) {
-		return xMin == delimitations.xMin && xMax == delimitations.xMax && yMin == delimitations.yMin && yMax == delimitations.yMax;
+	@Override
+	public boolean equals(Object object) {
+		if (object == null || object.getClass() != getClass()) {
+	        return false;
+	    }
+		
+		Delimitations delimitations = (Delimitations) object;
+		
+		if (xMin == delimitations.getXMin() && xMax == delimitations.getXMax() && yMin == delimitations.getYMin() && yMax == delimitations.getYMax()) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public int getXMin() {

@@ -1,6 +1,10 @@
 package model;
 
-public class Objective {
+import Imodel.IHero;
+import Imodel.IObjective;
+import Imodel.IPlayer;
+
+public class Objective implements IObjective {
 	private Hero hero = null;
 	private Player player;
 	private int obtained = 0;
@@ -20,16 +24,16 @@ public class Objective {
 		return obtained >= required;
 	}
 	
-	public Hero getHero() {
-		return hero;
+	public IHero getHero() {
+		return (IHero) hero;
 	}
 	
-	public void setHero(Hero hero) {
-		this.hero = hero;
+	public void setHero(IHero hero) {
+		this.hero = (Hero) hero;
 	}
 	
-	public Player getPlayer() {
-		return player;
+	public IPlayer getPlayer() {
+		return (IPlayer) player;
 	}
 	
 	public int getObtained() {

@@ -1,8 +1,10 @@
 package model;
 
-public class Human extends Character {
+import Imodel.IHuman;
 
-	public Human() {
-		super("Human", 'h');
-	}	
+public class Human extends Character implements IHuman {
+
+	public Human() throws Exception {
+		super("Human", "D:/CESI année 1/Projet/Java/Sprites/human.png", new Coordinates(48, 64));
+	}
 }

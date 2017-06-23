@@ -1,12 +1,15 @@
 package model;
 
-public class Rock extends Block {
-	public Rock() {
-		super("Rock", 'R');
+import Imodel.IRock;
+
+public class Rock extends Block implements IRock {
+	
+	public Rock() throws Exception {
+		super("Rock", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(48, 0));
 	}
 	
 	@Override
-	public boolean isAffectedByGravity() {
+	public boolean isFallable() {
 		return true;
 	}
 	

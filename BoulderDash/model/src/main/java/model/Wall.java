@@ -1,7 +1,15 @@
 package model;
 
-public class Wall extends Block {
-	public Wall() {
-		super("Wall", 'W');
+import Imodel.IWall;
+
+public class Wall extends Block implements IWall {
+	
+	public Wall() throws Exception{
+		super("Wall", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(0, 0));
+	}
+	
+	@Override
+	public boolean isBreakable() {
+		return false;
 	}
 }

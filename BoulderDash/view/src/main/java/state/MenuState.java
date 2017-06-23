@@ -73,7 +73,7 @@ public class MenuState extends State{
 
         Font fnt0 = null;
         try {
-            fnt0 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI annÃ©e 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
+            fnt0 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI année 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
         } catch (FontFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -95,7 +95,7 @@ public class MenuState extends State{
 
         Font fnt1 = null;
         try {
-            fnt1 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI annÃ©e 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
+            fnt1 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI année 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
         } catch (FontFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {

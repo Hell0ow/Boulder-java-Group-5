@@ -14,7 +14,7 @@ import view.Frame;
 /**
  * <b> Controller is the principal class of the package controller. It launch and instantiate view and model.</br>
  * <p> Its job is to load element from ControllerDB and send them to model to initiate the view.</p>
- * 	
+ * 
  * @author Antoine Savalle
  * @version 4.0
  */

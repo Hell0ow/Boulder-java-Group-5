@@ -12,8 +12,8 @@ CREATE TABLE MAP(
         Name_map  Text NOT NULL ,
         Xmin_map  Int NOT NULL ,
         Xmax_map  Int NOT NULL ,
-        Ymax_map  Int NOT NULL ,
         Ymin_map  Int NOT NULL ,
+        Ymax_map  Int NOT NULL ,
         nbDiamond Int ,
         mapTime   Int ,
         PRIMARY KEY (ID_map )

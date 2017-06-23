@@ -85,7 +85,7 @@ DELIMITER ;
 #--- Controller ---#
 
 DELIMITER |
-CREATE PROCEDURE getEntity()
+CREATE PROCEDURE getAllEntityName()
 BEGIN
 
 SELECT ID_typeEntity FROM TYPEentity;
@@ -93,7 +93,7 @@ SELECT ID_typeEntity FROM TYPEentity;
 END |
 DELIMITER ;
 
-#CALL getEntity();
+#CALL getAllEntityName();
 
 #--------------------#
 
@@ -136,5 +136,66 @@ END |
 DELIMITER ;
 
 #CALL getBlock('mapID');
+
+#--------------------#
+
+
+
+
+
+#--- Controller ---#
+
+DELIMITER |
+CREATE PROCEDURE getEntity(
+	IN mapID int
+)
+BEGIN
+
+SELECT X_entity, Y_entity, TYPEentity.Name_entity FROM ENTITY INNER JOIN TYPEentity ON ENTITY.ID_typeEntity = TYPEentity.ID_typeEntity WHERE ID_map = mapID;
+
+END |
+DELIMITER ;
+
+#CALL getEntity('mapID');
+
+#--------------------#
+
+
+
+
+
+#--- Controller ---#
+
+DELIMITER |
+CREATE PROCEDURE getMapID(
+	IN mapName text
+)
+BEGIN
+
+SELECT ID_map FROM MAP WHERE Name_map = mapName;
+
+END |
+DELIMITER ;
+
+#CALL getMapID('mapName');
+
+#--------------------#
+
+
+
+
+
+#--- Controller ---#
+
+DELIMITER |
+CREATE PROCEDURE getAllMapName()
+BEGIN
+
+SELECT Name_map FROM MAP;
+
+END |
+DELIMITER ;
+
+#CALL getAllMapName();
 
 #--------------------#

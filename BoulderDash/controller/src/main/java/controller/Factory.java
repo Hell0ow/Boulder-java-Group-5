@@ -7,6 +7,14 @@ import model.Character;
 import Iview.*;
 import view.View;
 
+
+/**
+ * <b> This class is a design patern Factory </b>
+ * <p> It have to create object in few method to simplify the code when a constructor is modified.</p>
+ * @author Antoine Savalle
+ * @version 1.5
+ * @see Controller, ControllerDB, ControllerDAO
+ */
 public abstract class Factory {
 	
 	// ------ Java Object ------ //

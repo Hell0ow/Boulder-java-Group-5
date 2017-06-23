@@ -8,14 +8,13 @@ public class Level {
 	private Map<String, Dummy> dummies = new HashMap<String, Dummy>();
 	private Map<String, Human> humans = new HashMap<String, Human>();
 	
+	private Map<Integer, Objective> objectives = new HashMap<Integer, Objective>();
+	
 	private Game game;
-	private Objective objective;
 	private Tray tray;
 	
 	public Level(Game game) throws Exception {
 		this.game = game;
-		
-		objective = new Objective(game.getPlayer(), 25);
 
 		addBlock(new Air());
 		addBlock(new Diamond());
@@ -26,6 +25,8 @@ public class Level {
 		addDummy(new Dummy());
 		
 		addHuman(new Human());
+		
+		addObjective(new Objective(game.getPlayers().get(0), 25));
 		
 		try {
 		
@@ -83,7 +84,7 @@ public class Level {
 			p.next();
 			tray.addSlab(new Slab(blocks.get("Wall"), new Position(p)));
 
-			tray.addHero(new Hero(humans.get("Human"), objective, new Position(tray, 2, 2)));
+			tray.addHero(new Hero(humans.get("Human"), objectives.get(0), new Position(tray, 2, 2)));
 			
 			tray.addEnemy(new Enemy(dummies.get("Dummy"), new Position(tray, 4, 1)));
 			
@@ -104,8 +105,8 @@ public class Level {
 		humans.put(human.getName(), human);
 	}
 	
-	private Objective getObjective() {
-		return objective;
+	private void addObjective(Objective objective) {
+		objectives.put(objective.getPlayer().getId(), objective);
 	}
 	
 	public Tray getTray() {

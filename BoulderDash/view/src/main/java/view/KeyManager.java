@@ -3,24 +3,35 @@ package view;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * This class control the keyboard input
+ * 
+ * @author Pierre Hamel
+ *
+ */
 public class KeyManager implements KeyListener{
 
-  private boolean[] keys, justPressed, cantPressed;
-
+	/**
+	 * Key contains an action used in Order(model)
+	 */
   private String key = new String();
   
+  /**
+   * Constructor
+   */
   public KeyManager() {
-   keys = new boolean[256];
-   justPressed = new boolean[keys.length];
-   cantPressed = new boolean[keys.length];
-  }
+  } 
   
-  
-  
+  /**
+   * Unused method from KeyListener
+   */
   @Override
   public void keyTyped(KeyEvent e) {
   }
 
+  /**
+   * Send the keyboard input to the controller 
+   */
   @Override
   public void keyPressed(KeyEvent e) {
 	  switch (e.getKeyCode()){
@@ -63,12 +74,18 @@ public class KeyManager implements KeyListener{
 	  }
   }
 
+  /**
+   * reset key to NONE (do not move action)
+   */
   @Override
   public void keyReleased(KeyEvent e) {
 	  key = "NONE";
  }
   
-  
+  /**
+   * Getter
+   * @return key
+   */
   public String getKey(){
 	  return key;
   }

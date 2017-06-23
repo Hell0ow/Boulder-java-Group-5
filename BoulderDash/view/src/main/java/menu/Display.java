@@ -21,6 +21,14 @@ public class Display extends JFrame{
     private Toolkit tk;
     private Cursor cursor;
     private BufferedImage piocheImageCursor;
+    /**
+     * Instantiates a new Display.
+     *
+     * @param title  the title
+     * @param width  the width
+     * @param height the height
+     * @throws IOException the io exception
+     */
 
     public Display(String title, int width, int height) throws IOException {
         this.title = title;
@@ -30,6 +38,10 @@ public class Display extends JFrame{
         //cursor();
         createDisplay();
     }
+    
+    /**
+     * Create display.
+     */
 
     public void createDisplay(){
         frame = new JFrame(title);
@@ -50,10 +62,21 @@ public class Display extends JFrame{
         frame.add(canvas);
         frame.pack();
     }
+    
+     /**
+     * Get canvas canvas.
+     *
+     * @return the canvas
+     */
 
     public static Canvas getCanvas(){
         return canvas;
     }
+    /**
+     * Cursor.
+     *
+     * @throws IOException the io exception
+     */
 
    /* public void cursor() throws IOException {                //marche pas, sûrement le cursor c'est pas enable, ou focus, chercher quoi
         tk = Toolkit.getDefaultToolkit();
@@ -62,25 +85,46 @@ public class Display extends JFrame{
         setCursor(cursor);
     }*/
 
-
+/**
+     * Gets widthframe.
+     *
+     * @return the widthframe
+     */
 
     public static int getWidthframe() {
         return width;
     }
-
+/**
+     * Gets heightframe.
+     *
+     * @return the heightframe
+     */
 
     public static int getHeightframe() {
         return height;
     }
+    /**
+     * Sets width.
+     *
+     * @param width the width
+     */
 
     public static void setWidth(int width) {
         Display.width = width;
-    }
+    } /**
+     * Sets height.
+     *
+     * @param height the height
+     */
 
     public static void setHeight(int height) {
         Display.height = height;
     }
-
+/**
+     * Gets frame.
+     *
+     * @return the frame
+     */
     public static JFrame getFrame() {
         return frame;
     }

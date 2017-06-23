@@ -16,6 +16,10 @@ public class PreGamestate extends State{
     private static String playerName;
     private static boolean asking;
     private static List<String> mapList = new ArrayList<String>();
+    
+    /**
+     * Instantiates a new Pre gamestate.
+     */
 
     public PreGamestate(){
         mapName = "";
@@ -29,6 +33,10 @@ public class PreGamestate extends State{
         mapName = JOptionPane.showInputDialog("Which map will you choose?");
         asking = true;
     }
+    /**
+     *
+     * @param g the g
+     */
 
     @Override
     public void render(Graphics g) {

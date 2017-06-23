@@ -10,6 +10,9 @@ import java.io.IOException;
  * Created by Nicolas on 21/06/2017.
  **/
 public class SettingsState extends State {
+    /**
+     * Instantiates a new Settings state.
+     */
 
     public SettingsState(){
 
@@ -19,6 +22,10 @@ public class SettingsState extends State {
     public  void tick(){
 
     }
+    /**
+     * Display the background and all the buttons
+     * @param g the g
+     */
 
     @Override
     public  void render(Graphics g){
@@ -28,7 +35,7 @@ public class SettingsState extends State {
 
         Font fnt0 = null;
         try {
-            fnt0 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI année 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
+            fnt0 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI annÃ©e 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
         } catch (FontFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {

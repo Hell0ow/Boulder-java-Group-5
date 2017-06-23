@@ -63,13 +63,26 @@ public class Enemy extends Being implements IEnemy {
 	}
 	
 	@Override
-	public void move(IPosition position) {
+	public void move(IPosition position) throws Exception {
 		
 		if (!position.getTray().getTiles().get((IPosition) position).getBlock().isDense() && position.getTray().getBeings().get((IPosition) position) == null) {
 			
 			this.position.getTray().removeEnemy((IPosition) this.position);
 			this.position.copy((IPosition) position);
 			position.getTray().addEnemy((IEnemy) this);
+		}
+		
+		Position p = new Position((Position) position);
+		
+		if (p.getTray().getHero().getPosition().equals(p.addition(Direction.UP))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.RIGHT))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.DOWN))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.DOWN))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.LEFT))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.LEFT))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.UP))
+		|| p.getTray().getHero().getPosition().equals(p.addition(Direction.UP))) {
+			explode();
 		}
 	}
 

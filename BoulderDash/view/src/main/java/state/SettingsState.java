@@ -10,6 +10,9 @@ import java.io.IOException;
  * Created by Nicolas on 21/06/2017.
  **/
 public class SettingsState extends State {
+    /**
+     * Instantiates a new Settings state.
+     */
 
     public SettingsState(){
 
@@ -19,6 +22,10 @@ public class SettingsState extends State {
     public  void tick(){
 
     }
+    /**
+     * Display the background and all the buttons
+     * @param g the g
+     */
 
     @Override
     public  void render(Graphics g){

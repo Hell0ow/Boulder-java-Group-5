@@ -38,7 +38,7 @@ public class View implements IView {
 			printEntity(entity);
 		}
 
-		//frame.repaint();
+		frame.repaint();
 	}
 	
 	private void printEntity(IEntity entity) {

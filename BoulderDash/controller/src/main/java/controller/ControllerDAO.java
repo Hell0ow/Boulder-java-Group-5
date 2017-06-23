@@ -2,6 +2,8 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Imodel.*;
 import model.Block;
@@ -13,6 +15,22 @@ import model.Tray;
 
 
 public abstract class ControllerDAO {
+	
+	
+	
+	protected static List<String> getAllMapName(ControllerDB database) throws SQLException{
+		String mapName = new String(); 
+		List <String> listMap = new ArrayList<String>();
+		
+		ResultSet result = database.getAllMapName();
+		while(result.next()){
+			mapName = result.getString("Name_map");
+			listMap.add(mapName);
+		}
+		return listMap;
+	}
+	
+	
 	
 		protected static int getIDmap(ControllerDB database, String mapName) throws SQLException{
 			int mapID = 0; 
@@ -121,7 +139,7 @@ public abstract class ControllerDAO {
 			int X_max = 0, X_min = 0, Y_max = 0, Y_min = 0, X = 0, Y = 0;
 	    	String texture = Factory.createString(), entity = Factory.createString();
 	    	
-	    	
+
 	    	//Add map size for the selected map.
 	    	ResultSet result = database.getBoundary(mapID);
 	    	while(result.next()){

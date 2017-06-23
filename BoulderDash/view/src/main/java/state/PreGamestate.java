@@ -3,8 +3,9 @@ package state;
 import javax.swing.*;
 
 import menu.Game;
-
+import java.util.List;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Nico on 22/06/2017.
@@ -14,6 +15,7 @@ public class PreGamestate extends State{
     private static String mapName;
     private static String playerName;
     private static boolean asking;
+    private static List<String> mapList = new ArrayList<String>();
 
     public PreGamestate(){
         mapName = "";
@@ -47,5 +49,9 @@ public class PreGamestate extends State{
     		System.out.println("wait playerName");
     	}
     	return playerName;
+    }
+    
+    public static void setMapList(List<String> pmapList){
+    	mapList = pmapList;
     }
 }

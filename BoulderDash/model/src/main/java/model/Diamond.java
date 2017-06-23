@@ -5,7 +5,7 @@ import Imodel.IDiamond;
 public class Diamond extends Block implements IDiamond {
 	
 	public Diamond() throws Exception{
-		super("Diamond", "D:/CESI année 1/Projet/Java/Sprites/textures.png", new Coordinates(64, 0));
+		super("Diamond", "D:/CESI annÃ©e 1/Projet/Java/Sprites/textures.png", new Coordinates(64, 0));
 	}
 	
 	@Override

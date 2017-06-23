@@ -11,7 +11,7 @@ import java.io.*;
 /**
  * Created by Nico on 22/06/2017.
  */
-public class sound implements Runnable{
+public class Sound implements Runnable{
 
 
     private static Clip clip;
@@ -19,7 +19,7 @@ public class sound implements Runnable{
     private static FloatControl gainControl;
     private static int delay, numberOfLoops;
 
-    public sound(int delay, int numberOfLoops){
+    public Sound(int delay, int numberOfLoops){
         this.delay = delay;
         this.numberOfLoops = numberOfLoops;
         Thread thread = new Thread(this);

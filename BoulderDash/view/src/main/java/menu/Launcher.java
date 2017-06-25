@@ -15,7 +15,7 @@ import menu.Game;
  */
 
 public class Launcher {
-    public static void main(String[] args){
+    public static void runMenu(){
          Game game = new Game("Boulder Dash", 1152,832);
          game.start();
         Sound sound = new Sound();

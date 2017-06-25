@@ -92,7 +92,12 @@ public class Controller implements IController{
 		List<String> map = new ArrayList<String>();
 		//Load all existing map
 		map = ControllerDAO.getAllMapName(database);
-		PreGamestate.setMapList(map);
+		String mapSend[] =  new String[map.size()];
+		for(int i = 0; i < map.size(); i++){
+			mapSend[i] = map.get(i);
+		}
+	
+		PreGamestate.setMapList(mapSend);
 		
 		//Launch menu
 		Launcher.runMenu();

@@ -1,4 +1,4 @@
-package state;
+ package state;
 
 import javax.swing.*;
 
@@ -15,7 +15,7 @@ public class PreGamestate extends State{
     private static String mapName;
     private static String playerName;
     private static boolean asking;
-    private static List<String> mapList = new ArrayList<String>();
+    private static String mapList[];
     
     /**
      * Instantiates a new Pre gamestate.
@@ -59,7 +59,12 @@ public class PreGamestate extends State{
     	return playerName;
     }
     
-    public static void setMapList(List<String> pmapList){
-    	mapList = pmapList;
+    public static void setMapList(String pmapList[]){
+    	int sizeTable = pmapList.length;
+    	mapList = new String[sizeTable];
+    	
+    	for(int i = 0; i < sizeTable; i++){
+    		mapList[i] = pmapList[i];
+    	}
     }
 }

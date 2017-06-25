@@ -67,9 +67,8 @@ public class View implements IView {
 	 * Add new entity to print it
 	 */
 	private void printEntity(IEntity entity) {
-		frame.add(new Component(entity));
-		frame.validate();
-	}
+        frame.getGraphics().drawImage(entity.getElement().getSheet(), entity.getPosition().getX() * 64, entity.getPosition().getY()  * 64, 64, 64, null);
+    }
 
 	/**
 	 * Getter for the window width

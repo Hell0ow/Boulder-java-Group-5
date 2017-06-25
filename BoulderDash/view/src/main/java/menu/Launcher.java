@@ -15,15 +15,10 @@ import menu.Game;
  */
 
 public class Launcher {
-
-    public static void runMenu(){
-
+    public static void main(String[] args){
          Game game = new Game("Boulder Dash", 1152,832);
-
          game.start();
-
-         //new Sound(100000,1);
+        Sound sound = new Sound();
+        sound.start(100000,3);
     }
-
 }
-

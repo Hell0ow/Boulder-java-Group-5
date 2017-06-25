@@ -18,30 +18,32 @@ public class Sound implements Runnable{
     private static int token;
     private static FloatControl gainControl;
     private static int delay, numberOfLoops;
-    
-    /**
-     * Instantiates a new Sound.
-     *
-     * @param delay         the delay
-     * @param numberOfLoops the number of loops
-     */
+    private Thread thread;
 
-    public Sound(int delay, int numberOfLoops){
-        this.delay = delay;
-        this.numberOfLoops = numberOfLoops;
-        Thread thread = new Thread(this);
-        thread.start();
-        music(delay, numberOfLoops);
+
+    public Sound(){
+
     }
-/**
-     * Music.
-     *
-     * @param delay         the delay
-     * @param numberOfLoops the number of loops
+
+    /**
+     * Play the music and repeat it numberOfLoops times.
      */
 
+    @Override
+    public void run() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+                    new File("out/sound/Boulder_Dash_Theme.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(0); // Reduce volume by 0 decibels.
+            clip.start();
+            Thread.sleep(clip.getMicrosecondLength());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-    public static void music(int delay, int numberOfLoops) {// arrete le programme, ou faut crÃ©er un Thread
         for (int i = 0; i < numberOfLoops; i++) {
             try {
                 while(token < delay/500) {
@@ -52,25 +54,22 @@ public class Sound implements Runnable{
                 e.printStackTrace();
             }
         }
+
+    }
+
+    /**
+     * Create the new Thread for the music
+     * @param delay
+     * @param numberOfLoops
+     */
+
+    public synchronized void start(int delay, int numberOfLoops){
+        thread = new Thread(this);
+        thread.start();
     }
 
 
-    @Override
-    public void run() {
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-                    new File("D:/CESI année 1/Projet/Java/Sound/Boulder_Dash_Theme.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(0); // Reduce volume by 0 decibels.
-            clip.start();
-            Thread.sleep(clip.getMicrosecondLength());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-/**
+    /**
      * Gets gain control.
      *
      * @return the gain control
@@ -86,7 +85,7 @@ public class Sound implements Runnable{
     public static void setClip(Clip clip) {
         Sound.clip = clip;
     }
-/**
+    /**
      * Gets clip.
      *
      * @return the clip

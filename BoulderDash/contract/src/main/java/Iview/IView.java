@@ -15,5 +15,9 @@ public interface IView {
 	public void setFrameWidth(int i);
 
 	public void setFrameHeight(int i);
+	
+	public void win() throws InterruptedException;
+
+	public void lose() throws InterruptedException;
 
 }

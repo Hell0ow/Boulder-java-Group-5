@@ -2,6 +2,7 @@ package model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import Imodel.IBeing;
 import Imodel.IBoundary;
@@ -18,8 +19,8 @@ public class Tray implements ITray {
 	private Integer id;
 	private Level level;
 
-	private Map<IPosition, IBeing> beings = new HashMap<IPosition, IBeing>();
-	private Map<IPosition, IEnemy> enemies = new HashMap<IPosition, IEnemy>();
+	private Map<IPosition, IBeing> beings = new ConcurrentHashMap<IPosition, IBeing>();
+	private Map<IPosition, IEnemy> enemies = new ConcurrentHashMap<IPosition, IEnemy>();
 	private Map<IPosition, ITile> tiles = new HashMap<IPosition, ITile>();
 	
 	public Tray(Level level, Integer id) throws Exception {

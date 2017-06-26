@@ -15,6 +15,7 @@ public class Model implements IModel {
 	private Level level;
 	private Player player;
 	private boolean finished = false;
+	private boolean won = false;
 	
 	public Model() throws Exception {
 		
@@ -106,8 +107,13 @@ public class Model implements IModel {
 		
 		if (level.getObjective().isCompleted()) {
 			finish();
+			won = true;
 		}
-	
+		
 		return finished;
+	}
+	
+	public boolean isWon(){
+		return won;
 	}
 }

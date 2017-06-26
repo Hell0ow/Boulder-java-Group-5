@@ -1,6 +1,10 @@
 package view;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import Imodel.IBeing;
 import Imodel.IEntity;
 import Imodel.IModel;
@@ -43,6 +47,7 @@ public class View implements IView {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setBackground(Color.BLACK);
 	}
 	
 	/**
@@ -50,7 +55,7 @@ public class View implements IView {
 	 */
 	public void frame() throws Exception {
 
-        for (IEntity entity: model.getLevel().getTray().getTiles().values()) {
+		for (IEntity entity: model.getLevel().getTray().getTiles().values()) {
             printEntity(entity);
         }
 
@@ -63,7 +68,7 @@ public class View implements IView {
 	 * Add new entity to print it
 	 */
 	private void printEntity(IEntity entity) {
-        frame.getGraphics().drawImage(entity.getElement().getSheet(), entity.getPosition().getX() * 64, entity.getPosition().getY()  * 64, 64, 64, null);
+        frame.getGraphics().drawImage(entity.getElement().getSheet(), entity.getPosition().getX() *32, entity.getPosition().getY()  * 32, 32, 32, null);
     }
 
 	/**
@@ -95,6 +100,16 @@ public class View implements IView {
 	 */
 	public Frame getFrame(){
 		return frame;
+	}
+	
+	public void win() throws InterruptedException{
+		JOptionPane.showMessageDialog(null, "You win !");
+		System.exit(-1);
+	}
+	
+	public void lose() throws InterruptedException{
+		JOptionPane.showMessageDialog(null, "Game Over");
+		System.exit(-1);
 	}
 
 }

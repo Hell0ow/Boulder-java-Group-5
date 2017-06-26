@@ -117,14 +117,10 @@ public class Controller implements IController{
 		
 		 try {
 			 view = Factory.createView(model);
-			 
-			 Camera cam = new Camera(view, model, 20, 20);
+
 			 KeyManager keyEvent = ((Frame) view.getFrame()).getKeyManager();
 			 
 	            do{
-	            	/*cam.centerOnEntity(model.getLevel().getTray().getHero());
-	            	view.setFrameWidth((int) cam.getxOffset());
-	            	view.setFrameHeight((int) cam.getyOffset());*/
 	            	Thread.sleep(10);
 	                view.frame();
 	               
@@ -132,7 +128,13 @@ public class Controller implements IController{
 	            
 	            view.frame();
 	            
+	            if(model.isWon()){
+	            	view.win();
+	            }else{
+	            	view.lose();
+	            }
 	            
+	          
 	        } catch (Exception e) {
 	            System.out.println(e.getMessage());
 	            e.printStackTrace();

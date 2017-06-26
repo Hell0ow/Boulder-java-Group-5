@@ -142,7 +142,7 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
             if (mouseX >= 800 && mouseX <= 1000) {
                 if (mouseY >= 300 && mouseY <= 410) {
                     PreGamestate.setMapChoosen(PreGamestate.getMapChoosen() + 1);
-                    if(PreGamestate.getMapChoosen() >= 4)
+                    if(PreGamestate.getMapChoosen() >= 5)
                         PreGamestate.setMapChoosen(0);
                 }
             }

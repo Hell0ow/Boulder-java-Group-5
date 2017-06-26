@@ -7,7 +7,7 @@ public class Level implements ILevel {
 	private Model model;
 	private Objective objective;
 	private Tray tray;
-	public Level(Model model) throws Exception {		this.model = model;				setObjective((IObjective) new Objective((Player) model.getPlayer(), 5));						//TEMP					tray = new Tray(this, 0);	}
+	public Level(Model model) throws Exception {		this.model = model;				setObjective((IObjective) new Objective((Player) model.getPlayer(), 3));						//TEMP					tray = new Tray(this, 0);	}
 	public Map<String, IBlock> getBlocks() {
 		return blocks;
 	}

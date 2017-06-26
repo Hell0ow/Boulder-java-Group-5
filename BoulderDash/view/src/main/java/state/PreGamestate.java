@@ -22,7 +22,7 @@ public class PreGamestate extends State{
     private static String playerNickname;
     private boolean check = false;
     public static boolean asking = false;
-    static String[] array = {"Hell", "test", "Espoir", "Antoine"};
+    static String[] array = {"Lit", "Hell", "Java", "Valhala", "Teemo"};
 
     public PreGamestate(){
         imageHeight = 400;
@@ -79,6 +79,10 @@ public class PreGamestate extends State{
         if(mapChoosen == 3){
             g.drawString(array[3], 490,280);
             g.drawImage(Assets.map3, 380,300,imageWidth, imageHeight, null);
+        }
+        if(mapChoosen == 4){
+            g.drawString(array[4], 490,280);
+            g.drawImage(Assets.map4, 380,300,imageWidth, imageHeight, null);
         }
     }
 

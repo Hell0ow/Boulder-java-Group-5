@@ -12,4 +12,8 @@ public interface IView {
 
 	public Frame getFrame();
 
+	public void setFrameWidth(int i);
+
+	public void setFrameHeight(int i);
+
 }

@@ -49,19 +49,15 @@ public class View implements IView {
 	 * Remove all entities and then load entities and print them
 	 */
 	public void frame() throws Exception {
-		
-		frame.getContentPane().removeAll();
-		
-		for (IBeing being : model.getLevel().getTray().getBeings().values()) {
-			printEntity((IEntity) being);
-		}
-		
-		for (IEntity entity: model.getLevel().getTray().getTiles().values()) {
-			printEntity(entity);
-		}
 
-		frame.repaint();
-	}
+        for (IEntity entity: model.getLevel().getTray().getTiles().values()) {
+            printEntity(entity);
+        }
+
+        for (IBeing being : model.getLevel().getTray().getBeings().values()) {
+            printEntity((IEntity) being);
+        }
+    }
 	
 	/**
 	 * Add new entity to print it
@@ -86,6 +82,14 @@ public class View implements IView {
 		return frameHeight;
 	}
 	
+	public void setFrameWidth(int frameWidth) {
+		this.frameWidth = frameWidth;
+	}
+
+	public void setFrameHeight(int frameHeight) {
+		this.frameHeight = frameHeight;
+	}
+
 	/**
 	 * @return frame
 	 */

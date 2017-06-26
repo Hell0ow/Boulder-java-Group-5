@@ -32,23 +32,27 @@ public class Hero extends Being implements IHero {
 	}
 	
 	@Override
-	public void move(IPosition position) {
-		
-		position.getTray().getTiles().get((IPosition) position).dig();
-		
-		if (position.getTray().getBeings().get(position) == null) {
-			
-			if (!position.getTray().getTiles().get(position).getBlock().isDense()) {
-				
-				this.position.getTray().removeEnemy((IPosition) this.position);
-				this.position.copy(position);
-				position.getTray().setHero((IHero) this);
-			} else if (position.getTray().getTiles().get(position).getBlock().isReward()) {
-				
-				this.position.getTray().removeEnemy((IPosition) this.position);
-				this.position.copy(position);
-				position.getTray().setHero((IHero) this);
-			}
-		}
-	}
+    public void move(IPosition position) {
+
+        position.getTray().getTiles().get((IPosition) position).dig();
+
+        if (position.getTray().getBeings().get(position) == null) {
+
+            if (!position.getTray().getTiles().get(position).getBlock().isDense()) {
+
+                this.position.getTray().removeEnemy((IPosition) this.position);
+                this.position.copy(position);
+                position.getTray().setHero((IHero) this);
+
+            } else if (position.getTray().getTiles().get(position).getBlock().isReward()) {
+
+                position.getTray().addTile(new Tile((Block) position.getTray().getLevel().getBlocks().get("Air"), (Position) position));
+
+                this.position.getTray().removeEnemy((IPosition) this.position);
+                this.position.copy(position);
+                position.getTray().setHero((IHero) this);
+                position.getTray().getLevel().getObjective().setObtained(position.getTray().getLevel().getObjective().getObtained() + 1);
+            }
+        }
+    }
 }

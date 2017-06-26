@@ -119,7 +119,6 @@ public class Game implements  Runnable{
         animationState = new AnimationState();     // Instantiate the State class
         menuState = new MenuState();
         settingsState = new SettingsState();
-        gamestate = new GameState();
         preGameState = new PreGamestate();
 
         State.setState(animationState);            // Initialize the first State

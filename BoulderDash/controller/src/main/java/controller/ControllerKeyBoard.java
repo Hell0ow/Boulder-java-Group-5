@@ -29,7 +29,6 @@ public class ControllerKeyBoard{
 	protected static Order getOrder(KeyManager keyEvent) {
 		
 		key = keyEvent.getKey();
-		System.out.println(key);
         switch(key) {
             case "Z":
                 return Order.MOVE_UP;

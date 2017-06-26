@@ -88,17 +88,7 @@ public class Controller implements IController{
 		
 		//Instantiate new database object.
 		ControllerDB database = Factory.createControllerDB();
-		
-		List<String> map = new ArrayList<String>();
-		//Load all existing map
-		map = ControllerDAO.getAllMapName(database);
-		String mapSend[] =  new String[map.size()];
-		for(int i = 0; i < map.size(); i++){
-			mapSend[i] = map.get(i);
-		}
 	
-		PreGamestate.setMapList(mapSend);
-		
 		//Launch menu
 		Launcher.runMenu();
 		//Take map and player name
@@ -127,11 +117,15 @@ public class Controller implements IController{
 		
 		 try {
 			 view = Factory.createView(model);
-			 Camera cam = new Camera(model, 0, 0);
+			 
+			 Camera cam = new Camera(view, model, 20, 20);
 			 KeyManager keyEvent = ((Frame) view.getFrame()).getKeyManager();
 			 
 	            do{
-	            	Thread.sleep(1);
+	            	/*cam.centerOnEntity(model.getLevel().getTray().getHero());
+	            	view.setFrameWidth((int) cam.getxOffset());
+	            	view.setFrameHeight((int) cam.getyOffset());*/
+	            	Thread.sleep(10);
 	                view.frame();
 	               
 	            }while(!model.cycle(ControllerKeyBoard.getOrder(keyEvent)));

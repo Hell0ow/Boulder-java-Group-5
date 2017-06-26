@@ -1,8 +1,8 @@
-package BoulderDash.State;
+package state;
 
-import BoulderDash.Display;
-import BoulderDash.Game;
-import BoulderDash.gfx.Assets;
+import menu.Display;
+import menu.Game;
+import gfx.Assets;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +21,8 @@ public class PreGamestate extends State{
 
     private static String playerNickname;
     private boolean check = false;
-    private static boolean game = false;
-    String[] array = {"Hell", "test", "Espoir", "Antoine"};
+    public static boolean asking = false;
+    static String[] array = {"Hell", "test", "Espoir", "Antoine"};
 
     public PreGamestate(){
         imageHeight = 400;
@@ -36,9 +36,6 @@ public class PreGamestate extends State{
             playerNickname = JOptionPane.showInputDialog("What's your nickname?");
             check = true;
         }
-
-        if(game)
-            State.setState(Game.getGamestate());
     }
 
     @Override
@@ -48,7 +45,7 @@ public class PreGamestate extends State{
 
         Font fnt0 = null;
         try {
-            fnt0 = Font.createFont(Font.TRUETYPE_FONT, new File("out/font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
+            fnt0 = Font.createFont(Font.TRUETYPE_FONT, new File("D:/CESI année 1/Projet/Java/Font/slkscr.ttf")).deriveFont(Font.PLAIN, 55);
         } catch (FontFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -86,20 +83,27 @@ public class PreGamestate extends State{
     }
 
 
-    public static boolean isGame() {
-        return game;
-    }
-
-    public static void setGame(boolean gamee) {
-        game = gamee;
-    }
-
-    public static  int getMapChoosen() {
+    public static int getMapChoosen() {
         return mapChoosen;
+    }
+    
+    public static  String getMapName() throws InterruptedException{
+    	while(asking == false){
+    		Thread.sleep(1);
+    	}
+    	return array[mapChoosen];
     }
 
 
     public static void setMapChoosen(int map) {
+    	
         mapChoosen = map;
+    }
+    
+    public static String getPlayerName() throws InterruptedException{
+    	while(asking == false){
+    		Thread.sleep(1);
+    	}
+    	return playerNickname;
     }
 }

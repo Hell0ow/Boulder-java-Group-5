@@ -1,6 +1,7 @@
 package view;
 
 import Imodel.IElement;
+import Imodel.IHero;
 import Imodel.IModel;
 import Iview.IView;
 
@@ -25,10 +26,11 @@ public class Camera {
 	 * @param xOffset
 	 * @param yOffset
 	 */
-	public Camera(IModel model, float xOffset, float yOffset){
+	public Camera(IView view, IModel model, float xOffset, float yOffset){
 		this.xOffset = xOffset;
 		this.yOffset = yOffset;
 		this.model = model;
+		this.view = view;
 	}
 	
 	/**
@@ -37,7 +39,7 @@ public class Camera {
 	public void checkBlankSpace(){
 		if(xOffset < 0){
 			xOffset = 0;
-		}else if(xOffset > view.getFrameWidth() * 64 - view.getFrameWidth()){
+		}else if(xOffset > view.getFrameWidth()* 64 - view.getFrameWidth()){
 			xOffset = view.getFrameWidth() * 64 - view.getFrameWidth();
 		}
 		
@@ -53,9 +55,9 @@ public class Camera {
 	 *  Center the camera on the human
 	 * @param e
 	 */
-	public void centerOnEntity(IElement e){
-		xOffset = model.getLevel().getTray().getHero().getPosition().getX() - view.getFrameWidth() / 2 + e.getWidth() / 2;
-		yOffset = model.getLevel().getTray().getHero().getPosition().getY() - view.getFrameHeight() / 2 + e.getHeight() / 2;
+	public void centerOnEntity(IHero e){
+		xOffset = model.getLevel().getTray().getHero().getPosition().getX() - view.getFrameWidth() / 2; //+ ((IElement) e).getWidth() / 2;
+		yOffset = model.getLevel().getTray().getHero().getPosition().getY() - view.getFrameHeight() / 2; //+ ((IElement) e).getHeight() / 2;
 		checkBlankSpace();
 	}
 	

@@ -1,6 +1,7 @@
 package menu;
 
 import state.MenuState;
+import state.PreGamestate;
 import state.State;
 
 import javax.swing.*;
@@ -153,8 +154,11 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
                 }
             }
             if(mouseX >= 490 && mouseX <= 690){
-                if(mouseY >= 730 && mouseY <= 780)
-                    PreGamestate.setGame(true);
+                if(mouseY >= 730 && mouseY <= 780){
+                	PreGamestate.asking = true;
+                	Display.getFrame().dispose();
+                }
+                	
             }
         }
     }

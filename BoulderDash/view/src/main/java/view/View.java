@@ -48,6 +48,7 @@ public class View implements IView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setBackground(Color.BLACK);
+        frame.setSize(32 + model.getLevel().getTray().getBoundary().getXMax() * 32, 32 + model.getLevel().getTray().getBoundary().getYMax() * 32);
 	}
 	
 	/**

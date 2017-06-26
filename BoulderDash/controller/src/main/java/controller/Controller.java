@@ -1,14 +1,11 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import Icontroller.IController;
 import Imodel.IModel;
 import Iview.IView;
 import menu.Launcher;
 import state.PreGamestate;
 import view.KeyManager;
-import view.Camera;
 import view.Frame;
 
 /**

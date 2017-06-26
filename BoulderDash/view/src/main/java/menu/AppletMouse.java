@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+
 /**
  * Created by Nicolas on 21/06/2017.
  */
@@ -83,56 +84,77 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
 
         if (State.getState() == Game.getSettingsState()) {
             if (mouseX >= 80 && mouseX <= 230) {  // BACK settings
-                if (mouseY >= Display.getHeightframe()-130 && mouseY <= Display.getHeightframe()-70) {
+                if (mouseY >= Display.getHeightframe() - 130 && mouseY <= Display.getHeightframe() - 70) {
                     State.setState(Game.getMenuState());
                 }
             }
 
-            if (mouseX >= MenuState.playButton.x-300 && mouseX <= MenuState.playButton.x+170) {      //setSize1
-                if (mouseY >= MenuState.playButton.y -250 && mouseY <= MenuState.playButton.y -200) {
+            if (mouseX >= MenuState.playButton.x - 300 && mouseX <= MenuState.playButton.x + 170) {      //setSize1
+                if (mouseY >= MenuState.playButton.y - 250 && mouseY <= MenuState.playButton.y - 200) {
                     Display.getFrame().setSize(1280, 960);
                     Display.setWidth(1280);
                     Display.setHeight(960);
 
                 }
             }
-            if (mouseX >= MenuState.playButton.x-300 && mouseX <= MenuState.playButton. x +170) {      //setSize2
-                if (mouseY >= MenuState.playButton.y -150 && mouseY <= MenuState.playButton.y -100) {
+            if (mouseX >= MenuState.playButton.x - 300 && mouseX <= MenuState.playButton.x + 170) {      //setSize2
+                if (mouseY >= MenuState.playButton.y - 150 && mouseY <= MenuState.playButton.y - 100) {
                     Display.getFrame().setSize(1152, 832);
                     Display.setWidth(1152);
                     Display.setHeight(832);
-                    System.out.println("mdrr");
                 }
             }
 
 
-            if(mouseX >= Display.getWidthframe() - 370 && mouseX <= Display.getWidthframe()-320) {
+            if (mouseX >= Display.getWidthframe() - 370 && mouseX <= Display.getWidthframe() - 320) {
                 if (mouseY >= Display.getHeightframe() - 110 && mouseY <= Display.getHeightframe() - 60) {
                     Sound.getGainControl().setValue((-80.0f));
                 }
             }
-            if(mouseX >= Display.getWidthframe() - 250 && mouseX <= Display.getWidthframe()-200) {
+            if (mouseX >= Display.getWidthframe() - 250 && mouseX <= Display.getWidthframe() - 200) {
                 if (mouseY >= Display.getHeightframe() - 110 && mouseY <= Display.getHeightframe() - 60) {
-                    Sound.getGainControl().setValue((Sound.getGainControl().getValue()-6.0f));
+                    Sound.getGainControl().setValue((Sound.getGainControl().getValue() - 6.0f));
                 }
             }
-            if(mouseX >= Display.getWidthframe() - 130 && mouseX <= Display.getWidthframe()-80) {
+            if (mouseX >= Display.getWidthframe() - 130 && mouseX <= Display.getWidthframe() - 80) {
                 if (mouseY >= Display.getHeightframe() - 110 && mouseY <= Display.getHeightframe() - 60) {
-                    Sound.getGainControl().setValue((Sound.getGainControl().getValue()+6.0f));
+                    Sound.getGainControl().setValue((Sound.getGainControl().getValue() + 6.0f));
 
                 }
             }
-            if(mouseX >= MenuState.playButton.x -150 && mouseX <= MenuState.playButton.x -10) {
-                if (mouseY >= MenuState.playButton.y -10 && mouseY <= MenuState.playButton.y + 60) {
+            if (mouseX >= MenuState.playButton.x - 150 && mouseX <= MenuState.playButton.x - 10) {
+                if (mouseY >= MenuState.playButton.y - 10 && mouseY <= MenuState.playButton.y + 60) {
                     Game.setHideFpd(false);
 
                 }
             }
-            if(mouseX >= MenuState.playButton.x +30&& mouseX <= MenuState.playButton.x +170) {
-                if (mouseY >= MenuState.playButton.y -10 && mouseY <= MenuState.playButton.y + 60) {
+            if (mouseX >= MenuState.playButton.x + 30 && mouseX <= MenuState.playButton.x + 170) {
+                if (mouseY >= MenuState.playButton.y - 10 && mouseY <= MenuState.playButton.y + 60) {
                     Game.setHideFpd(true);
 
                 }
+            }
+
+        }
+
+        if (State.getState() == Game.getPreGameState()) {
+            if (mouseX >= 800 && mouseX <= 1000) {
+                if (mouseY >= 300 && mouseY <= 410) {
+                    PreGamestate.setMapChoosen(PreGamestate.getMapChoosen() + 1);
+                    if(PreGamestate.getMapChoosen() >= 4)
+                        PreGamestate.setMapChoosen(0);
+                }
+            }
+            if (mouseX >= 150 && mouseX <= 350) {
+                if (mouseY >= 300 && mouseY <= 400) {
+                    PreGamestate.setMapChoosen(PreGamestate.getMapChoosen() - 1);
+                    if(PreGamestate.getMapChoosen() <= -1)
+                        PreGamestate.setMapChoosen(3);
+                }
+            }
+            if(mouseX >= 490 && mouseX <= 690){
+                if(mouseY >= 730 && mouseY <= 780)
+                    PreGamestate.setGame(true);
             }
         }
     }
@@ -147,15 +169,24 @@ public class AppletMouse extends JPanel implements MouseListener, MouseMotionLis
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {
+
+    }
 
     @Override
-    public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {
+
+    }
 
     @Override
-    public void mouseDragged(MouseEvent e) {}
+    public void mouseDragged(MouseEvent e) {
+
+    }
 
     @Override
-    public void mouseMoved(MouseEvent e) {}
+    public void mouseMoved(MouseEvent e) {
+
+
+    }
 
 }
